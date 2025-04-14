@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["morning", "afternoon", "evening", "late night", "midday"],
+  "setting": ["home kitchen", "hospital room", "speech therapy clinic", "café", "park", "library", "doctor's office", "family gathering"],
+  "tone": ["gentle", "serious", "supportive", "humorous", "clinical", "frustrated", "patient", "urgent", "informative"],
+  "relationship": ["spouse", "paid caregiver", "nurse", "neurologist", "close friend", "sibling", "parent", "child", "therapist", "stranger"],
+  "aac_system": ["keyboard-based AAC device", "eye-gaze device", "switch scanning system", "AAC tablet with keyboard", "single-switch system", "partner-assisted scanning"],
+  "topic": ["daily care", "pain management", "basic comfort", "changes in condition", "memories", "future plans", "coping strategies", "expressing a need", "ordering food", "social chat"]
+}
