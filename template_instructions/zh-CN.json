@@ -1,0 +1,33 @@
+[
+  "创建一个发生在{{ time_of_day }}的{{ setting }}中的{{ tone }}对话。AAC用户是一位使用{{ aac_system }}的ALS成年患者。对话伙伴是他们的{{ relationship }}。对话应该聚焦于{{ topic }}。输出结构化的JSON，包含'scene'、'conversation'（包括AAC用户的'utterance'和'utterance_intended'）以及说话者标签（例如，Speaker-AAC、{{ relationship }}）",
+
+  "在{{ time_of_day }}的{{ setting }}中模拟一个ALS患者（使用{{ aac_system }}的AAC用户）和{{ relationship }}之间的{{ tone }}对话。专注于{{ topic }}。提供包含说话者轮次和AAC用户预期消息的JSON输出",
+
+  "在{{ time_of_day }}的{{ setting }}中创建一个ALS患者（使用{{ aac_system }}的AAC用户）和{{ relationship }}之间的{{ tone }}对话。对话应该涉及{{ topic }}。返回完整对话结构的JSON",
+
+  "生成一个在{{ time_of_day }}的{{ setting }}中，一位使用{{ aac_system }}的ALS成年AAC用户与{{ relationship }}就{{ topic }}进行沟通的{{ tone }}咨询。包括任何电报式表达的预期消息",
+
+  "编写一个发生在{{ time_of_day }}的{{ setting }}中，ALS患者AAC用户与{{ relationship }}之间的{{ tone }}对话。用户使用{{ aac_system }}进行沟通。他们讨论{{ topic }}。将输出格式化为结构化JSON，在需要时包括scene和utterance_intended",
+
+  "在{{ time_of_day }}的{{ setting }}中创建一个{{ relationship }}帮助ALS患者AAC用户就{{ topic }}进行沟通的{{ tone }}对话。用户使用{{ aac_system }}回应。如适用，包括简短回答的完整意图。返回结构化JSON",
+
+  "设计一个在{{ time_of_day }}的{{ setting }}中，使用眼动追踪QWERTY键盘的ALS患者AAC用户与{{ relationship }}之间的{{ tone }}互动。对话围绕{{ topic }}展开",
+
+  "在{{ time_of_day }}的{{ setting }}中，创建一个使用ABC布局眼动追踪系统的ALS老年患者与其{{ relationship }}之间的{{ tone }}交流。他们正在讨论{{ topic }}",
+
+  "在{{ time_of_day }}的{{ setting }}中呈现一个使用头控鼠标和QWERTY键盘的ALS患者AAC用户与{{ relationship }}之间的{{ tone }}对话。对话围绕{{ topic }}展开",
+
+  "描述一个在{{ time_of_day }}的{{ setting }}中，使用手指在QWERTY键盘上直接选择的早期ALS患者AAC用户与{{ relationship }}就{{ topic }}互动的{{ tone }}对话",
+
+  "在{{ time_of_day }}的{{ setting }}中说明一个使用带短语预测的眼动追踪系统的ALS患者AAC用户与{{ relationship }}之间的{{ tone }}互动。他们正在讨论{{ topic }}",
+
+  "在{{ time_of_day }}的{{ setting }}中描绘一个使用带眼动追踪的ABC布局的ALS老年患者与其{{ relationship }}之间的{{ tone }}交流。对话聚焦于{{ topic }}并包括沟通挑战",
+
+  "在{{ time_of_day }}的{{ setting }}中构建一个使用带词语预测功能的头控鼠标在QWERTY键盘上的ALS患者AAC用户与{{ relationship }}就{{ topic }}进行沟通的{{ tone }}对话。包括词语预测帮助或阻碍沟通的实例",
+
+  "详细描述一个在{{ time_of_day }}的{{ setting }}中，使用带QWERTY键盘的眼动追踪的ALS患者AAC用户与不熟悉AAC的{{ relationship }}之间的{{ tone }}互动。对话是关于{{ topic }}的，并展示了沟通伙伴学习适应的过程",
+
+  "在{{ time_of_day }}的{{ setting }}中创建一个在QWERTY键盘上因疲劳而在眼动追踪和头控鼠标访问之间交替的ALS患者AAC用户与其{{ relationship }}之间的{{ tone }}对话。他们正在讨论{{ topic }}。展示随着疲劳增加沟通如何变化",
+
+  "生成一个在{{ time_of_day }}的{{ setting }}中，使用带ABC布局的眼动追踪系统的ALS老年患者与{{ relationship }}就{{ topic }}进行沟通的{{ tone }}对话。包括用户在页面或类别之间导航以查找词汇的实例"
+]

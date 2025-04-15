@@ -11,6 +11,22 @@ This dataset contains simulated conversations between AAC users with ALS and var
 ## Dataset Focus
 
 - **Primary User Group**: Adults with ALS (Amyotrophic Lateral Sclerosis - also known as MND - Motor Neuron Disease)
+- **Communication Partners**: Healthcare providers, family members, strangers, etc.
+- **Conversation Types**:
+  - Medical scenarios (majority)
+  - Everyday life situations (minority)
+- **User Characteristics**:
+  - Early-stage ALS (majority)
+  - Late-stage ALS (minority)
+  - Older adults (minority)
+- **User Needs**:
+  - Basic needs (majority)
+  - Social interaction (minority)
+- **Culture and Language**: English (majority), But prompts supporting diverse cultural and ethnic backgrounds are included.
+- **Communication Contexts**:
+  - Medical appointments (majority)
+  - Social interactions (minority)
+  - Everyday life situations (minority)
 - **Access Methods**:
   - Eye-gaze tracking
   - Direct selection

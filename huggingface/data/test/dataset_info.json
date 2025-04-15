@@ -1,0 +1,106 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "template_id": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "scene": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "context": [
+      {
+        "speaker": {
+          "dtype": "string",
+          "_type": "Value"
+        },
+        "utterance": {
+          "dtype": "string",
+          "_type": "Value"
+        }
+      }
+    ],
+    "speaker": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "utterance": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "utterance_intended": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "next_turn": {
+      "speaker": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "utterance": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "noisy_qwerty_minimal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_minimal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_minimal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_light": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_light": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_light": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_moderate": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_moderate": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_moderate": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_severe": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_severe": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_severe": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "minimally_corrected": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "fully_corrected": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}
