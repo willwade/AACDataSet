@@ -63,6 +63,7 @@ For AAC user turns, the following fields are included:
 - `metrics.py`: Metrics for evaluating AAC communication
 - `main.py`: Script for generating conversations
 - `augment_aac_data.py`: Script for augmenting AAC utterances
+- `huggingface/`: Scripts and documentation for preparing the dataset for Hugging Face
 
 ## Usage
 
@@ -81,6 +82,15 @@ python augment_aac_data.py --input output/aac_conversations_en.jsonl --output ou
 ```
 
 This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to the output file.
+
+### Preparing for Hugging Face
+
+```bash
+cd huggingface/scripts
+python prepare_huggingface_dataset.py --input ../../output/augmented_aac_conversations_en.jsonl --output_dir ../data
+```
+
+This will convert the augmented conversations to a format suitable for Hugging Face datasets, splitting the data into train, validation, and test sets. See the [Hugging Face README](huggingface/README.md) for more details.
 
 ## Applications
 

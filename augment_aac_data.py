@@ -1,4 +1,10 @@
-#!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#     "numpy",
+#     "pandas"
+# ]
+# ///
 """
 Augment AAC Conversation Data
 
@@ -18,14 +24,18 @@ import re
 from pathlib import Path
 import string
 
+
 # Import scanning library functions
 try:
+    print("Attempting to import scanning_library...")
     from scanning_library import (
         create_abc_grid,
         create_qwerty_grid,
         create_frequency_grid,
     )
-except ImportError:
+    print("Successfully imported scanning_library")
+except ImportError as e:
+    print(f"Import error details: {e}")
     print("Warning: scanning_library.py not found. Using simplified grid functions.")
 
     def create_abc_grid(rows, cols, fillers=None):
@@ -242,54 +252,47 @@ def generate_fully_corrected(text, intended_text):
 def process_conversation(conversation_data):
     """Process a conversation to augment AAC utterances"""
     conversation = conversation_data.get("conversation", [])
+    
+    # Define error rate ranges
+    ERROR_RATES = {
+        "minimal": 0.05,    # 5% errors - very mild typing issues
+        "light": 0.15,      # 15% errors - noticeable but clearly readable
+        "moderate": 0.25,   # 25% errors - challenging but comprehensible
+        "severe": 0.35      # 35% errors - significant difficulty
+    }
 
-    for i, turn in enumerate(conversation):
-        # Check if this is an AAC user's turn
-        is_aac_user = False
-
-        # Check different possible structures
-        if "utterance_intended" in turn:
-            is_aac_user = True
-        elif (
-            isinstance(turn.get("utterance"), dict)
-            and "utterance_intended" in turn["utterance"]
-        ):
-            # Handle nested structure
-            intended = turn["utterance"]["utterance_intended"]
-            actual = turn["utterance"]["utterance"]
-            # Restructure to flat format
-            turn["utterance_intended"] = intended
-            turn["utterance"] = actual
-            is_aac_user = True
-        elif "Speaker-AAC" in turn.get("speaker", "") or "AAC" in turn.get(
-            "speaker", ""
-        ):
-            is_aac_user = True
-
+    for turn in conversation:
+        is_aac_user = "speaker" in turn and "(AAC)" in turn["speaker"]
+        
         if is_aac_user and "utterance" in turn:
-            # Get the utterance and intended text
             utterance = turn["utterance"]
             intended = turn.get("utterance_intended", utterance)
 
-            # Generate noisy utterances
-            turn["noisy_utterance"] = generate_noisy_utterance(
-                utterance,
-                QWERTY_GRID,
-                error_rate=0.3,
-                error_types=["adjacent", "deletion"],
-            )
-
-            turn["noisy_utterance_qwerty"] = generate_noisy_utterance(
-                utterance, QWERTY_GRID, error_rate=0.25
-            )
-
-            turn["noisy_utterance_abc"] = generate_noisy_utterance(
-                utterance, ABC_GRID, error_rate=0.25
-            )
-
-            turn["noisy_utterance_frequency"] = generate_noisy_utterance(
-                utterance, FREQUENCY_GRID, error_rate=0.25
-            )
+            # Generate variations with different error rates
+            for severity, error_rate in ERROR_RATES.items():
+                # QWERTY variations
+                turn[f"noisy_qwerty_{severity}"] = generate_noisy_utterance(
+                    utterance, 
+                    QWERTY_GRID, 
+                    error_rate=error_rate,
+                    error_types=["adjacent", "deletion", "insertion"]
+                )
+                
+                # ABC variations
+                turn[f"noisy_abc_{severity}"] = generate_noisy_utterance(
+                    utterance,
+                    ABC_GRID,
+                    error_rate=error_rate,
+                    error_types=["adjacent", "deletion", "insertion"]
+                )
+                
+                # Frequency variations
+                turn[f"noisy_frequency_{severity}"] = generate_noisy_utterance(
+                    utterance,
+                    FREQUENCY_GRID,
+                    error_rate=error_rate,
+                    error_types=["adjacent", "deletion", "insertion"]
+                )
 
             # Generate corrected versions
             turn["minimally_corrected"] = generate_minimally_corrected(utterance)
