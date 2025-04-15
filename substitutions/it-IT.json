@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["mattina", "pomeriggio", "sera", "notte fonda", "mezzogiorno"],
+  "setting": ["cucina di casa", "reparto ospedaliero", "clinica logopedica", "caffè", "parco", "biblioteca", "studio medico", "riunione familiare"],
+  "tone": ["gentile", "seria", "di supporto", "umoristica", "clinica", "frustrata", "paziente", "urgente", "informativa"],
+  "relationship": ["coniuge", "badante", "infermiere/a", "neurologo/a", "amico/a stretto/a", "fratello/sorella", "genitore", "figlio/a", "terapista", "sconosciuto/a"],
+  "aac_system": ["dispositivo CAA basato su tastiera", "dispositivo a puntamento oculare", "sistema di scansione a interruttore", "tablet CAA con tastiera", "sistema a interruttore singolo", "scansione assistita dal partner"],
+  "topic": ["assistenza quotidiana", "gestione del dolore", "comfort di base", "cambiamenti nelle condizioni", "ricordi", "piani futuri", "strategie di adattamento", "esprimere un bisogno", "ordinare cibo", "conversazione sociale"]
+}

@@ -149,7 +149,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | de-DE | German (Germany) | ✅ | ❌ |
 | el-GR | Greek (Greece) | ❌ | ❌ |
 | he-IL | Hebrew (Israel) | ❌ | ❌ |
-| it-IT | Italian (Italy) | ❌ | ❌ |
+| it-IT | Italian (Italy) | ✅ | ❌ |
 | nb-NO | Norwegian Bokmål (Norway) | ❌ | ❌ |
 | pl-PL | Polish (Poland) | ❌ | ❌ |
 | pt-BR | Portuguese (Brazil) | ✅ | ❌ |
@@ -161,7 +161,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | es-US | Spanish (United States) | ❌ | ❌ |
 | sv-SE | Swedish (Sweden) | ❌ | ❌ |
 | uk-UA | Ukrainian (Ukraine) | ❌ | ❌ |
-| cy-GB | Welsh (United Kingdom) | ❌ | ❌ |
+| cy-GB | Welsh (United Kingdom) | ✅ | ❌ |
 | zh-CN | Chinese (China) | ✅ | ❌ |
 | ja-JP | Japanese (Japan) | ✅ | ❌ |
 | ko-KR | Korean (Korea) | ❌ | ❌ |

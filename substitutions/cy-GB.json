@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["bore", "prynhawn", "hwyr", "nos", "canol dydd"],
+  "setting": ["cegin cartref", "ward ysbyty", "clinig therapi lleferydd", "caffi", "parc", "llyfrgell", "meddygfa", "cyfarfod teuluol"],
+  "tone": ["tyner", "difrifol", "cefnogol", "doniol", "clinigol", "rhwystredig", "amyneddgar", "brys", "gwybodaeth"],
+  "relationship": ["priod", "gofalwr", "nyrs", "niwrolegydd", "ffrind agos", "brawd/chwaer", "rhiant", "plentyn", "therapydd", "dieithryn"],
+  "aac_system": ["dyfais CAA yn seiliedig ar fysellfwrdd", "dyfais olrhain llygaid", "system sganio switsh", "tabled CAA gyda bysellfwrdd", "system switsh sengl", "sganio gyda chymorth partner"],
+  "topic": ["gofal dyddiol", "rheoli poen", "cysur sylfaenol", "newidiadau mewn cyflwr", "atgofion", "cynlluniau ar gyfer y dyfodol", "strategaethau ymdopi", "mynegi angen", "archebu bwyd", "sgwrs gymdeithasol"]
+}
