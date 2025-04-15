@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["Morgen", "Nachmittag", "Abend", "späten Abend", "Mittag"],
+  "setting": ["Küche zu Hause", "Krankenhauszimmer", "Logopädie-Praxis", "Café", "Park", "Bibliothek", "Arztpraxis", "Familientreffen"],
+  "tone": ["sanften", "ernsthaften", "unterstützenden", "humorvollen", "klinischen", "frustrierten", "geduldigen", "dringenden", "informativen"],
+  "relationship": ["Ehepartner", "Pflegekraft", "Krankenpfleger/in", "Neurologe/in", "enger Freund/enge Freundin", "Geschwisterteil", "Elternteil", "Kind", "Therapeut/in", "Fremder/Fremde"],
+  "aac_system": ["tastaturbasiertes UK-Gerät", "Augensteuerungsgerät", "Scanning-System mit Taster", "UK-Tablet mit Tastatur", "Einzeltaster-System", "partnerunterstütztes Scanning"],
+  "topic": ["tägliche Pflege", "Schmerzmanagement", "grundlegenden Komfort", "Veränderungen des Zustands", "Erinnerungen", "Zukunftspläne", "Bewältigungsstrategien", "Ausdruck eines Bedürfnisses", "Essensbestellung", "soziales Gespräch"]
+}

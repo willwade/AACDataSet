@@ -119,6 +119,49 @@ This dataset can be used for:
 5. Simulating AAC communication for training healthcare providers
 6. Developing more efficient AAC interfaces
 
+
+## language Codes supported
+
+"af-ZA": "af-ZA",  # Afrikaans (South Africa)
+            "ar-SA": "ar-SA",  # Arabic (Saudi Arabia)
+            "eu-ES": "eu-ES",  # Basque (Spain)
+            "ca-ES": "ca-ES",  # Catalan (Spain)
+            "hr-HR": "hr-HR",  # Croatian (Croatia)
+            "cs-CZ": "cs-CZ",  # Czech (Czechia)
+            "da-DK": "da-DK",  # Danish (Denmark)
+            "nl-BE": "nl-BE",  # Dutch (Belgium)
+            "nl-NL": "nl-NL",  # Dutch (Netherlands)
+            "en-AU": "en-AU",  # English (Australia)
+            "en-CA": "en-CA",  # English (Canada)
+            "en-NZ": "en-NZ",  # English (New Zealand)
+            "en-ZA": "en-ZA",  # English (South Africa)
+            "en-GB": "en-GB",  # English (United Kingdom)
+            "en-US": "en-US",  # English (United States)
+            "fo-FO": "fo-FO",  # Faroese (Faroe Islands)
+            "fi-FI": "fi-FI",  # Finnish (Finland)
+            "fr-CA": "fr-CA",  # French (Canada)
+            "fr-FR": "fr-FR",  # French (France)
+            "de-AT": "de-AT",  # German (Austria)
+            "de-DE": "de-DE",  # German (Germany)
+            "el-GR": "el-GR",  # Greek (Greece)
+            "he-IL": "he-IL",  # Hebrew (Israel)
+            "it-IT": "it-IT",  # Italian (Italy)
+            "nb-NO": "nb-NO",  # Norwegian Bokmål (Norway)
+            "pl-PL": "pl-PL",  # Polish (Poland)
+            "pt-BR": "pt-BR",  # Portuguese (Brazil)
+            "pt-PT": "pt-PT",  # Portuguese (Portugal)
+            "ru-RU": "ru-RU",  # Russian (Russia)
+            "sk-SK": "sk-SK",  # Slovak (Slovakia)
+            "sl-SI": "sl-SI",  # Slovenian (Slovenia)
+            "es-ES": "es-ES",  # Spanish (Spain)
+            "es-US": "es-US",  # Spanish (United States)
+            "sv-SE": "sv-SE",  # Swedish (Sweden)
+            "uk-UA": "uk-UA",  # Ukrainian (Ukraine)
+            "cy-GB": "cy-GB",  # Welsh (United Kingdom)
+            "zh-CN": "zh-CN",  # Chinese (China)
+            "ja-JP": "ja-JP",  # Japanese (Japan)
+            "ko-KR": "ko-KR",  # Korean (Korea)
+
 ## License
 
 [Insert appropriate license information here]

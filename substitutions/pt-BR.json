@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["manhã", "tarde", "noite", "madrugada", "meio-dia"],
+  "setting": ["cozinha de casa", "quarto de hospital", "clínica de fonoaudiologia", "cafeteria", "parque", "biblioteca", "consultório médico", "reunião familiar"],
+  "tone": ["gentil", "séria", "solidária", "bem-humorada", "clínica", "frustrada", "paciente", "urgente", "informativa"],
+  "relationship": ["cônjuge", "cuidador", "enfermeiro(a)", "neurologista", "amigo(a) próximo(a)", "irmão/irmã", "pai/mãe", "filho(a)", "terapeuta", "desconhecido(a)"],
+  "aac_system": ["dispositivo CAA baseado em teclado", "dispositivo de rastreamento ocular", "sistema de varredura com acionador", "tablet CAA com teclado", "sistema de acionador único", "varredura assistida por parceiro"],
+  "topic": ["cuidados diários", "controle da dor", "conforto básico", "mudanças na condição", "memórias", "planos futuros", "estratégias de enfrentamento", "expressão de necessidade", "pedido de comida", "conversa social"]
+}

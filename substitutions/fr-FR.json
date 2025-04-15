@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["matin", "après-midi", "soir", "nuit", "midi"],
+  "setting": ["cuisine familiale", "chambre d'hôpital", "cabinet d'orthophonie", "café", "parc", "bibliothèque", "cabinet médical", "réunion de famille"],
+  "tone": ["doux", "sérieux", "encourageant", "humoristique", "clinique", "frustré", "patient", "urgent", "informatif"],
+  "relationship": ["conjoint(e)", "aide-soignant(e)", "infirmier/infirmière", "neurologue", "ami(e) proche", "frère/sœur", "parent", "enfant", "thérapeute", "inconnu(e)"],
+  "aac_system": ["dispositif CAA à clavier", "dispositif à commande oculaire", "système de défilement à contacteur", "tablette CAA avec clavier", "système à contacteur unique", "défilement assisté par partenaire"],
+  "topic": ["soins quotidiens", "gestion de la douleur", "confort de base", "changements d'état", "souvenirs", "projets futurs", "stratégies d'adaptation", "expression d'un besoin", "commande de nourriture", "conversation sociale"]
+}
