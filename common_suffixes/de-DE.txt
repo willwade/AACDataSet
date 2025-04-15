@@ -1,0 +1,5 @@
+Die Nachrichten des UK-Nutzers sollten so dargestellt werden, wie sie in der Nachrichtenleiste ihres UK-Geräts erscheinen würden — kurze Sätze, möglicherweise telegrafisch oder ungrammatisch. Vermeiden Sie die Verwendung von Auslassungspunkten ... oder SMS-ähnlicher Zeichensetzung. UK-Nachrichten sollten eine direkte, klare Sprache verwenden. Formatieren Sie die Ausgabe als JSON-Objekt mit drei Feldern:
+0. template_id: {template_id} 
+1. scene — eine kurze 1-2 Satz-Beschreibung der Umgebung und der Teilnehmer.
+2. conversation — ein Array von Gesprächsbeiträgen. Kennzeichnen Sie die Sprecher angemessen. Für UK-Nutzer fügen Sie utterance und utterance_intended hinzu.
+Geben Sie nur gültiges JSON zurück, ohne Markdown-Formatierung oder zusätzliche Kommentare.

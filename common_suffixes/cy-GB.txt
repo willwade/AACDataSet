@@ -1,0 +1,5 @@
+Dylai negeseuon y defnyddiwr AAC gael eu dangos fel y byddent yn ymddangos ar far negeseuon eu dyfais AAC — ymadroddion byr, o bosibl telegrafig neu anramadegol. Osgowch ddefnyddio ellipsis ... neu atalnodi arddull negeseua. Dylai negeseuon AAC ddefnyddio iaith uniongyrchol, glir. Fformatio'r allbwn fel gwrthrych JSON gyda thri maes:
+0. template_id: {template_id} 
+1. scene — disgrifiad byr 1-2 frawddeg o'r lleoliad a'r cyfranogwyr.
+2. conversation — arae o droeon. Labelwch siaradwyr yn briodol. Ar gyfer defnyddwyr AAC, cynhwyswch utterance ac utterance_intended.
+Dychwelwch JSON dilys yn unig, heb fformatio markdown na sylwadau ychwanegol.

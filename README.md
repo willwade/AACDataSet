@@ -1,6 +1,8 @@
 # AACDataSet
 
-A comprehensive dataset of synthesized Augmentative and Alternative Communication (AAC) conversations for adults with ALS, focusing on realistic communication scenarios using eye-gaze, direct selection, and headmouse with keyboard-based systems.
+A comprehensive dataset of synthesized Augmentative and Alternative Communication (AAC) conversations for adults with ALS/MND, focusing on realistic communication scenarios using eye-gaze, direct selection, and headmouse with keyboard-based systems.
+
+**Warning**: This dataset contains simulated conversations and should not be used for real-world applications without proper validation and testing. The data is intended for research purposes only. Its ALL WIP and not yet verified. - we are using the English-GB data as a test case for now. Other data really exists as a proof of concept but needs work.
 
 ## Overview
 
@@ -67,6 +69,14 @@ For AAC user turns, the following fields are included:
 
 ## Usage
 
+### Creating Prompt Templates
+
+```bash
+python generate_templates.py
+```
+
+This will create the prompt templates and substitutions files in the `prompt_templates/` directory. The script will ask for a language code (e.g., `en`, `fr`, etc.) and generate the necessary files. Note you can skip this step - I am commiting our prompt templates for now.
+
 ### Generating Conversations
 
 ```bash
@@ -89,7 +99,7 @@ This will use templates from `prompt_templates/en-GB.json` if available, or fall
 python augment_aac_data.py --input output/aac_conversations_en.jsonl
 ```
 
-This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `output/augmented_aac_conversations_en.jsonl`. Read the code carefully. We are being careful about the amount of augmenting we are doing here and we havent verified these rates in the typical population. We are using a 10% error rate for the noisy utterance, and a 5% error rate for the qwerty and abc layouts. The frequency layout is set to 1% error rate. The minimally corrected version is set to 5% error rate, and the fully corrected version is set to 0% error rate. The minimally corrected version is a basic capitalization and punctuation correction, while the fully corrected version is a complete grammatical correction. Note too - this data needs work for languages other than English. We are using the English data as a test case for now. 
+This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `output/augmented_aac_conversations_en.jsonl`. Read the code carefully. We are being careful about the amount of augmenting we are doing here and we havent verified these rates in the typical population. We are using a 10% error rate for the noisy utterance, and a 5% error rate for the qwerty and abc layouts. The frequency layout is set to 1% error rate. The minimally corrected version is set to 5% error rate, and the fully corrected version is set to 0% error rate. The minimally corrected version is a basic capitalization and punctuation correction, while the fully corrected version is a complete grammatical correction. Note too - this data needs work for languages other than English. We are using the English data as a test case for now.
 
 For locale-specific language codes:
 
@@ -147,7 +157,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | fr-FR | French (France) | ✅ | ❌ |
 | de-AT | German (Austria) | ❌ | ❌ |
 | de-DE | German (Germany) | ✅ | ❌ |
-| el-GR | Greek (Greece) | ❌ | ❌ |
+| el-GR | Greek (Greece) | ✅ | ❌ |
 | he-IL | Hebrew (Israel) | ✅ | ❌ |
 | it-IT | Italian (Italy) | ✅ | ❌ |
 | nb-NO | Norwegian Bokmål (Norway) | ❌ | ❌ |

@@ -1,0 +1,33 @@
+[
+  "Créez une conversation {{ tone }} qui se déroule pendant la {{ time_of_day }} dans {{ setting }}. L'utilisateur de CAA est un adulte atteint de SLA qui utilise un {{ aac_system }}. Son interlocuteur est son/sa {{ relationship }}. La conversation doit porter sur {{ topic }}. Produisez un JSON structuré avec 'scene', 'conversation' (incluant 'utterance' et 'utterance_intended' pour l'utilisateur de CAA), et des étiquettes pour les interlocuteurs (par ex., Speaker-AAC, {{ relationship }})",
+
+  "Simulez un dialogue {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA (utilisant un {{ aac_system }}) et un/une {{ relationship }}. Concentrez-vous sur {{ topic }}. Fournissez une sortie JSON avec les tours de parole et les messages prévus de l'utilisateur de CAA",
+
+  "Créez une conversation {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA (utilisant un {{ aac_system }}) et un/une {{ relationship }}. Le dialogue doit porter sur {{ topic }}. Retournez un JSON avec une structure de conversation complète",
+
+  "Générez une consultation {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} où un utilisateur adulte de CAA atteint de SLA (utilisant {{ aac_system }}) communique avec un/une {{ relationship }} à propos de {{ topic }}. Incluez les messages prévus pour toute expression télégraphique",
+
+  "Écrivez une conversation {{ tone }} qui se déroule pendant la {{ time_of_day }} dans {{ setting }} entre un utilisateur de CAA atteint de SLA et un/une {{ relationship }}. L'utilisateur communique à l'aide d'un {{ aac_system }}. Ils discutent de {{ topic }}. Formatez la sortie en JSON structuré incluant scene et utterance_intended où nécessaire",
+
+  "Produisez une conversation {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} où un/une {{ relationship }} aide un utilisateur de CAA atteint de SLA à communiquer concernant {{ topic }}. L'utilisateur répond avec un {{ aac_system }}. Incluez l'intention complète pour les réponses courtes si applicable. Retournez un JSON structuré",
+
+  "Concevez une interaction {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA qui utilise un clavier QWERTY avec suivi oculaire et un/une {{ relationship }}. La conversation porte sur {{ topic }}",
+
+  "Élaborez un échange {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre une personne âgée atteinte de SLA utilisant un système de suivi oculaire avec disposition ABC et son/sa {{ relationship }}. Ils discutent de {{ topic }}",
+
+  "Présentez un dialogue {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA qui utilise une souris de tête avec clavier QWERTY et un/une {{ relationship }}. La conversation tourne autour de {{ topic }}",
+
+  "Décrivez une conversation {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} où un utilisateur de CAA atteint de SLA qui utilise la sélection directe avec un doigt sur un clavier QWERTY (SLA à un stade précoce) interagit avec un/une {{ relationship }} à propos de {{ topic }}",
+
+  "Illustrez une interaction {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA qui utilise un système de suivi oculaire avec prédiction de phrases et un/une {{ relationship }}. Ils sont engagés dans une discussion sur {{ topic }}",
+
+  "Dépeignez un échange {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre une personne âgée atteinte de SLA utilisant une disposition ABC avec suivi oculaire et son/sa {{ relationship }}. La conversation se concentre sur {{ topic }} et inclut des défis de communication",
+
+  "Construisez une conversation {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} où un utilisateur de CAA atteint de SLA qui utilise une souris de tête avec prédiction de mots sur un clavier QWERTY communique avec un/une {{ relationship }} à propos de {{ topic }}. Incluez des instances où la prédiction de mots aide ou entrave la communication",
+
+  "Détaillez une interaction {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA qui utilise un suivi oculaire avec un clavier QWERTY et un/une {{ relationship }} qui n'est pas familier avec la CAA. La conversation porte sur {{ topic }} et montre le partenaire de communication apprenant à s'adapter",
+
+  "Créez un dialogue {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} entre un utilisateur de CAA atteint de SLA qui alterne entre l'accès par suivi oculaire et souris de tête (en raison de la fatigue) sur un clavier QWERTY et son/sa {{ relationship }}. Ils discutent de {{ topic }}. Montrez comment la communication change à mesure que la fatigue augmente",
+
+  "Générez une conversation {{ tone }} dans {{ setting }} pendant la {{ time_of_day }} où une personne âgée atteinte de SLA utilisant un système de suivi oculaire avec une disposition ABC communique avec un/une {{ relationship }} à propos de {{ topic }}. Incluez des instances où l'utilisateur navigue entre les pages ou les catégories pour trouver du vocabulaire"
+]
