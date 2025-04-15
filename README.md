@@ -127,7 +127,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | Language Code | Language | Prompts Created | Verified |
 |--------------|----------|----------------|----------|
 | af-ZA | Afrikaans (South Africa) | ❌ | ❌ |
-| ar-SA | Arabic (Saudi Arabia) | ❌ | ❌ |
+| ar-SA | Arabic (Saudi Arabia) | ✅ | ❌ |
 | eu-ES | Basque (Spain) | ❌ | ❌ |
 | ca-ES | Catalan (Spain) | ❌ | ❌ |
 | hr-HR | Croatian (Croatia) | ❌ | ❌ |
@@ -154,7 +154,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | pl-PL | Polish (Poland) | ❌ | ❌ |
 | pt-BR | Portuguese (Brazil) | ✅ | ❌ |
 | pt-PT | Portuguese (Portugal) | ❌ | ❌ |
-| ru-RU | Russian (Russia) | ❌ | ❌ |
+| ru-RU | Russian (Russia) | ✅ | ❌ |
 | sk-SK | Slovak (Slovakia) | ❌ | ❌ |
 | sl-SI | Slovenian (Slovenia) | ❌ | ❌ |
 | es-ES | Spanish (Spain) | ✅ | ❌ |
