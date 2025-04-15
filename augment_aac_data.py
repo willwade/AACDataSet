@@ -252,7 +252,7 @@ def generate_fully_corrected(text, intended_text):
 def process_conversation(conversation_data):
     """Process a conversation to augment AAC utterances"""
     conversation = conversation_data.get("conversation", [])
-    
+
     # Define error rate ranges
     ERROR_RATES = {
         "minimal": 0.05,    # 5% errors - very mild typing issues
@@ -263,7 +263,7 @@ def process_conversation(conversation_data):
 
     for turn in conversation:
         is_aac_user = "speaker" in turn and "(AAC)" in turn["speaker"]
-        
+
         if is_aac_user and "utterance" in turn:
             utterance = turn["utterance"]
             intended = turn.get("utterance_intended", utterance)
@@ -272,12 +272,12 @@ def process_conversation(conversation_data):
             for severity, error_rate in ERROR_RATES.items():
                 # QWERTY variations
                 turn[f"noisy_qwerty_{severity}"] = generate_noisy_utterance(
-                    utterance, 
-                    QWERTY_GRID, 
+                    utterance,
+                    QWERTY_GRID,
                     error_rate=error_rate,
                     error_types=["adjacent", "deletion", "insertion"]
                 )
-                
+
                 # ABC variations
                 turn[f"noisy_abc_{severity}"] = generate_noisy_utterance(
                     utterance,
@@ -285,7 +285,7 @@ def process_conversation(conversation_data):
                     error_rate=error_rate,
                     error_types=["adjacent", "deletion", "insertion"]
                 )
-                
+
                 # Frequency variations
                 turn[f"noisy_frequency_{severity}"] = generate_noisy_utterance(
                     utterance,
@@ -314,13 +314,28 @@ def main():
     parser.add_argument(
         "--output",
         type=str,
-        default="output/augmented_aac_conversations_en.jsonl",
-        help="Output JSONL file for augmented data",
+        default=None,
+        help="Output JSONL file for augmented data. If not provided, will be automatically generated from input filename.",
     )
     args = parser.parse_args()
 
     input_path = Path(args.input)
-    output_path = Path(args.output)
+
+    # If output path is not provided, generate it from input path
+    if args.output is None:
+        # Extract the language code from the input filename
+        input_filename = input_path.name
+        # Handle both formats: aac_conversations_en.jsonl and aac_conversations_en-GB.jsonl
+        if "_" in input_filename and "." in input_filename:
+            prefix = input_filename.split("_")[0]  # Get 'aac'
+            lang_code = input_filename.split("_")[1].split(".")[0]  # Get 'en' or 'en-GB'
+            output_filename = f"augmented_{prefix}_conversations_{lang_code}.jsonl"
+            output_path = input_path.parent / output_filename
+        else:
+            # Fallback if the filename doesn't match the expected pattern
+            output_path = input_path.parent / f"augmented_{input_path.name}"
+    else:
+        output_path = Path(args.output)
 
     # Ensure output directory exists
     output_path.parent.mkdir(parents=True, exist_ok=True)

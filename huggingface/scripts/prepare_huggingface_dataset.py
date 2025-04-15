@@ -38,14 +38,14 @@ def flatten_conversation_data(conversation_data):
     Each row contains the utterance, its variations, and context information.
     """
     flattened_data = []
-    
+
     for conv in conversation_data:
         scene = conv.get('scene', '')
         template_id = conv.get('metadata', {}).get('template_id', -1)
-        
+
         # Extract conversation turns
         conversation = conv.get('conversation', [])
-        
+
         # Process each turn in the conversation
         for i, turn in enumerate(conversation):
             # Only process AAC user turns
@@ -58,7 +58,7 @@ def flatten_conversation_data(conversation_data):
                             'speaker': conversation[j].get('speaker', ''),
                             'utterance': conversation[j].get('utterance', '')
                         })
-                
+
                 # Get next turn (if available) for potential response prediction tasks
                 next_turn = None
                 if i + 1 < len(conversation):
@@ -66,7 +66,7 @@ def flatten_conversation_data(conversation_data):
                         'speaker': conversation[i+1].get('speaker', ''),
                         'utterance': conversation[i+1].get('utterance', '')
                     }
-                
+
                 # Create a flattened entry
                 entry = {
                     'template_id': template_id,
@@ -77,14 +77,14 @@ def flatten_conversation_data(conversation_data):
                     'utterance_intended': turn.get('utterance_intended', ''),
                     'next_turn': next_turn,
                 }
-                
+
                 # Add all the noisy variations
                 for key in turn:
                     if key.startswith('noisy_') or key in ['minimally_corrected', 'fully_corrected']:
                         entry[key] = turn[key]
-                
+
                 flattened_data.append(entry)
-    
+
     return flattened_data
 
 def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1, random_seed=42):
@@ -94,18 +94,18 @@ def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1, random_seed
     train_ratio = train_ratio / total
     val_ratio = val_ratio / total
     test_ratio = test_ratio / total
-    
+
     # First split: train and temp (val+test)
     train_data, temp_data = train_test_split(
         data, train_size=train_ratio, random_state=random_seed
     )
-    
+
     # Second split: val and test from temp
     val_ratio_adjusted = val_ratio / (val_ratio + test_ratio)
     val_data, test_data = train_test_split(
         temp_data, train_size=val_ratio_adjusted, random_state=random_seed
     )
-    
+
     return {
         'train': train_data,
         'validation': val_data,
@@ -119,17 +119,17 @@ def save_to_huggingface_format(data_splits, output_dir):
         split: Dataset.from_pandas(pd.DataFrame(data))
         for split, data in data_splits.items()
     })
-    
+
     # Save the dataset
     dataset_dict.save_to_disk(output_dir)
-    
+
     # Also save as CSV for easy inspection
     for split, data in data_splits.items():
         df = pd.DataFrame(data)
         csv_path = os.path.join(output_dir, f"{split}.csv")
         df.to_csv(csv_path, index=False)
         print(f"Saved {split} set to {csv_path}")
-    
+
     return dataset_dict
 
 def main():
@@ -145,8 +145,8 @@ def main():
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../data",
-        help="Output directory for the Hugging Face dataset",
+        default=None,
+        help="Output directory for the Hugging Face dataset. If not provided, will be automatically generated based on the language code.",
     )
     parser.add_argument(
         "--split_ratio",
@@ -155,42 +155,58 @@ def main():
         help="Ratio for train,validation,test split (comma-separated)",
     )
     args = parser.parse_args()
-    
+
     # Parse split ratio
     train_ratio, val_ratio, test_ratio = map(float, args.split_ratio.split(','))
-    
-    # Create output directory
-    output_dir = Path(args.output_dir)
+
+    # Extract language code from input filename
+    input_path = Path(args.input)
+    input_filename = input_path.name
+    lang_code = "en"  # Default language code
+
+    # Try to extract language code from filename
+    if "_" in input_filename and "." in input_filename:
+        # Handle both formats: augmented_aac_conversations_en.jsonl and augmented_aac_conversations_en-GB.jsonl
+        parts = input_filename.split("_")
+        if len(parts) > 2:
+            lang_code = parts[-1].split(".")[0]  # Get 'en' or 'en-GB'
+
+    # Create output directory based on language code if not provided
+    if args.output_dir is None:
+        output_dir = Path(f"../data/{lang_code}")
+    else:
+        output_dir = Path(args.output_dir)
+
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Load and process data
     print(f"Loading data from {args.input}")
     conversation_data = load_jsonl(args.input)
     print(f"Loaded {len(conversation_data)} conversations")
-    
+
     # Flatten the data
     print("Flattening conversation data...")
     flattened_data = flatten_conversation_data(conversation_data)
     print(f"Created {len(flattened_data)} flattened entries")
-    
+
     # Split the data
     print(f"Splitting data with ratio {train_ratio}:{val_ratio}:{test_ratio}")
     data_splits = split_data(
-        flattened_data, 
-        train_ratio=train_ratio, 
-        val_ratio=val_ratio, 
+        flattened_data,
+        train_ratio=train_ratio,
+        val_ratio=val_ratio,
         test_ratio=test_ratio
     )
-    
+
     # Save in Hugging Face format
     print(f"Saving data to {output_dir}")
     dataset = save_to_huggingface_format(data_splits, output_dir)
-    
+
     # Print dataset info
     print("\nDataset statistics:")
     for split, data in data_splits.items():
         print(f"  {split}: {len(data)} examples")
-    
+
     print("\nDone!")
 
 if __name__ == "__main__":

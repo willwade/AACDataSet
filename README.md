@@ -75,13 +75,29 @@ python main.py --lang en --num_variations 3
 
 This will generate new conversations using the templates in `prompt_templates/en.json` and save them to `output/aac_conversations_en.jsonl`.
 
+For locale-specific language codes:
+
+```bash
+python main.py --lang en-GB --num_variations 3
+```
+
+This will use templates from `prompt_templates/en-GB.json` if available, or fall back to `prompt_templates/en.json` if not. The output will be saved to `output/aac_conversations_en-GB.jsonl`.
+
 ### Augmenting Conversations
 
 ```bash
-python augment_aac_data.py --input output/aac_conversations_en.jsonl --output output/augmented_aac_conversations_en.jsonl
+python augment_aac_data.py --input output/aac_conversations_en.jsonl
 ```
 
-This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to the output file.
+This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `output/augmented_aac_conversations_en.jsonl`.
+
+For locale-specific language codes:
+
+```bash
+python augment_aac_data.py --input output/aac_conversations_en-GB.jsonl
+```
+
+The output will automatically be saved to `output/augmented_aac_conversations_en-GB.jsonl`.
 
 ### Preparing for Hugging Face
 

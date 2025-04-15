@@ -52,30 +52,65 @@ args = parser.parse_args()
 
 # --- Setup Paths based on Language ---
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)  # Ensure output directory exists
-output_path = OUTPUT_DIR / f"aac_conversations_{args.lang}.jsonl"
-prompt_templates_path = (
-    PROMPT_TEMPLATES_DIR / f"{args.lang}.json"
-)  # Assumes templates are named like 'en.json', 'es.json'
-substitutions_path = SUBSTITUTIONS_DIR / f"{args.lang}.json"
+
+# Handle locale-specific language codes (e.g., en-GB, es-ES)
+def get_language_paths(lang_code):
+    """Get file paths for a given language code, handling locale variants."""
+    # Check if this is a locale-specific code (e.g., en-GB, es-ES)
+    if '-' in lang_code:
+        base_lang, locale = lang_code.split('-', 1)
+        # Try locale-specific files first, fall back to base language if not found
+        output_file = f"aac_conversations_{lang_code}.jsonl"
+        template_paths = [
+            PROMPT_TEMPLATES_DIR / f"{lang_code}.json",  # Try en-GB.json first
+            PROMPT_TEMPLATES_DIR / f"{base_lang}.json"    # Fall back to en.json
+        ]
+        substitution_paths = [
+            SUBSTITUTIONS_DIR / f"{lang_code}.json",     # Try en-GB.json first
+            SUBSTITUTIONS_DIR / f"{base_lang}.json"       # Fall back to en.json
+        ]
+    else:
+        # For non-locale codes, use the standard path
+        output_file = f"aac_conversations_{lang_code}.jsonl"
+        template_paths = [PROMPT_TEMPLATES_DIR / f"{lang_code}.json"]
+        substitution_paths = [SUBSTITUTIONS_DIR / f"{lang_code}.json"]
+
+    return output_file, template_paths, substitution_paths
+
+# Get paths for the specified language
+output_file, template_paths, substitution_paths = get_language_paths(args.lang)
+output_path = OUTPUT_DIR / output_file
 
 # --- Load Prompts ---
-if prompt_templates_path.exists():
-    with open(prompt_templates_path, "r", encoding="utf-8") as f:
-        templates = json.load(f)
-    print(f"Loaded {len(templates)} prompt templates from {prompt_templates_path}")
-else:
+# Try each template path in order until one works
+template_loaded = False
+for template_path in template_paths:
+    if template_path.exists():
+        with open(template_path, "r", encoding="utf-8") as f:
+            templates = json.load(f)
+        print(f"Loaded {len(templates)} prompt templates from {template_path}")
+        template_loaded = True
+        break
+
+if not template_loaded:
     raise FileNotFoundError(
-        f"Prompt templates file not found for language '{args.lang}' at: {prompt_templates_path}"
+        f"Prompt templates file not found for language '{args.lang}' in any of these locations: {template_paths}"
     )
 
-# --- Load Substitutions --- REMOVED THE HARDCODED DICTIONARY
-if substitutions_path.exists():
-    with open(substitutions_path, "r", encoding="utf-8") as f:
-        substitutions = json.load(f)
-    print(f"Loaded substitutions for language '{args.lang}' from {substitutions_path}")
-else:
+# --- Load Substitutions ---
+# Try each substitution path in order until one works
+substitution_loaded = False
+for substitution_path in substitution_paths:
+    if substitution_path.exists():
+        with open(substitution_path, "r", encoding="utf-8") as f:
+            substitutions = json.load(f)
+        print(f"Loaded substitutions from {substitution_path}")
+        substitution_loaded = True
+        break
+
+if not substitution_loaded:
     raise FileNotFoundError(
-        f"Substitutions file not found for language '{args.lang}' at: {substitutions_path}"
+        f"Substitutions file not found for language '{args.lang}' in any of these locations: {substitution_paths}"
     )
 
 # --- Setup Jinja Environment --- (More robust way to handle templates)

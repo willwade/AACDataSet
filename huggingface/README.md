@@ -19,6 +19,15 @@ cd scripts
 python prepare_huggingface_dataset.py --input ../../output/augmented_aac_conversations_en.jsonl --output_dir ../data --split_ratio 0.8,0.1,0.1
 ```
 
+For locale-specific language codes (e.g., en-GB, es-ES):
+
+```bash
+cd scripts
+python prepare_huggingface_dataset.py --input ../../output/augmented_aac_conversations_en-GB.jsonl
+```
+
+If you don't specify an output directory, it will automatically create one based on the language code (e.g., `../data/en-GB`).
+
 This will:
 - Load the augmented conversations from the JSONL file
 - Flatten the data to create one entry per AAC utterance
