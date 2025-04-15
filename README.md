@@ -8,7 +8,7 @@ This dataset contains simulated conversations between AAC users with ALS and var
 
 ## Dataset Focus
 
-- **Primary User Group**: Adults with ALS
+- **Primary User Group**: Adults with ALS (Amyotrophic Lateral Sclerosis - also known as MND - Motor Neuron Disease)
 - **Access Methods**:
   - Eye-gaze tracking
   - Direct selection
@@ -89,7 +89,7 @@ This will use templates from `prompt_templates/en-GB.json` if available, or fall
 python augment_aac_data.py --input output/aac_conversations_en.jsonl
 ```
 
-This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `output/augmented_aac_conversations_en.jsonl`.
+This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `output/augmented_aac_conversations_en.jsonl`. Read the code carefully. We are being careful about the amount of augmenting we are doing here and we havent verified these rates in the typical population. We are using a 10% error rate for the noisy utterance, and a 5% error rate for the qwerty and abc layouts. The frequency layout is set to 1% error rate. The minimally corrected version is set to 5% error rate, and the fully corrected version is set to 0% error rate. The minimally corrected version is a basic capitalization and punctuation correction, while the fully corrected version is a complete grammatical correction. Note too - this data needs work for languages other than English. We are using the English data as a test case for now. 
 
 For locale-specific language codes:
 
@@ -134,7 +134,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | cs-CZ | Czech (Czechia) | ❌ | ❌ |
 | da-DK | Danish (Denmark) | ❌ | ❌ |
 | nl-BE | Dutch (Belgium) | ❌ | ❌ |
-| nl-NL | Dutch (Netherlands) | ❌ | ❌ |
+| nl-NL | Dutch (Netherlands) | ✅ | ❌ |
 | en-AU | English (Australia) | ❌ | ❌ |
 | en-CA | English (Canada) | ❌ | ❌ |
 | en-NZ | English (New Zealand) | ❌ | ❌ |
@@ -148,7 +148,7 @@ The following table shows the language codes supported by the AAC Dataset, along
 | de-AT | German (Austria) | ❌ | ❌ |
 | de-DE | German (Germany) | ✅ | ❌ |
 | el-GR | Greek (Greece) | ❌ | ❌ |
-| he-IL | Hebrew (Israel) | ❌ | ❌ |
+| he-IL | Hebrew (Israel) | ✅ | ❌ |
 | it-IT | Italian (Italy) | ✅ | ❌ |
 | nb-NO | Norwegian Bokmål (Norway) | ❌ | ❌ |
 | pl-PL | Polish (Poland) | ❌ | ❌ |

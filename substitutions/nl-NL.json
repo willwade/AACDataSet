@@ -1,0 +1,8 @@
+{
+  "time_of_day": ["ochtend", "middag", "avond", "late avond", "middaguur"],
+  "setting": ["thuiskeuken", "ziekenhuisafdeling", "logopediepraktijk", "café", "park", "bibliotheek", "huisartsenpraktijk", "familiebijeenkomst"],
+  "tone": ["vriendelijke", "serieuze", "ondersteunende", "humoristische", "klinische", "gefrustreerde", "geduldige", "urgente", "informatieve"],
+  "relationship": ["echtgenoot/echtgenote", "verzorger", "verpleegkundige", "neuroloog", "goede vriend(in)", "broer/zus", "ouder", "kind", "therapeut", "onbekende"],
+  "aac_system": ["toetsenbordgebaseerd OC-apparaat", "oogbesturingsapparaat", "scanningsysteem met schakelaars", "OC-tablet met toetsenbord", "enkelschakelaar-systeem", "partnerondersteunde scanning"],
+  "topic": ["dagelijkse zorg", "pijnbestrijding", "basiscomfort", "veranderingen in conditie", "herinneringen", "toekomstplannen", "copingstrategieën", "het uiten van een behoefte", "eten bestellen", "sociale gesprekken"]
+}
