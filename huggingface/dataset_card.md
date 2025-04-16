@@ -100,6 +100,22 @@ The dataset includes conversations in multiple languages:
 - Japanese (ja, ja-JP)
 - Chinese (zh, zh-CN)
 
+### Dataset Statistics
+
+Here are some key statistics about the dataset:
+
+| Language | Conversations | Total Turns | AAC Utterances | Non-AAC Utterances | Avg Turns/Conv | AAC MLU | Non-AAC MLU |
+|----------|---------------|-------------|----------------|-------------------|---------------|---------|-------------|
+| en-GB    | 48            | 384         | 192            | 192               | 8.00          | 7.25    | 11.50       |
+| fr-FR    | 48            | 384         | 192            | 192               | 8.00          | 6.75    | 10.80       |
+| de-DE    | 48            | 384         | 192            | 192               | 8.00          | 6.50    | 10.25       |
+| ... (other languages) ... |
+| TOTAL    | 576           | 4,608       | 2,304          | 2,304             | 8.00          | 6.85    | 10.75       |
+
+*Note: These are example statistics. Actual numbers will vary based on the current dataset.*
+
+**MLU**: Mean Length of Utterance (average number of words per utterance)
+
 ## Dataset Creation
 
 ### Curation Rationale
