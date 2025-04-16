@@ -14,34 +14,47 @@ Example:
 """
 
 import argparse
-import os
 from pathlib import Path
 from datasets import load_from_disk
-from huggingface_hub import HfApi, create_repo
+from huggingface_hub import create_repo
 
-def upload_dataset(input_dir, repo_id, private=False):
-    """Upload the dataset to Hugging Face."""
+def upload_dataset(input_dir, repo_id, private=False, token=None):
+    """Upload the dataset to Hugging Face.
+
+    Args:
+        input_dir: Directory containing the dataset
+        repo_id: Hugging Face repository ID (username/repo-name)
+        private: Whether to make the repository private
+        token: Hugging Face API token. If None, will use the token from huggingface-cli login
+    """
     # Load the dataset
     print(f"Loading dataset from {input_dir}")
-    dataset = load_from_disk(input_dir)
-    
+    try:
+        dataset = load_from_disk(input_dir)
+    except Exception as e:
+        print(f"Error loading dataset from {input_dir}: {e}")
+        return False
+
     # Create or get the repository
     print(f"Creating/accessing repository: {repo_id}")
-    api = HfApi()
-    
     try:
-        create_repo(repo_id, repo_type="dataset", private=private, exist_ok=True)
+        create_repo(repo_id, repo_type="dataset", private=private, exist_ok=True, token=token)
     except Exception as e:
         print(f"Note: {e}")
-    
+
     # Push the dataset to the hub
     print(f"Pushing dataset to {repo_id}")
-    dataset.push_to_hub(
-        repo_id,
-        private=private,
-    )
-    
-    print(f"Dataset uploaded successfully to https://huggingface.co/datasets/{repo_id}")
+    try:
+        dataset.push_to_hub(
+            repo_id,
+            private=private,
+            token=token
+        )
+        print(f"Dataset uploaded successfully to https://huggingface.co/datasets/{repo_id}")
+        return True
+    except Exception as e:
+        print(f"Error uploading dataset to {repo_id}: {e}")
+        return False
 
 def main():
     parser = argparse.ArgumentParser(
@@ -50,7 +63,7 @@ def main():
     parser.add_argument(
         "--input_dir",
         type=str,
-        default="../data",
+        default="../data/aac_dataset",
         help="Input directory containing the prepared Hugging Face dataset",
     )
     parser.add_argument(
@@ -64,10 +77,30 @@ def main():
         action="store_true",
         help="Whether to make the repository private",
     )
+    parser.add_argument(
+        "--token",
+        type=str,
+        default=None,
+        help="Hugging Face API token. If not provided, will use the token from huggingface-cli login.",
+    )
     args = parser.parse_args()
-    
+
+    # Check if the input directory exists
+    input_path = Path(args.input_dir)
+    if not input_path.exists() or not input_path.is_dir():
+        print(f"Error: Input directory {args.input_dir} does not exist or is not a directory.")
+        return
+
     # Upload the dataset
-    upload_dataset(args.input_dir, args.repo_id, args.private)
+    success = upload_dataset(input_path, args.repo_id, args.private, args.token)
+
+    if success:
+        print(f"\nSuccessfully uploaded the AAC dataset to {args.repo_id}.")
+        print(f"View your dataset at: https://huggingface.co/datasets/{args.repo_id}")
+    else:
+        print(f"\nFailed to upload the AAC dataset to {args.repo_id}.")
+        print("Make sure you have the correct permissions and are authenticated with Hugging Face.")
+        print("You can authenticate using 'huggingface-cli login' or by providing a token with --token.")
 
 if __name__ == "__main__":
     main()

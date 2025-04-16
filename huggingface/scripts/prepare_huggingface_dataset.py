@@ -16,13 +16,10 @@ Example:
 
 import json
 import argparse
-import random
 import os
 from pathlib import Path
 import pandas as pd
-from sklearn.model_selection import train_test_split
-import datasets
-from datasets import Dataset, DatasetDict
+from datasets import Dataset
 
 def load_jsonl(file_path):
     """Load data from a JSONL file."""
@@ -32,14 +29,20 @@ def load_jsonl(file_path):
             data.append(json.loads(line))
     return data
 
-def flatten_conversation_data(conversation_data):
+def flatten_conversation_data(conversation_data, lang_code="en"):
     """
     Flatten the conversation data to create a dataset with one row per AAC utterance.
     Each row contains the utterance, its variations, and context information.
+
+    Args:
+        conversation_data: The conversation data to flatten
+        lang_code: The language code to add to each entry
     """
     flattened_data = []
+    conversation_id = 0
 
     for conv in conversation_data:
+        conversation_id += 1
         scene = conv.get('scene', '')
         template_id = conv.get('metadata', {}).get('template_id', -1)
 
@@ -48,34 +51,41 @@ def flatten_conversation_data(conversation_data):
 
         # Process each turn in the conversation
         for i, turn in enumerate(conversation):
-            # Only process AAC user turns
-            if 'speaker' in turn and '(AAC)' in turn.get('speaker', ''):
+            # Check if this is an AAC user's turn by looking for utterance_intended field and noisy variations
+            # This is more reliable across different languages than looking for specific speaker labels
+            is_aac_user = ('utterance_intended' in turn and 'utterance' in turn) or \
+                         any(key.startswith('noisy_') for key in turn)
+
+            if is_aac_user:
                 # Get context (previous turns)
-                context = []
+                context_speakers = []
+                context_utterances = []
                 for j in range(max(0, i-3), i):
                     if j >= 0 and j < len(conversation):
-                        context.append({
-                            'speaker': conversation[j].get('speaker', ''),
-                            'utterance': conversation[j].get('utterance', '')
-                        })
+                        context_speakers.append(conversation[j].get('speaker', ''))
+                        context_utterances.append(conversation[j].get('utterance', ''))
 
                 # Get next turn (if available) for potential response prediction tasks
-                next_turn = None
+                next_turn_speaker = ""
+                next_turn_utterance = ""
                 if i + 1 < len(conversation):
-                    next_turn = {
-                        'speaker': conversation[i+1].get('speaker', ''),
-                        'utterance': conversation[i+1].get('utterance', '')
-                    }
+                    next_turn_speaker = conversation[i+1].get('speaker', '')
+                    next_turn_utterance = conversation[i+1].get('utterance', '')
 
                 # Create a flattened entry
                 entry = {
+                    'conversation_id': conversation_id,  # Add conversation ID
+                    'turn_number': i,                   # Add turn number
+                    'language_code': lang_code,         # Add language code
                     'template_id': template_id,
                     'scene': scene,
-                    'context': context,
+                    'context_speakers': context_speakers,
+                    'context_utterances': context_utterances,
                     'speaker': turn.get('speaker', ''),
                     'utterance': turn.get('utterance', ''),
-                    'utterance_intended': turn.get('utterance_intended', ''),
-                    'next_turn': next_turn,
+                    'utterance_intended': turn.get('utterance_intended', turn.get('utterance', '')),
+                    'next_turn_speaker': next_turn_speaker,
+                    'next_turn_utterance': next_turn_utterance,
                 }
 
                 # Add all the noisy variations
@@ -87,50 +97,87 @@ def flatten_conversation_data(conversation_data):
 
     return flattened_data
 
-def split_data(data, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1, random_seed=42):
-    """Split data into train, validation, and test sets."""
-    # Ensure ratios sum to 1
-    total = train_ratio + val_ratio + test_ratio
-    train_ratio = train_ratio / total
-    val_ratio = val_ratio / total
-    test_ratio = test_ratio / total
+def prepare_dataset(data):
+    """Prepare the data as a single dataset without splits."""
+    return {'dataset': data}
 
-    # First split: train and temp (val+test)
-    train_data, temp_data = train_test_split(
-        data, train_size=train_ratio, random_state=random_seed
-    )
-
-    # Second split: val and test from temp
-    val_ratio_adjusted = val_ratio / (val_ratio + test_ratio)
-    val_data, test_data = train_test_split(
-        temp_data, train_size=val_ratio_adjusted, random_state=random_seed
-    )
-
-    return {
-        'train': train_data,
-        'validation': val_data,
-        'test': test_data
-    }
-
-def save_to_huggingface_format(data_splits, output_dir):
-    """Save the data splits in Hugging Face Datasets format."""
-    # Convert to Hugging Face Dataset objects
-    dataset_dict = DatasetDict({
-        split: Dataset.from_pandas(pd.DataFrame(data))
-        for split, data in data_splits.items()
-    })
+def save_to_huggingface_format(data, output_dir):
+    """Save the data in Hugging Face Datasets format."""
+    # Convert to a Hugging Face Dataset object
+    df = pd.DataFrame(data)
+    dataset = Dataset.from_pandas(df)
 
     # Save the dataset
-    dataset_dict.save_to_disk(output_dir)
+    dataset.save_to_disk(output_dir)
 
     # Also save as CSV for easy inspection
-    for split, data in data_splits.items():
-        df = pd.DataFrame(data)
-        csv_path = os.path.join(output_dir, f"{split}.csv")
-        df.to_csv(csv_path, index=False)
-        print(f"Saved {split} set to {csv_path}")
+    csv_path = os.path.join(output_dir, "dataset.csv")
+    df.to_csv(csv_path, index=False)
+    print(f"Saved dataset to {csv_path}")
 
-    return dataset_dict
+    return dataset
+
+def find_augmented_files(input_dir="../../output"):
+    """Find all augmented conversation files in the specified directory."""
+    directory_path = Path(input_dir)
+    if not directory_path.exists() or not directory_path.is_dir():
+        print(f"Warning: Directory {input_dir} does not exist or is not a directory.")
+        return []
+
+    # Look for files matching the pattern augmented_aac_conversations_*.jsonl
+    augmented_files = list(directory_path.glob("augmented_aac_conversations_*.jsonl"))
+    return augmented_files
+
+def extract_lang_code(filename):
+    """Extract language code from filename."""
+    lang_code = "en"  # Default language code
+
+    # Try to extract language code from filename
+    if "_" in filename and "." in filename:
+        # Handle both formats: augmented_aac_conversations_en.jsonl and augmented_aac_conversations_en-GB.jsonl
+        parts = filename.split("_")
+        if len(parts) > 2:
+            lang_code = parts[-1].split(".")[0]  # Get 'en' or 'en-GB'
+
+    return lang_code
+
+def process_file(input_path, all_data=None):
+    """Process a single input file and add its data to the combined dataset.
+
+    Args:
+        input_path: Path to the input file
+        all_data: Dictionary to store all flattened data (modified in-place)
+        split_ratio: Ratio for train/validation/test split
+
+    Returns:
+        Number of flattened entries processed
+    """
+    # Extract language code from input filename
+    input_filename = input_path.name
+    lang_code = extract_lang_code(input_filename)
+
+    # Load and process data
+    print(f"Loading data from {input_path}")
+    conversation_data = load_jsonl(input_path)
+    print(f"Loaded {len(conversation_data)} conversations")
+
+    # Flatten the data with language code
+    print(f"Flattening conversation data for language: {lang_code}...")
+    flattened_data = flatten_conversation_data(conversation_data, lang_code)
+    print(f"Created {len(flattened_data)} flattened entries")
+
+    # Check if we have any data to process
+    if len(flattened_data) == 0:
+        print(f"Warning: No AAC utterances found in {input_path}. Skipping this file.")
+        return 0
+
+    # Add the flattened data to the combined dataset
+    if all_data is not None:
+        if 'all' not in all_data:
+            all_data['all'] = []
+        all_data['all'].extend(flattened_data)
+
+    return len(flattened_data)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -139,73 +186,95 @@ def main():
     parser.add_argument(
         "--input",
         type=str,
-        default="../../output/augmented_aac_conversations_en.jsonl",
-        help="Input JSONL file with augmented AAC conversations",
+        default=None,
+        help="Input JSONL file with augmented AAC conversations. If not provided, will process all files in the output directory.",
+    )
+    parser.add_argument(
+        "--input_dir",
+        type=str,
+        default="../../output",
+        help="Directory to search for augmented conversation files when processing all languages.",
     )
     parser.add_argument(
         "--output_dir",
         type=str,
-        default=None,
-        help="Output directory for the Hugging Face dataset. If not provided, will be automatically generated based on the language code.",
+        default="../data",
+        help="Output directory for the combined Hugging Face dataset.",
     )
     parser.add_argument(
-        "--split_ratio",
+        "--lang",
         type=str,
-        default="0.8,0.1,0.1",
-        help="Ratio for train,validation,test split (comma-separated)",
+        default="all",
+        help="Language code to process (e.g., 'en-GB', 'fr-FR'). Use 'all' to process all available languages.",
+    )
+    parser.add_argument(
+        "--dataset_name",
+        type=str,
+        default="aac_dataset",
+        help="Name of the dataset (used for the output directory).",
     )
     args = parser.parse_args()
 
-    # Parse split ratio
-    train_ratio, val_ratio, test_ratio = map(float, args.split_ratio.split(','))
-
-    # Extract language code from input filename
-    input_path = Path(args.input)
-    input_filename = input_path.name
-    lang_code = "en"  # Default language code
-
-    # Try to extract language code from filename
-    if "_" in input_filename and "." in input_filename:
-        # Handle both formats: augmented_aac_conversations_en.jsonl and augmented_aac_conversations_en-GB.jsonl
-        parts = input_filename.split("_")
-        if len(parts) > 2:
-            lang_code = parts[-1].split(".")[0]  # Get 'en' or 'en-GB'
-
-    # Create output directory based on language code if not provided
-    if args.output_dir is None:
-        output_dir = Path(f"../data/{lang_code}")
-    else:
-        output_dir = Path(args.output_dir)
-
+    # Create the output directory
+    output_dir = Path(args.output_dir) / args.dataset_name
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load and process data
-    print(f"Loading data from {args.input}")
-    conversation_data = load_jsonl(args.input)
-    print(f"Loaded {len(conversation_data)} conversations")
+    # Dictionary to store all flattened data
+    all_data = {'all': []}
 
-    # Flatten the data
-    print("Flattening conversation data...")
-    flattened_data = flatten_conversation_data(conversation_data)
-    print(f"Created {len(flattened_data)} flattened entries")
+    # Process all files if no input is provided or if lang=all
+    if args.input is None or args.lang == "all":
+        # Find all augmented conversation files
+        augmented_files = find_augmented_files(args.input_dir)
+        if not augmented_files:
+            print(f"No augmented conversation files found in {args.input_dir}. Please check the directory or provide a specific input file.")
+            return
 
-    # Split the data
-    print(f"Splitting data with ratio {train_ratio}:{val_ratio}:{test_ratio}")
-    data_splits = split_data(
-        flattened_data,
-        train_ratio=train_ratio,
-        val_ratio=val_ratio,
-        test_ratio=test_ratio
-    )
+        print(f"Found {len(augmented_files)} augmented conversation files to process:")
+        for file in augmented_files:
+            print(f"  - {file.name}")
+
+        total_entries = 0
+        for input_file in augmented_files:
+            print(f"\n{'='*50}\nProcessing file: {input_file}\n{'='*50}")
+            entries_count = process_file(input_file, all_data)
+            total_entries += entries_count
+
+        print(f"\nCompleted processing all files. Total entries: {total_entries}.")
+    else:
+        # Process a single file
+        input_path = Path(args.input) if args.input else None
+
+        # If lang is specified but input is not, look for a file with that language code
+        if input_path is None and args.lang != "all":
+            lang_pattern = f"augmented_aac_conversations_{args.lang}.jsonl"
+            potential_files = list(Path(args.input_dir).glob(lang_pattern))
+            if potential_files:
+                input_path = potential_files[0]
+                print(f"Found file for language {args.lang}: {input_path}")
+            else:
+                print(f"Error: No file found for language {args.lang} in {args.input_dir}.")
+                return
+
+        if not input_path or not input_path.exists():
+            print(f"Error: Input file {args.input} does not exist.")
+            return
+
+        process_file(input_path, all_data)
+
+    # Check if we have any data to process
+    if not all_data['all']:
+        print("No data to process. Exiting.")
+        return
+
+    print(f"\nCombined dataset has {len(all_data['all'])} entries.")
 
     # Save in Hugging Face format
-    print(f"Saving data to {output_dir}")
-    dataset = save_to_huggingface_format(data_splits, output_dir)
+    print(f"Saving combined dataset to {output_dir}")
+    save_to_huggingface_format(all_data['all'], output_dir)
 
     # Print dataset info
-    print("\nDataset statistics:")
-    for split, data in data_splits.items():
-        print(f"  {split}: {len(data)} examples")
+    print(f"\nDataset statistics: {len(all_data['all'])} examples")
 
     print("\nDone!")
 
