@@ -195,6 +195,78 @@ The following table shows the language codes supported by the AAC Dataset, along
 - ✅ Prompts Created: Language has prompt templates and substitutions files
 - ✅ Verified: Language has been tested and verified for quality
 
+
+# AAC Conversations Dataset Creation Process
+
+The following diagram illustrates the data flow and tools used to create the AAC Conversations Dataset:
+
+```mermaid
+graph TD
+    subgraph "Template Creation"
+        A[Template JSON Files] -->|Organized by language| B[Language-specific Templates]
+        B -->|generate_templates.py| C[Generated Conversations]
+    end
+
+    subgraph "Data Augmentation"
+        C -->|main.py| D[Base Conversations]
+        D -->|augment_aac_data.py| E[Augmented Conversations]
+        F[language_keyboards.py] -->|Language-specific layouts| E
+    end
+
+    subgraph "Dataset Preparation"
+        E -->|prepare_huggingface_dataset.py| G[Hugging Face Dataset]
+        G -->|upload_to_huggingface.py| H[Published Dataset]
+    end
+
+    subgraph "Components"
+        I[Template Files] -->|JSON format| A
+        J[Keyboard Layouts] -->|Language-specific| F
+        K[Letter Frequencies] -->|Language-specific| F
+    end
+
+    classDef templates fill:#f9d5e5,stroke:#333,stroke-width:1px;
+    classDef processing fill:#eeeeee,stroke:#333,stroke-width:1px;
+    classDef data fill:#d5f9e5,stroke:#333,stroke-width:1px;
+    classDef components fill:#e5f9d5,stroke:#333,stroke-width:1px;
+
+    class A,B templates;
+    class C,D,E,G data;
+    class I,J,K components;
+    class F processing;
+```
+
+## Detailed Process Description
+
+### 1. Template Creation
+- **Template JSON Files**: Initial conversation templates are created in JSON format
+- **Language-specific Templates**: Templates are organized by language code (e.g., en-GB, fr-FR)
+- **generate_templates.py**: Script that processes templates to create base conversations
+
+### 2. Data Augmentation
+- **main.py**: Orchestrates the overall process and calls other scripts
+- **language_keyboards.py**: Provides keyboard layouts and letter frequencies for different languages
+- **augment_aac_data.py**: Adds noisy variations to AAC utterances based on different keyboard layouts and error rates
+
+### 3. Dataset Preparation
+- **prepare_huggingface_dataset.py**: Flattens and structures the data for Hugging Face, adding conversation IDs and turn numbers
+- **upload_to_huggingface.py**: Uploads the prepared dataset to Hugging Face
+
+### 4. Components
+- **Template Files**: JSON files containing conversation templates
+- **Keyboard Layouts**: Different keyboard layouts (QWERTY, ABC, etc.) for each language
+- **Letter Frequencies**: Character frequency distributions for each language
+
+## Data Flow
+
+1. Templates are created and organized by language
+2. Templates are processed to generate base conversations
+3. AAC utterances in the conversations are augmented with noisy variations NB: We regionalise this - eg frequency keyboard is different for each language as well as abc and qwerty
+4. The augmented conversations are flattened and structured for Hugging Face
+5. The dataset is uploaded to Hugging Face
+
+This process ensures that the dataset includes a diverse range of conversations across multiple languages, with realistic variations in AAC utterances that simulate different typing errors and keyboard layouts.
+
+
 ## License
 
 [Insert appropriate license information here]
