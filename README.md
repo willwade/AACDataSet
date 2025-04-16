@@ -204,7 +204,16 @@ The following diagram illustrates the data flow and tools used to create the AAC
 graph TD
     subgraph "Template Creation"
         A[Template JSON Files] -->|Organized by language| B[Language-specific Templates]
+        T1[Template Instructions] -->|Scenario-specific prompts| A
+        T2[Common Suffixes] -->|Shared prompt endings| A
+        T3[Substitutions] -->|Variable replacements| A
+    end
+
+    subgraph "LLM Conversation Generation"
         B -->|generate_templates.py| C[Generated Conversations]
+        L[LLM Library] -->|Supports multiple models| C
+        M[Gemini/Mistral/Other LLMs] -->|API| L
+        N[Prompt Templates] -->|Structured prompts| L
     end
 
     subgraph "Data Augmentation"
@@ -219,7 +228,6 @@ graph TD
     end
 
     subgraph "Components"
-        I[Template Files] -->|JSON format| A
         J[Keyboard Layouts] -->|Language-specific| F
         K[Letter Frequencies] -->|Language-specific| F
     end
@@ -228,11 +236,13 @@ graph TD
     classDef processing fill:#eeeeee,stroke:#333,stroke-width:1px;
     classDef data fill:#d5f9e5,stroke:#333,stroke-width:1px;
     classDef components fill:#e5f9d5,stroke:#333,stroke-width:1px;
+    classDef llm fill:#d5e5f9,stroke:#333,stroke-width:1px;
 
-    class A,B templates;
+    class A,B,T1,T2,T3 templates;
     class C,D,E,G data;
-    class I,J,K components;
+    class J,K components;
     class F processing;
+    class L,M,N llm;
 ```
 
 ## Detailed Process Description
@@ -240,32 +250,43 @@ graph TD
 ### 1. Template Creation
 - **Template JSON Files**: Initial conversation templates are created in JSON format
 - **Language-specific Templates**: Templates are organized by language code (e.g., en-GB, fr-FR)
-- **generate_templates.py**: Script that processes templates to create base conversations
+- **Template Instructions**: Scenario-specific prompts that define the conversation context and goals
+- **Common Suffixes**: Reusable prompt endings that are shared across multiple templates
+- **Substitutions**: Variable replacements that allow for customization of templates
 
-### 2. Data Augmentation
+### 2. LLM Conversation Generation
+- **generate_templates.py**: Script that processes templates and uses LLMs to generate realistic conversations
+- **LLM Library**: Flexible library that supports multiple LLM providers
+- **LLM Models**: Can use various models including Gemini, Mistral, and others
+- **Prompt Templates**: Structured prompts that guide the LLM to generate appropriate conversations
+
+### 3. Data Augmentation
 - **main.py**: Orchestrates the overall process and calls other scripts
 - **language_keyboards.py**: Provides keyboard layouts and letter frequencies for different languages
 - **augment_aac_data.py**: Adds noisy variations to AAC utterances based on different keyboard layouts and error rates
 
-### 3. Dataset Preparation
+### 4. Dataset Preparation
 - **prepare_huggingface_dataset.py**: Flattens and structures the data for Hugging Face, adding conversation IDs and turn numbers
 - **upload_to_huggingface.py**: Uploads the prepared dataset to Hugging Face
 
-### 4. Components
-- **Template Files**: JSON files containing conversation templates
+### 5. Components
+- **Template Structure**:
+  - **Template Instructions**: JSON files containing scenario-specific prompts
+  - **Common Suffixes**: Reusable prompt endings stored in separate files
+  - **Substitutions**: Variable definitions for template customization
 - **Keyboard Layouts**: Different keyboard layouts (QWERTY, ABC, etc.) for each language
 - **Letter Frequencies**: Character frequency distributions for each language
 
 ## Data Flow
 
 1. Templates are created and organized by language
-2. Templates are processed to generate base conversations
-3. AAC utterances in the conversations are augmented with noisy variations NB: We regionalise this - eg frequency keyboard is different for each language as well as abc and qwerty
-4. The augmented conversations are flattened and structured for Hugging Face
-5. The dataset is uploaded to Hugging Face
+2. Templates are processed by the LLM library using structured prompts
+3. LLMs (Gemini, Mistral, etc.) generate realistic conversations based on the templates
+4. AAC utterances in the conversations are augmented with noisy variations (regionalized for each language with appropriate keyboard layouts)
+5. The augmented conversations are flattened and structured for Hugging Face
+6. The dataset is uploaded to Hugging Face
 
-This process ensures that the dataset includes a diverse range of conversations across multiple languages, with realistic variations in AAC utterances that simulate different typing errors and keyboard layouts.
-
+This process ensures that the dataset includes a diverse range of conversations across multiple languages, with realistic variations in AAC utterances that simulate different typing errors and keyboard layouts. The use of a flexible LLM library allows for experimentation with different models to find the best balance of quality, diversity, and computational efficiency.
 
 ## License
 
