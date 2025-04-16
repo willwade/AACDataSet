@@ -4,7 +4,9 @@
 #     "jinja2",
 #     "llm",
 #     "llm-gemini",
+#     "llm-ollama",  # Added Ollama plugin
 #     "tqdm",
+#     # Note: OpenAI support is built into llm, no separate plugin needed
 # ]
 # ///
 
@@ -47,6 +49,19 @@ parser.add_argument(
     type=int,
     default=3,
     help="Number of variations to generate per template.",
+)
+parser.add_argument(
+    "--model",
+    type=str,
+    default="gemini-2.0-flash",
+    help="LLM model to use. Options: 'gemini-2.0-flash', 'mistral-7b', 'mistral-medium', 'llama3', etc.",
+)
+parser.add_argument(
+    "--provider",
+    type=str,
+    default="gemini",
+    choices=["gemini", "ollama", "openai"],
+    help="LLM provider to use. Options: 'gemini', 'ollama', 'openai'.",
 )
 args = parser.parse_args()
 
@@ -133,7 +148,7 @@ def load_language_data(lang_code):
 # env = Environment(loader=FileSystemLoader(PROMPT_TEMPLATES_DIR))
 
 
-# --- Generate concrete prompts --- (Updated to handle potentially missing keys)
+# --- Generate concrete prompts --- (Updated to handle potentially missing keys and writing style)
 def expand_prompt(
     template, template_id="unknown", substitutions=None
 ):  # Add template_id for better context and pass substitutions
@@ -147,6 +162,10 @@ def expand_prompt(
         # Basic check if the template likely uses the key
         if f"{{{{ {key} }}}}" in template:
             sub_values[key] = random.choice(substitutions[key])
+
+    # Special handling for writing style - replace { writing_style } with the actual writing style
+    if "{ writing_style }" in template and "writing_style" in sub_values:
+        template = template.replace("{ writing_style }", sub_values["writing_style"])
 
     # Render the template
     try:
@@ -165,18 +184,45 @@ def expand_prompt(
 
 # This section has been moved to the generate_conversations_for_language function
 
-# --- Get Gemini model ---
-try:
-    model = llm.get_model("gemini-2.0-flash")  # Use model alias if configured in llm
-    # Or use the full name if needed: model = llm.get_model("gemini-1.5-flash")
-except llm.UnknownModelError:
-    print(
-        "Error: Gemini model not found. Ensure llm-gemini plugin is installed and configured."
-    )
-    exit()  # Exit if model not found
-except Exception as e:
-    print(f"Error getting LLM model: {e}")
-    exit()
+# --- Get LLM model based on provider ---
+def get_llm_model(provider, model_name):
+    """Get LLM model based on provider and model name."""
+    try:
+        if provider == "gemini":
+            print(f"Using Gemini model: {model_name}")
+            return llm.get_model(model_name)
+        elif provider == "ollama":
+            # For Ollama, we just use the model name as registered in llm
+            # If a specific version is not specified, use the model name directly
+            if ":" not in model_name:
+                # Try with just the model name first
+                try:
+                    print(f"Using Ollama model: {model_name}")
+                    return llm.get_model(model_name)
+                except llm.UnknownModelError:
+                    # If that fails, try with :latest suffix
+                    model_name = f"{model_name}:latest"
+                    print(f"Using Ollama model: {model_name}")
+                    return llm.get_model(model_name)
+            else:
+                # Model name already has a version specified
+                print(f"Using Ollama model: {model_name}")
+                return llm.get_model(model_name)
+        elif provider == "openai":
+            # For OpenAI, we don't need to prefix the model name
+            # Just use the model name directly
+            print(f"Using OpenAI model: {model_name}")
+            return llm.get_model(model_name)
+        else:
+            print(f"Error: Unsupported provider '{provider}'")
+            exit(1)
+    except llm.UnknownModelError:
+        print(f"Error: Model '{model_name}' not found for provider '{provider}'.")
+        print(f"Ensure the llm-{provider} plugin is installed and configured.")
+        exit(1)
+    except Exception as e:
+        print(f"Error getting LLM model: {e}")
+        exit(1)
 
 
 # --- Rate limiting ---
@@ -199,6 +245,9 @@ def rate_limit():
 # --- Generate conversations for a specific language ---
 def generate_conversations_for_language(lang_code, num_variations):
     """Generate conversations for a specific language."""
+    # Get LLM model for this generation run
+    model = get_llm_model(args.provider, args.model)
+
     # Load language-specific data
     templates, substitutions, output_path = load_language_data(lang_code)
     if templates is None or substitutions is None or output_path is None:
@@ -206,19 +255,23 @@ def generate_conversations_for_language(lang_code, num_variations):
         return 0
 
     # --- Load existing results --- (Adjust path)
-    existing_prompts = set()
+    # We'll use a set of (template_id, substitutions) tuples to avoid duplicates
+    existing_templates = set()
     if output_path.exists():
         with open(output_path, "r", encoding="utf-8") as f:
             for line in f:
                 try:
-                    # Adjust based on your FINAL desired JSONL structure
-                    # This assumes 'rendered_prompt' will be in the metadata
                     data = json.loads(line)
-                    if "metadata" in data and "rendered_prompt" in data["metadata"]:
-                        existing_prompts.add(data["metadata"]["rendered_prompt"])
+                    if "metadata" in data and "template_id" in data["metadata"] and "substitutions_used" in data["metadata"]:
+                        # Create a tuple of template_id and a frozenset of substitution items
+                        template_id = data["metadata"]["template_id"]
+                        subs = data["metadata"]["substitutions_used"]
+                        # Convert dict to a frozenset of tuples for hashability
+                        subs_tuple = frozenset((k, v) for k, v in subs.items())
+                        existing_templates.add((template_id, subs_tuple))
                 except Exception:
                     continue
-    print(f"Loaded {len(existing_prompts)} existing prompts to avoid duplicates.")
+    print(f"Loaded {len(existing_templates)} existing template combinations to avoid duplicates.")
 
     # --- Main generation loop ---
     generated_count = 0
@@ -245,16 +298,40 @@ def generate_conversations_for_language(lang_code, num_variations):
             if prompt is None:  # Skip if rendering failed
                 continue
 
-            if prompt in existing_prompts:
+            # Check if this template_id + substitutions combination already exists
+            subs_tuple = frozenset((k, v) for k, v in chosen_substitutions.items())
+            if (template_id, subs_tuple) in existing_templates:
                 continue  # Skip duplicate
 
             rate_limit()
             try:
-                # *** IMPORTANT: You need to actually CALL the LLM here! ***
-                # The previous version had the LLM call commented out inside the try block.
-                response = model.prompt(prompt)
-                raw_response_text = response.text()
-                # **********************************************************
+                # Call the LLM with retry logic for quota/rate limit errors
+                max_retries = 3
+                raw_response_text = None
+
+                for attempt in range(max_retries):
+                    try:
+                        response = model.prompt(prompt)
+                        raw_response_text = response.text()
+                        break  # Success, exit retry loop
+                    except Exception as e:
+                        error_message = str(e).lower()
+                        if "quota" in error_message and attempt < max_retries - 1:
+                            # Quota error, wait longer
+                            wait_time = 60 * (2 ** attempt)  # 1min, 2min, 4min
+                            print(f"Quota limit hit. Waiting {wait_time}s before retry...")
+                            time.sleep(wait_time)
+                        elif "rate limit" in error_message and attempt < max_retries - 1:
+                            # Rate limit error, wait
+                            wait_time = 30 * (2 ** attempt)  # 30s, 1min, 2min
+                            print(f"Rate limit hit. Waiting {wait_time}s before retry...")
+                            time.sleep(wait_time)
+                        else:
+                            # Other error or last attempt, re-raise
+                            raise
+
+                if raw_response_text is None:
+                    raise Exception("Failed to get response after retries")
 
                 # Clean the response text by removing markdown code blocks
                 cleaned_response = raw_response_text.strip()
@@ -270,21 +347,39 @@ def generate_conversations_for_language(lang_code, num_variations):
                 # Debug the response
                 print(f"Cleaned response (first 100 chars): {cleaned_response[:100]}...")
 
-                # Now parse the cleaned JSON
-                parsed_data = json.loads(cleaned_response)
+                # Now parse the cleaned JSON with error handling for different formats
+                try:
+                    parsed_data = json.loads(cleaned_response)
+
+                    # Handle array format (Mistral sometimes returns an array instead of an object)
+                    if isinstance(parsed_data, list) and len(parsed_data) > 0:
+                        parsed_data = parsed_data[0]  # Take the first item in the array
+
+                    # Handle role/speaker field inconsistency
+                    if "conversation" in parsed_data:
+                        for turn in parsed_data["conversation"]:
+                            if "role" in turn and "speaker" not in turn:
+                                turn["speaker"] = turn.pop("role")
+                except json.JSONDecodeError as e:
+                    print(f"Error parsing JSON: {e}")
+                    raise
 
                 # Add metadata
                 parsed_data["metadata"] = {
                     "template_id": template_id,  # Store template index/ID
                     # 'original_prompt_template': template, # Maybe too verbose? Store ID instead.
-                    "rendered_prompt": prompt,
+                    # Removed rendered_prompt to save space
                     "substitutions_used": chosen_substitutions,  # Use dict returned by expand_prompt
                     "language": lang_code,
+                    "model": args.model,
+                    "provider": args.provider
                 }
 
                 out_file.write(json.dumps(parsed_data) + "\n")
                 out_file.flush()
-                existing_prompts.add(prompt)  # Add newly generated prompt
+                # Add this template_id + substitutions combination to our set
+                subs_tuple = frozenset((k, v) for k, v in chosen_substitutions.items())
+                existing_templates.add((template_id, subs_tuple))
                 generated_count += 1
                 pbar.update(1)  # Increment progress bar
 
@@ -322,19 +417,6 @@ def generate_conversations_for_language(lang_code, num_variations):
         return generated_count
 
 # --- Main execution ---
-# Get Gemini model
-try:
-    model = llm.get_model("gemini-2.0-flash")  # Use model alias if configured in llm
-    # Or use the full name if needed: model = llm.get_model("gemini-1.5-flash")
-except llm.UnknownModelError:
-    print(
-        "Error: Gemini model not found. Ensure llm-gemini plugin is installed and configured."
-    )
-    exit()  # Exit if model not found
-except Exception as e:
-    print(f"Error getting LLM model: {e}")
-    exit()
-
 # Process languages
 total_generated = 0
 if args.lang.lower() == "all":

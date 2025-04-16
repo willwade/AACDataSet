@@ -72,6 +72,10 @@ def flatten_conversation_data(conversation_data, lang_code="en"):
                     next_turn_speaker = conversation[i+1].get('speaker', '')
                     next_turn_utterance = conversation[i+1].get('utterance', '')
 
+                # Extract model and provider information from metadata
+                model = conv.get('metadata', {}).get('model', 'unknown')
+                provider = conv.get('metadata', {}).get('provider', 'unknown')
+
                 # Create a flattened entry
                 entry = {
                     'conversation_id': conversation_id,  # Add conversation ID
@@ -86,6 +90,8 @@ def flatten_conversation_data(conversation_data, lang_code="en"):
                     'utterance_intended': turn.get('utterance_intended', turn.get('utterance', '')),
                     'next_turn_speaker': next_turn_speaker,
                     'next_turn_utterance': next_turn_utterance,
+                    'model': model,                    # Add model information
+                    'provider': provider,              # Add provider information
                 }
 
                 # Add all the noisy variations

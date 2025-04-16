@@ -54,6 +54,8 @@ Example:
 - `language_code`: The language code of the conversation (e.g., "en-GB", "fr-FR")
 - `template_id`: Identifier for the conversation template
 - `scene`: Description of the conversation setting
+- `model`: The LLM model used to generate the conversation (e.g., 'gemini-2.0-flash', 'mistral')
+- `provider`: The provider of the LLM (e.g., 'gemini', 'ollama', 'openai')
 
 #### Speaker and Utterance Fields
 - `speaker`: The speaker of the current utterance
@@ -130,10 +132,12 @@ The conversations in this dataset are simulated based on common scenarios that A
 
 The dataset was created through a multi-step process:
 
-1. **Generation**: Conversations were generated using templates and LLM (Gemini) to create realistic AAC interactions
+1. **Generation**: Conversations were generated using templates and various LLMs (including Gemini, Mistral, and others) to create realistic AAC interactions
 2. **Augmentation**: AAC utterances were augmented with various noise levels and keyboard layouts
 3. **Correction**: Both minimal and full corrections were added to each AAC utterance
 4. **Multilingual Expansion**: Templates were translated and adapted for multiple languages
+
+Each conversation in the dataset includes metadata about which LLM model and provider were used to generate it, allowing for analysis of differences between models.
 
 ### Annotations
 
@@ -244,4 +248,11 @@ for turn in conversation_turns:
     print(f"{turn['speaker']}: {turn['utterance']}")
     if turn['next_turn_speaker'] and turn['next_turn_utterance']:
         print(f"{turn['next_turn_speaker']}: {turn['next_turn_utterance']}")
+
+# Filter by model or provider
+gemini_examples = [ex for ex in dataset['dataset'] if ex['provider'] == 'gemini']
+mistral_examples = [ex for ex in dataset['dataset'] if ex['provider'] == 'ollama' and ex['model'] == 'mistral']
+
+print(f"Number of examples generated with Gemini: {len(gemini_examples)}")
+print(f"Number of examples generated with Mistral: {len(mistral_examples)}")
 ```
