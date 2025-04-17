@@ -1,0 +1,71 @@
+[
+  "Crie uma conversa {{ tone }} que ocorre no {{ time_of_day }} em um {{ setting }}. O usuário de CAA é um adulto com ELA usando um {{ aac_system }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. O parceiro é seu {{ relationship }}. A conversa deve focar em {{ topic }}. {{writing_style}}. ",
+
+  "Simule um diálogo {{ tone }} no {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA (usando um {{ aac_system }}) e um {{ relationship }}. Foque no {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Crie uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA (usando um {{ aac_system }}) e um {{ relationship }}. O diálogo deve envolver o {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Gere uma consulta {{ tone }} no {{ setting }} durante o {{ time_of_day }} onde um usuário adulto de CAA com ELA (usando {{ aac_system }}) se comunica com um {{ relationship }} sobre {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Escreva uma conversa {{ tone }} que ocorre no {{ time_of_day }} em um {{ setting }} entre um usuário de CAA com ELA e um {{ relationship }}. O usuário se comunica usando um {{ aac_system }}. Eles discutem {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Produza uma conversa {{ tone }} no {{ setting }} durante o {{ time_of_day }} onde um {{ relationship }} ajuda um usuário de CAA com ELA a se comunicar sobre {{ topic }}. O usuário responde com um {{ aac_system }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Projete uma interação {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA que usa um teclado QWERTY com rastreamento ocular e um {{ relationship }}. A conversa gira em torno de {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Elabore uma troca {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um adulto mais velho com ELA usando um sistema de rastreamento ocular com layout ABC e seu {{ relationship }}. Eles estão discutindo {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Apresente um diálogo {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA que usa um mouse de cabeça com teclado QWERTY e um {{ relationship }}. A conversa gira em torno de {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Retrate uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} onde um usuário de CAA com ELA que usa seleção direta com um dedo em um teclado QWERTY (ELA em estágio inicial) interage com um {{ relationship }} sobre {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Ilustre uma interação {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA que usa um sistema de rastreamento ocular com predição de frases e um {{ relationship }}. Eles estão envolvidos em uma discussão sobre {{ topic }}. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Retrate uma troca {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um adulto mais velho com ELA usando um layout ABC com rastreamento ocular e seu {{ relationship }}. A conversa se concentra em {{ topic }} e inclui desafios de comunicação. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Construa uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} onde um usuário de CAA com ELA que usa um mouse de cabeça com predição de palavras em um teclado QWERTY se comunica com um {{ relationship }} sobre {{ topic }}. Inclua instâncias onde a predição de palavras ajuda ou atrapalha a comunicação. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Detalhe uma interação {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA que usa rastreamento ocular com um teclado QWERTY e um {{ relationship }} que não está familiarizado com CAA. A conversa é sobre {{ topic }} e mostra o parceiro de comunicação aprendendo a se adaptar. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Crie um diálogo {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA com ELA que alterna entre acesso por rastreamento ocular e mouse de cabeça (devido à fadiga) em um teclado QWERTY e seu {{ relationship }}. Eles estão discutindo {{ topic }}. Mostre como a comunicação muda à medida que a fadiga aumenta. Seu comprimento médio de enunciado quando alerta é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Gere uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} onde um adulto mais velho com ELA usando um sistema de rastreamento ocular com layout ABC se comunica com um {{ relationship }} sobre {{ topic }}. Inclua instâncias onde o usuário navega entre páginas ou categorias para encontrar vocabulário",
+
+  "Crie uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. A conversa deve focar em {{ topic }} e refletir interação social cotidiana em vez de preocupações médicas",
+
+  "Simule uma conversa casual {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que se comunica com um {{ aac_system }} e um {{ relationship }}. Eles estão discutindo {{ topic }} como parte de sua interação social regular. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Elabore uma conversa de local de trabalho {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. O diálogo gira em torno de {{ topic }} e mostra interação profissional. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Apresente uma conversa em ambiente educacional {{ tone }} durante o {{ time_of_day }} em um {{ setting }} entre um usuário de CAA que se comunica com um {{ aac_system }} e seu {{ relationship }}. Eles estão discutindo {{ topic }} em um contexto de aprendizagem. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Gere uma conversa de atividade de lazer {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e um {{ relationship }}. A conversa gira em torno de {{ topic }} e mostra apreciação de hobbies ou entretenimento. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Crie uma interação de compras {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que se comunica com um {{ aac_system }} e um {{ relationship }}. A conversa envolve {{ topic }} e demonstra atividades de consumo. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Retrate uma conversa relacionada a viagens {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. Eles estão discutindo {{ topic }} no contexto de viagens ou transporte. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Ilustre uma conversa de evento comunitário {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que se comunica com um {{ aac_system }} e um {{ relationship }}. O diálogo se concentra em {{ topic }} e mostra participação na vida comunitária. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Construa uma conversa de reunião familiar {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. Eles estão envolvidos em uma discussão sobre {{ topic }} durante um evento familiar. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Apresente uma conversa de evento cultural {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que se comunica com um {{ aac_system }} e um {{ relationship }}. A conversa gira em torno de {{ topic }} no contexto de artes, música ou apreciação cultural. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Crie uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA de origem brasileira que usa um {{ aac_system }} e seu {{ relationship }}. O diálogo se concentra em {{ topic }} e inclui referências ao patrimônio cultural",
+
+  "Simule uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA de origem nordestina que se comunica com um {{ aac_system }} e um {{ relationship }}. Eles estão discutindo {{ topic }} com referências a experiências culturais",
+
+  "Elabore um diálogo {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA de origem afro-brasileira que usa um {{ aac_system }} e seu {{ relationship }}. A conversa se concentra em {{ topic }} e inclui referências culturais",
+
+  "Gere uma conversa {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA de origem indígena que se comunica com um {{ aac_system }} e um {{ relationship }}. Eles estão discutindo {{ topic }} com referências à sua identidade cultural",
+
+  "Retrate uma conversa de celebração religiosa ou cultural {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. O diálogo gira em torno de {{ topic }} no contexto de uma tradição cultural ou religiosa",
+
+  "Apresente uma conversa de experiência multilíngue {{ tone }} em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que se comunica com um {{ aac_system }} e um {{ relationship }}. A conversa gira em torno de {{ topic }} e inclui referências à navegação entre múltiplos idiomas ou culturas. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Crie uma conversa {{ tone }} sobre comida e culinária em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. O diálogo se concentra em {{ topic }} e inclui referências a diversas tradições culinárias. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Ilustre uma conversa {{ tone }} sobre artes culturais ou mídia em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que se comunica com um {{ aac_system }} e um {{ relationship }}. Eles estão discutindo {{ topic }} com referências a diversas expressões culturais em literatura, filme, música ou arte. Seu comprimento médio de enunciado é {{ aac_mlu_length }}. {{writing_style}}. ",
+
+  "Construa uma conversa {{ tone }} sobre diversidade comunitária em um {{ setting }} durante o {{ time_of_day }} entre um usuário de CAA que usa um {{ aac_system }} e seu {{ relationship }}. O diálogo gira em torno de {{ topic }} e inclui referências a experiências comunitárias multiculturais. O comprimento médio de enunciado do Usuário de CAA é {{ aac_mlu_length }}. {{writing_style}}. "
+]
