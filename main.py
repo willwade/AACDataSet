@@ -27,7 +27,7 @@ from jinja2 import Template
 
 # --- Configuration --- (Consider moving more constants here or to a config file)
 DEFAULT_LANGUAGE = "en"
-MAX_REQUESTS_PER_DAY = 1500
+MAX_REQUESTS_PER_DAY = 200000  # Increased to allow for 200K dialogues per language
 MAX_REQUESTS_PER_MINUTE = 15
 SLEEP_BETWEEN_REQUESTS = 60 / MAX_REQUESTS_PER_MINUTE
 OUTPUT_DIR = Path("output")  # Create an output directory
@@ -47,7 +47,7 @@ parser.add_argument(
 parser.add_argument(
     "--num_variations",
     type=int,
-    default=3,
+    default=6000,  # Increased to generate approximately 200K dialogues (assuming ~34 templates per language)
     help="Number of variations to generate per template.",
 )
 parser.add_argument(
