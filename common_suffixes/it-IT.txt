@@ -1,5 +1,0 @@
-I messaggi dell'utente AAC dovrebbero essere mostrati come apparirebbero sulla barra dei messaggi del loro dispositivo AAC — frasi brevi, possibilmente telegrafiche o non grammaticali. Evitare l'uso di puntini di sospensione ... o punteggiatura in stile messaggistica. I messaggi AAC dovrebbero utilizzare un linguaggio diretto e chiaro. Formattare l'output come un oggetto JSON con tre campi:
-0. template_id: {template_id} 
-1. scene — una breve descrizione di 1-2 frasi dell'ambientazione e dei partecipanti.
-2. conversation — un array di turni. Etichettare i parlanti in modo appropriato. Per gli utenti AAC, includere utterance e utterance_intended.
-Restituire solo JSON valido, senza formattazione markdown o commenti aggiuntivi.

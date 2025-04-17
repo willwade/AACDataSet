@@ -1,5 +1,0 @@
-AAC用户的消息应该显示为它们在AAC设备消息栏上的样子——简短的短语，可能是电报式的或不合语法的。避免使用省略号...或短信风格的标点符号。AAC消息应使用直接、清晰的语言。将输出格式化为具有三个字段的JSON对象：
-0. template_id: {template_id} 
-1. scene — 对环境和参与者的简短1-2句描述。
-2. conversation — 一个对话轮次的数组。适当标记发言者。对于AAC用户，包括utterance和utterance_intended。
-仅返回有效的JSON，不包含markdown格式或额外评论。

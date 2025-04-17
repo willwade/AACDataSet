@@ -62,4 +62,4 @@ def jsonl_to_csv(jsonl_filepath, csv_filepath):
 # --- Example Usage ---
 # Replace 'input.jsonl' with the path to your JSONL file
 # Replace 'output.csv' with the desired path for your CSV file
-jsonl_to_csv('aac_gemini_conversations_output.jsonl', 'aac_gemini_conversations_output.csv')
+jsonl_to_csv('output/aac_conversations_en.jsonl', 'output/aac_gemini_conversations_output.csv')

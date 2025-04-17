@@ -1,5 +1,0 @@
-As mensagens do usuário de CAA devem ser mostradas como apareceriam na barra de mensagens do seu dispositivo de CAA — frases curtas, possivelmente telegráficas ou não gramaticais. Evite usar reticências ... ou pontuação no estilo de mensagens de texto. As mensagens de CAA devem usar linguagem direta e clara. Formate a saída como um objeto JSON com três campos:
-0. template_id: {template_id} 
-1. scene — uma breve descrição de 1-2 frases do ambiente e dos participantes.
-2. conversation — um array de turnos. Rotule os falantes adequadamente. Para usuários de CAA, inclua utterance e utterance_intended.
-Retorne apenas JSON válido, sem formatação markdown ou comentários extras.

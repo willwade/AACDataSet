@@ -1,5 +1,0 @@
-Format the output as a JSON object with three fields:
-0. template_id: {template_id}
-1. scene — a short 1–2 sentence description of the setting and participants.
-2. conversation — an array of turns. Label speakers appropriately. For AAC users, include utterance and utterance_intended.
-Return only valid JSON, with no markdown formatting or extra commentary.

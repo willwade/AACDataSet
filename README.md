@@ -91,7 +91,7 @@ For AAC user turns, the following fields are included:
 python generate_templates.py
 ```
 
-This will create the prompt templates and substitutions files in the `prompt_templates/` directory. The script will ask for a language code (e.g., `en`, `fr`, etc.) and generate the necessary files. Note you can skip this step - I am commiting our prompt templates for now.
+This will create the prompt templates in the `prompt_templates/` directory. The script will ask for a language code (e.g., `en`, `fr`, etc.) and generate the necessary files. Note you can skip this step - we are committing our prompt templates for now.
 
 ### Generating Conversations
 
@@ -133,6 +133,35 @@ python prepare_huggingface_dataset.py --input ../../output/augmented_aac_convers
 ```
 
 This will convert the augmented conversations to a format suitable for Hugging Face datasets, splitting the data into train, validation, and test sets. See the [Hugging Face README](huggingface/README.md) for more details.
+
+## Technical Details
+
+The conversation generation process uses a JSON schema to ensure consistent structure in the LLM responses. The schema defines:
+
+```json
+{
+    "type": "object",
+    "properties": {
+        "template_id": {"type": "integer"},
+        "scene": {"type": "string"},
+        "conversation": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "speaker": {"type": "string"},
+                    "utterance": {"type": "string"},
+                    "utterance_intended": {"type": "string"}
+                },
+                "required": ["speaker", "utterance", "utterance_intended"]
+            }
+        }
+    },
+    "required": ["template_id", "scene", "conversation"]
+}
+```
+
+This schema is used directly in the LLM prompt to ensure proper structure in the generated conversations.
 
 ## Applications
 

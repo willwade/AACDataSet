@@ -1,5 +1,0 @@
-De berichten van de OC-gebruiker moeten worden weergegeven zoals ze op de berichtenbalk van hun OC-apparaat zouden verschijnen — korte zinnen, mogelijk telegramstijl of ongrammaticaal. Vermijd het gebruik van beletseltekens ... of sms-stijl interpunctie. OC-berichten moeten directe, duidelijke taal gebruiken. Formatteer de uitvoer als een JSON-object met drie velden:
-0. template_id: {template_id} 
-1. scene — een korte beschrijving van 1-2 zinnen van de setting en deelnemers.
-2. conversation — een array van beurten. Label de sprekers op passende wijze. Voor OC-gebruikers, neem utterance en utterance_intended op.
-Retourneer alleen geldige JSON, zonder markdown-opmaak of extra commentaar.
