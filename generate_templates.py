@@ -42,9 +42,8 @@ def generate_templates(language_code):
     # Generate the templates
     templates = []
     for i, instruction in enumerate(instructions):
-        # Add schema information to the prompt
-        template = f"{instruction}\n\nPlease respond with a JSON object following this schema:\n{json.dumps(get_conversation_schema(), indent=2)}"
-        templates.append(template)
+        # Just use the instruction as the template
+        templates.append(instruction)
 
     # Save the templates
     output_dir = "prompt_templates"
