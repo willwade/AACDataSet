@@ -4,6 +4,7 @@ import random
 import argparse
 from datetime import datetime
 import time
+from jinja2 import Template
 
 # Constants
 BATCH_SIZE = 20000  # Number of dialogues per language
@@ -13,6 +14,9 @@ OUTPUT_DIR = Path("output")
 BATCH_OUTPUT_DIR = Path("batch_output")
 PROMPT_TEMPLATES_DIR = Path("prompt_templates")
 SUBSTITUTIONS_DIR = Path("substitutions")
+DEFAULT_MODEL = (
+    "gpt-4.1-mini"  # Updated to use the more efficient model with higher rate limits
+)
 
 
 def get_conversation_schema():
@@ -101,10 +105,16 @@ def expand_prompt(template, substitutions):
     if "{ writing_style }" in template and "writing_style" in sub_values:
         template = template.replace("{ writing_style }", sub_values["writing_style"])
 
-    return template, sub_values
+    try:
+        # Actually render the template with the substitutions
+        rendered = Template(template).render(**sub_values)
+        return rendered.strip(), sub_values
+    except Exception as e:
+        print(f"Error rendering template with substitutions {sub_values}: {e}")
+        return None, None
 
 
-def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE):
+def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE, model=DEFAULT_MODEL):
     """Prepare batch requests for a specific language."""
     templates, substitutions = load_language_data(lang_code)
     if not templates or not substitutions:
@@ -121,7 +131,7 @@ def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE):
                 "method": "POST",
                 "url": "/v1/chat/completions",
                 "body": {
-                    "model": "gpt-4-turbo-preview",
+                    "model": model,
                     "messages": [
                         {
                             "role": "system",
@@ -171,6 +181,12 @@ def main():
         default=BATCH_SIZE,
         help="Number of requests to generate per language",
     )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=DEFAULT_MODEL,
+        help=f"OpenAI model to use (default: {DEFAULT_MODEL})",
+    )
     args = parser.parse_args()
 
     languages = []
@@ -185,10 +201,11 @@ def main():
 
     for lang in languages:
         print(f"\nPreparing batch requests for language: {lang}")
-        batch_requests = prepare_batch_requests(lang, args.num_requests)
+        batch_requests = prepare_batch_requests(lang, args.num_requests, args.model)
         if batch_requests:
             output_file = save_batch_requests(lang, batch_requests)
             print(f"Saved {len(batch_requests)} batch requests to {output_file}")
+            print(f"Using model: {args.model}")
         else:
             print(f"Failed to prepare batch requests for {lang}")
 
