@@ -121,33 +121,49 @@ def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE, model=DEFAULT_MOD
         return None
 
     batch_requests = []
-    for _ in range(num_requests):
-        template = random.choice(templates)
-        prompt, chosen_subs = expand_prompt(template, substitutions)
+    # Calculate how many requests to generate per template to reach requested total
+    requests_per_template = max(1, num_requests // len(templates))
+    remaining = num_requests - (requests_per_template * len(templates))
 
-        if prompt:
-            request = {
-                "custom_id": f"{lang_code}_{int(time.time())}_{len(batch_requests)}",
-                "method": "POST",
-                "url": "/v1/chat/completions",
-                "body": {
-                    "model": model,
-                    "messages": [
-                        {
-                            "role": "system",
-                            "content": "You are a helpful assistant that generates "
-                            "AAC-like conversations. Your response must "
-                            "follow this JSON schema: "
-                            + json.dumps(get_conversation_schema()),
-                        },
-                        {"role": "user", "content": prompt},
-                    ],
-                    "temperature": 0.7,
-                    "max_tokens": 1000,
-                    "response_format": {"type": "json_object"},
-                },
-            }
-            batch_requests.append(request)
+    # Generate requests for each template
+    for template_id, template in enumerate(templates):
+        # How many requests to generate for this template
+        count = requests_per_template + (1 if remaining > 0 else 0)
+        if remaining > 0:
+            remaining -= 1
+
+        for _ in range(count):
+            prompt, chosen_subs = expand_prompt(template, substitutions)
+
+            if prompt:
+                request = {
+                    "custom_id": f"{lang_code}_{template_id}_{int(time.time())}_{len(batch_requests)}",
+                    "method": "POST",
+                    "url": "/v1/chat/completions",
+                    "body": {
+                        "model": model,
+                        "messages": [
+                            {
+                                "role": "system",
+                                "content": (
+                                    "You are a helpful assistant that generates "
+                                    "AAC-like conversations. Your response must "
+                                    "follow this JSON schema: "
+                                    + json.dumps(get_conversation_schema())
+                                    + f" Important: Use template_id = {template_id} in your response."
+                                ),
+                            },
+                            {"role": "user", "content": prompt},
+                        ],
+                        "temperature": 0.7,
+                        "max_tokens": 1000,
+                        "response_format": {"type": "json_object"},
+                    },
+                }
+                batch_requests.append(request)
+
+    # Shuffle the batch requests to randomize the order
+    random.shuffle(batch_requests)
 
     return batch_requests
 
