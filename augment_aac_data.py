@@ -338,11 +338,8 @@ def process_conversation(conversation_data, qwerty_grid, abc_grid, frequency_gri
     }
 
     for turn in conversation:
-        # Check if this is an AAC user's turn by looking for utterance_intended field
-        # This is more reliable across different languages than looking for specific speaker labels
-        is_aac_user = "utterance_intended" in turn and "utterance" in turn
-
-        if is_aac_user:
+        # Use the explicit is_aac_user field if present
+        if turn.get("is_aac_user", False):
             utterance = turn["utterance"]
             intended = turn["utterance_intended"]
 

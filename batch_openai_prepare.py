@@ -20,7 +20,7 @@ DEFAULT_MODEL = (
 
 
 def get_conversation_schema():
-    """Return the JSON schema for conversation structure."""
+    """Return the JSON schema for conversation structure, now including is_aac_user."""
     return {
         "type": "object",
         "properties": {
@@ -34,8 +34,9 @@ def get_conversation_schema():
                         "speaker": {"type": "string"},
                         "utterance": {"type": "string"},
                         "utterance_intended": {"type": "string"},
+                        "is_aac_user": {"type": "boolean"},
                     },
-                    "required": ["speaker", "utterance", "utterance_intended"],
+                    "required": ["speaker", "utterance", "utterance_intended", "is_aac_user"],
                 },
             },
         },
@@ -146,11 +147,12 @@ def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE, model=DEFAULT_MOD
                             {
                                 "role": "system",
                                 "content": (
-                                    "You are a helpful assistant that generates "
-                                    "AAC-like conversations. Your response must "
-                                    "follow this JSON schema: "
+                                    f"You are a helpful assistant that generates AAC-like conversations in {lang_code}. "
+                                    "Your response must follow this JSON schema: "
                                     + json.dumps(get_conversation_schema())
-                                    + f" Important: Use template_id = {template_id} in your response."
+                                    + f" Important: Use template_id = {template_id} in your response. "
+                                    "For each turn in the conversation, set is_aac_user: true if the speaker is the AAC user, and is_aac_user: false otherwise. "
+                                    "Be sure to include all required fields for every turn."
                                 ),
                             },
                             {"role": "user", "content": prompt},

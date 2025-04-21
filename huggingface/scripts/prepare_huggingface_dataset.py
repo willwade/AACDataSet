@@ -51,12 +51,8 @@ def flatten_conversation_data(conversation_data, lang_code="en"):
 
         # Process each turn in the conversation
         for i, turn in enumerate(conversation):
-            # Check if this is an AAC user's turn by looking for utterance_intended field and noisy variations
-            # This is more reliable across different languages than looking for specific speaker labels
-            is_aac_user = ('utterance_intended' in turn and 'utterance' in turn) or \
-                         any(key.startswith('noisy_') for key in turn)
-
-            if is_aac_user:
+            # Use the explicit is_aac_user field if present
+            if turn.get('is_aac_user', False):
                 # Get context (previous turns)
                 context_speakers = []
                 context_utterances = []
