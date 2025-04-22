@@ -11,5 +11,13 @@
     "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
     "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message."
   ],
+  "aac_user_names": [
+    "Alex", "Charlie", "Morgan", "Taylor", "Jordan", "Sam", "Jamie", "Casey", "Robin", "Steve",
+    "Finley", "Riley", "Harper", "Rowan", "Elliott", "Frankie", "Bailey", "Skylar", "Quinn", "Reese"
+  ],
+  "partner_names": [
+    "Harriet", "George", "Sophie", "Jack", "Amelia", "Oliver", "Emily", "Harry", "Isla", "Leo",
+    "Jessica", "Oscar", "Grace", "Freddie", "Evie", "Archie", "Poppy", "Theo", "Mia", "Arthur"
+  ],
   "topic": ["current events", "local news", "weather", "sports", "television shows", "films", "books", "music", "art", "hobbies", "gardening", "cooking", "baking", "travel plans", "holiday memories", "childhood memories", "family stories", "pets", "wildlife", "nature", "technology", "social media", "gaming", "shopping", "fashion", "home decoration", "DIY projects", "education", "work projects", "career goals", "retirement plans", "community events", "politics", "environmental issues", "food preferences", "restaurant recommendations", "recipes", "exercise routines", "health tips", "daily schedule", "weekend plans", "expressing an opinion", "giving directions", "making arrangements", "ordering food", "requesting assistance", "sharing a joke", "telling an anecdote", "daily care", "pain management", "basic comfort", "changes in condition", "coping strategies", "expressing a need", "social chat", "cultural traditions", "family heritage", "religious celebrations", "multilingual experiences", "traditional recipes", "cultural festivals", "diverse cuisines", "immigration stories", "cultural identity", "language learning", "international travel", "cultural music", "traditional dance", "cultural art forms", "cultural clothing", "interfaith dialogue", "multicultural events", "diverse literature", "cultural films"]
 }

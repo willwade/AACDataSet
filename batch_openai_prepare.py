@@ -96,23 +96,65 @@ def load_language_data(lang_code):
     return templates, substitutions
 
 
-def expand_prompt(template, substitutions):
-    """Expand a template with random substitutions."""
+def expand_prompt(template, substitutions, atomic_relationship=None):
+    """
+    Expand a template with random substitutions, including aac_user and partner names.
+    Always include AAC system and writing style. Use provided atomic_relationship if available.
+    Map ATOMIC10x relation labels (e.g., xReact, oEffect) to human-readable partner roles.
+    """
+    # Mapping for ATOMIC10x relations to human-readable partner roles
+    relation_label_to_role = {
+        "xReact": "a friend reacting to the event",
+        "oEffect": "someone affected by the event",
+        "xWant": "a companion discussing next steps",
+        "oWant": "someone who wants something as a result",
+        "xIntent": "a friend considering intentions",
+        "xNeed": "someone helping with preparations",
+        "xEffect": "someone seeing the outcome",
+        "xAttr": "someone describing the AAC user",
+        "oReact": "someone reacting to the AAC user",
+        "oNeed": "someone needing something before the event",
+        "isAfter": "someone present after the event",
+        "isBefore": "someone present before the event",
+        "HinderedBy": "someone or something hindering communication",
+    }
     sub_values = {}
+    # Always pick AAC user and partner names
+    aac_user = random.choice(substitutions.get("aac_user_names", ["Alex"]))
+    partner = random.choice(substitutions.get("partner_names", ["Taylor"]))
+    sub_values["aac_user"] = aac_user
+    sub_values["partner"] = partner
+    # Support backward compatibility with PersonX/PersonY
+    sub_values["PersonX"] = aac_user
+    sub_values["PersonY"] = partner
+    # Always include AAC system and writing style
+    sub_values["aac_system"] = random.choice(substitutions.get("aac_system", ["keyboard-based AAC device"]))
+    sub_values["writing_style"] = random.choice(substitutions.get("writing_style", [
+        "The AAC user's messages should be shown as they would appear on their AAC device message bar."
+    ]))
+    # Relationship: use atomic10x value if provided, else fallback to substitutions
+    if atomic_relationship:
+        # If it's an ATOMIC10x label, map to human-readable
+        sub_values["relationship"] = relation_label_to_role.get(atomic_relationship, atomic_relationship)
+    else:
+        sub_values["relationship"] = random.choice(substitutions.get("relationship", ["partner"]))
+    # Fill in all other substitutions
     for key in substitutions.keys():
-        if f"{{{{ {key} }}}}" in template:
-            sub_values[key] = random.choice(substitutions[key])
-
-    if "{ writing_style }" in template and "writing_style" in sub_values:
-        template = template.replace("{ writing_style }", sub_values["writing_style"])
-
+        if key not in ("aac_user_names", "partner_names", "aac_system", "writing_style", "relationship"):
+            if f"{{{{ {key} }}}}" in template or f"{{{{ {key} }}}}" in template:
+                sub_values[key] = random.choice(substitutions[key])
+    # Ensure AAC system and writing style are present in the prompt
+    if "{aac_system}" not in template:
+        template = template.rstrip('.') + f" The AAC system in use is {{aac_system}}."
+    if "{writing_style}" not in template:
+        template = template.rstrip('.') + f" Writing style: {{writing_style}}."
     try:
-        # Actually render the template with the substitutions
         rendered = Template(template).render(**sub_values)
         return rendered.strip(), sub_values
     except Exception as e:
         print(f"Error rendering template with substitutions {sub_values}: {e}")
         return None, None
+
 
 
 def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE, model=DEFAULT_MODEL):
@@ -121,52 +163,74 @@ def prepare_batch_requests(lang_code, num_requests=BATCH_SIZE, model=DEFAULT_MOD
     if not templates or not substitutions:
         return None
 
+    # Load ATOMIC10x role map (required for scenario/event/relationship)
+    atomic_role_map_path = Path("aac_user_role_map.json")
+    atomic_role_map = []
+    if atomic_role_map_path.exists():
+        with open(atomic_role_map_path, "r") as f:
+            try:
+                atomic_role_map = json.load(f)
+            except Exception:
+                atomic_role_map = []
+    if not atomic_role_map:
+        print("ERROR: ATOMIC10x role map is required for scenario/event/relationship context.")
+        return None
+
     batch_requests = []
-    # Calculate how many requests to generate per template to reach requested total
     requests_per_template = max(1, num_requests // len(templates))
     remaining = num_requests - (requests_per_template * len(templates))
+    max_retries = 1000  # Prevent infinite loops
 
-    # Generate requests for each template
     for template_id, template in enumerate(templates):
-        # How many requests to generate for this template
         count = requests_per_template + (1 if remaining > 0 else 0)
         if remaining > 0:
             remaining -= 1
 
         for _ in range(count):
-            prompt, chosen_subs = expand_prompt(template, substitutions)
-
-            if prompt:
-                request = {
-                    "custom_id": f"{lang_code}_{template_id}_{int(time.time())}_{len(batch_requests)}",
-                    "method": "POST",
-                    "url": "/v1/chat/completions",
-                    "body": {
-                        "model": model,
-                        "messages": [
-                            {
-                                "role": "system",
-                                "content": (
-                                    f"You are a helpful assistant that generates AAC-like conversations in {lang_code}. "
-                                    "Your response must follow this JSON schema: "
-                                    + json.dumps(get_conversation_schema())
-                                    + f" Important: Use template_id = {template_id} in your response. "
-                                    "For each turn in the conversation, set is_aac_user: true if the speaker is the AAC user, and is_aac_user: false otherwise. "
-                                    "Be sure to include all required fields for every turn."
-                                ),
+            # Strictly enforce all scenario/event/relationship context from a single ATOMIC10x entry
+            for retry in range(max_retries):
+                entry = random.choice(atomic_role_map)
+                # Must have topic, relation, aac_user, partner, aac_user_role, which
+                required_fields = ["topic", "relation", "aac_user", "partner", "aac_user_role", "which"]
+                if all(entry.get(f) for f in required_fields):
+                    atomic_relationship = entry["relation"]
+                    # Only use scenario/event/relationship from this entry
+                    prompt, chosen_subs = expand_prompt(template, substitutions, atomic_relationship=atomic_relationship)
+                    # Optionally, you could inject topic/setting/partner/aac_user from entry into the prompt context if templates use those fields
+                    # (You could also extend expand_prompt to accept these fields directly)
+                    if prompt:
+                        request = {
+                            "custom_id": f"{lang_code}_{template_id}_{int(time.time())}_{len(batch_requests)}",
+                            "method": "POST",
+                            "url": "/v1/chat/completions",
+                            "body": {
+                                "model": model,
+                                "messages": [
+                                    {
+                                        "role": "system",
+                                        "content": (
+                                            f"You are a helpful assistant that generates AAC-like conversations in {lang_code}. "
+                                            "Your response must follow this JSON schema: "
+                                            + json.dumps(get_conversation_schema())
+                                            + f" Important: Use template_id = {template_id} in your response. "
+                                            "For each turn in the conversation, set is_aac_user: true if the speaker is the AAC user, and is_aac_user: false otherwise. "
+                                            "Be sure to include all required fields for every turn."
+                                        ),
+                                    },
+                                    {"role": "user", "content": prompt},
+                                ],
+                                "temperature": 0.7,
+                                "max_tokens": 1000,
+                                "response_format": {"type": "json_object"},
                             },
-                            {"role": "user", "content": prompt},
-                        ],
-                        "temperature": 0.7,
-                        "max_tokens": 1000,
-                        "response_format": {"type": "json_object"},
-                    },
-                }
-                batch_requests.append(request)
+                        }
+                        batch_requests.append(request)
+                        break  # Success for this example, move to next
+                # If not valid, retry
+            else:
+                print(f"Warning: Could not find valid ATOMIC10x entry after {max_retries} retries for template {template_id}")
 
-    # Shuffle the batch requests to randomize the order
     random.shuffle(batch_requests)
-
     return batch_requests
 
 
