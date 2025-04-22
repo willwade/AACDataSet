@@ -83,9 +83,13 @@ def enrich_substitutions():
     substitutions['atomic_relation'] = sorted(set(df['relation'].dropna().unique()))
     with open(ENRICHED_SUBSTITUTIONS_PATH, "w") as f:
         json.dump(substitutions, f, indent=2, ensure_ascii=False)
-    with open(ROLE_MAP_PATH, "w") as f:
-        json.dump(atomic_topic_relation_map, f, indent=2, ensure_ascii=False)
-    print(f"Enriched substitutions and role map saved.")
+    if not ROLE_MAP_PATH.exists():
+        with open(ROLE_MAP_PATH, "w") as f:
+            json.dump(atomic_topic_relation_map, f, indent=2, ensure_ascii=False)
+        print(f"Role map saved to {ROLE_MAP_PATH}")
+    else:
+        print(f"Role map already exists at {ROLE_MAP_PATH}, not overwritten.")
+    print(f"Enriched substitutions saved.")
     return substitutions, atomic_topic_relation_map
 
 # --- Batch Generation ---
