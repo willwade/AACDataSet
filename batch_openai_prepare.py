@@ -103,9 +103,6 @@ def expand_prompt(template, substitutions):
         if f"{{{{ {key} }}}}" in template:
             sub_values[key] = random.choice(substitutions[key])
 
-    if "{ writing_style }" in template and "writing_style" in sub_values:
-        template = template.replace("{ writing_style }", sub_values["writing_style"])
-
     try:
         # Actually render the template with the substitutions
         rendered = Template(template).render(**sub_values)
