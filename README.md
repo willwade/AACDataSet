@@ -1,15 +1,5 @@
 # AACDataSet
 
-**WIP: New Commonsense-Enriched Pipeline (April 2025)**
-
-- All enrichment and batch generation is now handled in `batch_output_enriched/enrich_and_batch.py`.
-- This pipeline leverages the [ATOMIC10x](https://allenai.org/data/atomic-2020) commonsense knowledge graph to generate more natural, varied, and context-aware AAC conversation prompts.
-- The approach is inspired by the SODA project (https://huggingface.co/datasets/allenai/soda), using relation-aware prompt construction for richer scene generation.
-- The previous `substitutions_enriched` directory and scripts are now obsolete and have been removed.
-- See `batch_output_enriched/enrich_and_batch.py` for the latest code and workflow.
-
----
-
 A comprehensive dataset of synthesized Augmentative and Alternative Communication (AAC) conversations for adults with ALS/MND, focusing on realistic communication scenarios using eye-gaze, direct selection, and headmouse with keyboard-based systems.
 
 **Warning**: This dataset contains simulated conversations and should not be used for real-world applications without proper validation and testing. The data is intended for research purposes only. Its ALL WIP and not yet verified. - we are using the English-GB data as a test case for now. Other data really exists as a proof of concept but needs work.
