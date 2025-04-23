@@ -179,6 +179,23 @@ def save_batch_requests(lang_code, batch_requests):
 
     return output_file
 
+def combine_batch_files():
+    BATCH_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = BATCH_OUTPUT_DIR / f"batch_requests_all_{timestamp}.jsonl"
+
+    # Get all batch files
+    batch_files = list(BATCH_OUTPUT_DIR.glob("batch_requests_*.jsonl"))
+    if not batch_files:
+        print("No batch files found to combine.")
+        return
+
+    # Read and write all batch files
+    with open(output_file, "w", encoding="utf-8") as f:
+        for batch_file in batch_files:
+            with open(batch_file, "r", encoding="utf-8") as bf:
+                for line in bf:
+                    f.write(line)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -202,6 +219,12 @@ def main():
         default=DEFAULT_MODEL,
         help=f"OpenAI model to use (default: {DEFAULT_MODEL})",
     )
+    parser.add_argument(
+        "--combine",
+        type=bool,
+        default=True    ,
+        help=f"Combine batch files (default: True)",
+    )
     args = parser.parse_args()
 
     languages = []
@@ -223,6 +246,9 @@ def main():
             print(f"Using model: {args.model}")
         else:
             print(f"Failed to prepare batch requests for {lang}")
+    if args.combine:
+        combine_batch_files()
+        print("Combined batch files")
 
 
 if __name__ == "__main__":

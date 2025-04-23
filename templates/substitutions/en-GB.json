@@ -1,7 +1,7 @@
 {
   "time_of_day": ["morning", "afternoon", "evening", "late night", "midday"],
   "setting": ["home kitchen", "living room", "garden", "café", "park", "supermarket", "pub", "restaurant", "cinema", "theatre", "shopping centre", "community centre", "football ground", "museum", "beach", "workplace", "friend's house", "family gathering", "children's birthday party", "wedding reception", "holiday cottage", "hotel lobby", "train station", "bus stop", "airport", "hospital ward", "GP surgery", "speech therapy clinic", "mosque", "temple", "synagogue", "church", "gurdwara", "cultural festival", "Diwali celebration", "Eid gathering", "Passover seder", "Chinese New Year celebration", "Caribbean carnival", "Polish community centre", "Indian restaurant", "Turkish café", "African-Caribbean market"],
-  "tone": ["gentle", "serious", "supportive", "humorous", "clinical", "frustrated", "patient", "urgent", "informative"],
+  "tone": ["gentle", "serious", "supportive", "humorous", "clinical", "frustrated", "patient", "urgent", "informative", "difficult", "stressful", "happy", "humourous"],
   "relationship": ["spouse", "partner", "close friend", "casual friend", "sibling", "parent", "child", "grandparent", "grandchild", "cousin", "aunt/uncle", "niece/nephew", "neighbour", "colleague", "old classmate",  "boss", "employee", "shop assistant", "waiter/waitress", "barman", "taxi driver", "bus driver", "postal worker", "delivery person", "carer", "nurse", "doctor", "GP", "therapist", "neurologist", "stranger"],
   "aac_system": ["keyboard-based AAC device", "eye-gaze device", "AAC tablet with keyboard"],
   "aac_mlu_length": ["short", "medium", "long"],

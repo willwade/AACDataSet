@@ -54,6 +54,22 @@ def process_batch_results(batch_file):
     with open(batch_file, "r", encoding="utf-8") as f:
         results = [json.loads(line) for line in f]
 
+    # Filter out 'utterance_intended' from non-AAC user turns in each conversation
+    for result in results:
+        convo = result.get('conversation') or result.get('conversations') or result.get('data')
+        if not convo:
+            continue
+        # Support both single and multiple conversations per result
+        if isinstance(convo, dict):
+            convos = [convo]
+        else:
+            convos = convo
+        for conversation in convos:
+            for turn in conversation.get('conversation', []):
+                if not turn.get('is_aac_user', False):
+                    turn.pop('utterance_intended', None)
+
+
     processed_count = 0
     error_count = 0
     recovered_count = 0
