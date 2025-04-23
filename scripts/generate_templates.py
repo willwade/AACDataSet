@@ -31,7 +31,7 @@ def generate_templates(language_code):
     """Generate prompt templates for a specific language."""
 
     # Load the specific instructions for this language
-    instructions_file = f"template_instructions/{language_code}.json"
+    instructions_file = f"templates/instructions/{language_code}.json"
     if not os.path.exists(instructions_file):
         print(f"Instructions file not found: {instructions_file}")
         return
@@ -46,7 +46,7 @@ def generate_templates(language_code):
         templates.append(instruction)
 
     # Save the templates
-    output_dir = "prompt_templates"
+    output_dir = "templates/prompt_templates"
     os.makedirs(output_dir, exist_ok=True)
 
     output_file = f"{output_dir}/{language_code}.json"
@@ -59,7 +59,7 @@ def generate_templates(language_code):
 def get_available_languages():
     """Get a list of all available languages with template instructions."""
     available_langs = []
-    template_instructions_dir = "template_instructions"
+    template_instructions_dir = "templates/instructions"
 
     if not os.path.exists(template_instructions_dir):
         return available_langs
@@ -73,8 +73,6 @@ def get_available_languages():
 
 
 def main():
-    # Create the necessary directories if they don't exist
-    os.makedirs("template_instructions", exist_ok=True)
 
     # Set up command-line argument parsing
     parser = argparse.ArgumentParser(

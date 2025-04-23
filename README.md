@@ -59,6 +59,26 @@ For AAC user turns, the following fields are included:
 
 - **utterance**: The original AAC message as it would appear on the device
 - **utterance_intended**: The full intended meaning of the message
+
+---
+
+## Customizing Prompts and Substitutions
+
+**To change or tweak the prompts generated for each language, you only need to edit:**
+
+- `templates/instructions/<lang>.json` — Controls the prompt templates (instructions) for each language.
+- `templates/substitutions/<lang>.json` — Controls the possible substitutions (e.g., time_of_day, setting, tone, etc.) for each language.
+
+**Do NOT edit `templates/prompt_templates/` directly.**
+- The files in `templates/prompt_templates/` are generated automatically by the script (`scripts/generate_templates.py`) based on the above two folders. Any changes you want to make should be made in `templates/instructions` or `templates/substitutions` and then regenerate the prompt templates.
+
+**Summary:**
+- Edit `templates/instructions/` and `templates/substitutions/` for your language(s)
+- Run `scripts/generate_templates.py` to regenerate all prompt templates
+- `templates/prompt_templates/` will be overwritten automatically
+
+---
+
 - **noisy_utterance**: A version with random typing errors
 - **noisy_utterance_qwerty**: Errors based on QWERTY keyboard adjacency
 - **noisy_utterance_abc**: Errors based on ABC keyboard layout
@@ -83,63 +103,67 @@ For AAC user turns, the following fields are included:
 
 ## Files
 
-- `output/aac_conversations_en.jsonl`: Original generated conversations
-- `output/augmented_aac_conversations_en.jsonl`: Conversations with augmented AAC utterances
-- `prompt_templates/en.json`: Templates used to generate conversations
-- `substitutions/en.json`: Substitution values for conversation generation
-- `scanning_library.py`: Utilities for simulating different keyboard layouts
-- `metrics.py`: Metrics for evaluating AAC communication
-- `main.py`: Script for generating conversations
-- `augment_aac_data.py`: Script for augmenting AAC utterances
+- `data/output/aac_conversations_en.jsonl`: Original generated conversations
+- `data/output/augmented_aac_conversations_en.jsonl`: Conversations with augmented AAC utterances
+- `templates/prompt_templates/en.json`: Templates used to generate conversations
+- `templates/substitutions/en.json`: Substitution values for conversation generation
+- `scripts/scanning_library.py`: Utilities for simulating different keyboard layouts
+- `scripts/metrics.py`: Metrics for evaluating AAC communication
+- `scripts/local_generate.py`: Main script for generating conversations
+- `scripts/augment_aac_data.py`: Script for augmenting AAC utterances
 - `huggingface/`: Scripts and documentation for preparing the dataset for Hugging Face
+- `scripts/`: All main workflow scripts (including batch and processing scripts)
+- `templates/`: Prompt templates and instructions
+- `data/`: All generated output, batch, and error files
+- `requirements.txt`: Python dependencies for all scripts
 
 ## Usage
 
 ### Creating Prompt Templates
 
 ```bash
-python generate_templates.py
+uv venv
+uv pip install -r requirements.txt
+uv pip install uv
 ```
 
-This will create the prompt templates in the `prompt_templates/` directory. The script will ask for a language code (e.g., `en`, `fr`, etc.) and generate the necessary files. Note you can skip this step - we are committing our prompt templates for now.
+### Generating Prompt Templates
+
+```bash
+uv python scripts/generate_templates.py
+```
+
+This will create the prompt templates in `templates/prompt_templates/`. The script will ask for a language code (e.g., `en`, `fr`, etc.) and generate the necessary files. You can skip this step if you are using the committed prompt templates.
 
 ### Generating Conversations
 
 ```bash
-python main.py --lang en --num_variations 3
+uv python scripts/local_generate.py --lang en --num_variations 3
 ```
 
-This will generate new conversations using the templates in `prompt_templates/en.json` and save them to `output/aac_conversations_en.jsonl`.
+This will generate new conversations using the templates in `templates/prompt_templates/en.json` and save them to `data/output/aac_conversations_en.jsonl`.
 
 For locale-specific language codes:
 
 ```bash
-python main.py --lang en-GB --num_variations 3
+uv python scripts/local_generate.py --lang en-GB --num_variations 3
 ```
 
-This will use templates from `prompt_templates/en-GB.json` if available, or fall back to `prompt_templates/en.json` if not. The output will be saved to `output/aac_conversations_en-GB.jsonl`.
-
-### Augmenting Conversations
-
-```bash
-python augment_aac_data.py --input output/aac_conversations_en.jsonl
-```
-
-This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `output/augmented_aac_conversations_en.jsonl`. Read the code carefully. We are being careful about the amount of augmenting we are doing here and we havent verified these rates in the typical population. We are using a 10% error rate for the noisy utterance, and a 5% error rate for the qwerty and abc layouts. The frequency layout is set to 1% error rate. The minimally corrected version is set to 5% error rate, and the fully corrected version is set to 0% error rate. The minimally corrected version is a basic capitalization and punctuation correction, while the fully corrected version is a complete grammatical correction. Note too - this data needs work for languages other than English. We are using the English data as a test case for now. Note too we arent augmenting any more grammar errors. Thats because much of the input might be poor grammatically already  but we need to consider this more
+This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `data/output/augmented_aac_conversations_en.jsonl`. The augmentation rates and logic are explained in the script comments. Note: this data needs work for languages other than English. We are using the English data as a test case for now.
 
 For locale-specific language codes:
 
 ```bash
-python augment_aac_data.py --input output/aac_conversations_en-GB.jsonl
+uv python scripts/augment_aac_data.py --input data/output/aac_conversations_en-GB.jsonl
 ```
 
-The output will automatically be saved to `output/augmented_aac_conversations_en-GB.jsonl`.
+The output will automatically be saved to `data/output/augmented_aac_conversations_en-GB.jsonl`.
 
 ### Preparing for Hugging Face
 
 ```bash
 cd huggingface/scripts
-python prepare_huggingface_dataset.py --input ../../output/augmented_aac_conversations_en.jsonl --output_dir ../data
+uv python prepare_huggingface_dataset.py --input ../../data/output/augmented_aac_conversations_en.jsonl --output_dir ../data
 ```
 
 This will convert the augmented conversations to a format suitable for Hugging Face datasets, splitting the data into train, validation, and test sets. See the [Hugging Face README](huggingface/README.md) for more details.

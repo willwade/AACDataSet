@@ -27,7 +27,7 @@ import string
 # Import language-specific keyboard layouts
 try:
     print("Attempting to import language_keyboards...")
-    from language_keyboards import (
+    from lib.language_keyboards import (
         get_keyboard_layout,
         get_letter_frequencies,
         create_language_abc_grid,
@@ -46,7 +46,7 @@ except ImportError as e:
 # Import scanning library functions
 try:
     print("Attempting to import scanning_library...")
-    from scanning_library import (
+    from lib.scanning_library import (
         create_abc_grid,
         create_qwerty_grid,
         create_frequency_grid,

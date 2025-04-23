@@ -10,10 +10,10 @@ from jinja2 import Template
 BATCH_SIZE = 20000  # Number of dialogues per language
 MAX_BATCH_FILE_SIZE = 50 * 1024 * 1024  # 50MB in bytes
 MAX_REQUEST_SIZE = 4 * 1024 * 1024  # 4MB in bytes
-OUTPUT_DIR = Path("output")
-BATCH_OUTPUT_DIR = Path("batch_output")
-PROMPT_TEMPLATES_DIR = Path("prompt_templates")
-SUBSTITUTIONS_DIR = Path("substitutions")
+OUTPUT_DIR = Path("data/output")
+BATCH_OUTPUT_DIR = Path("data/batch_output")
+PROMPT_TEMPLATES_DIR = Path("templates/prompt_templates")
+SUBSTITUTIONS_DIR = Path("templates/substitutions")
 DEFAULT_MODEL = (
     "gpt-4.1-mini"  # Updated to use the more efficient model with higher rate limits
 )

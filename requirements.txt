@@ -1,0 +1,25 @@
+# Root requirements for AACDataSet
+# Aggregated from scripts and huggingface/scripts
+
+# Core dependencies
+jinja2
+llm
+llm-gemini
+llm-ollama
+tqdm
+pandas
+numpy
+scikit-learn
+# For OpenAI: llm (built-in support)
+
+# HuggingFace dataset prep
+transformers
+huggingface-hub
+torch
+datasets
+
+# If using scripts/augment_aac_data.py
+# (numpy, pandas already included)
+
+# If using scripts/convert_jsonl_csv.py
+# (no extra dependencies, uses stdlib)

@@ -30,8 +30,8 @@ DEFAULT_LANGUAGE = "en"
 MAX_REQUESTS_PER_DAY = 200000  # Increased to allow for 200K dialogues per language
 MAX_REQUESTS_PER_MINUTE = 15
 SLEEP_BETWEEN_REQUESTS = 60 / MAX_REQUESTS_PER_MINUTE
-OUTPUT_DIR = Path("output")  # Create an output directory
-PROMPT_TEMPLATES_DIR = Path("prompt_templates")  # Directory for prompt templates
+OUTPUT_DIR = Path("data/output")  # Create an output directory
+PROMPT_TEMPLATES_DIR = Path("templates/prompt_templates")  # Directory for prompt templates
 SUBSTITUTIONS_DIR = Path("substitutions")  # Directory for substitutions
 
 # --- Argument Parsing ---

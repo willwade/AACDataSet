@@ -4,9 +4,9 @@ import argparse
 from datetime import datetime
 import re
 
-OUTPUT_DIR = Path("output")
-BATCH_OUTPUT_DIR = Path("batch_output")
-ERRORS_DIR = Path("batch_errors")
+OUTPUT_DIR = Path("data/output")
+BATCH_OUTPUT_DIR = Path("data/batch_output")
+ERRORS_DIR = Path("data/batch_errors")
 
 
 def attempt_json_fix(json_str):
