@@ -45,17 +45,17 @@
     "Symbolbasiertes Kommunikationsgerät"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "kurz",
+    "mittel",
+    "lang"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Die Nachrichten des AAC-Nutzers sollten so dargestellt werden, wie sie auf ihrer AAC-Gerätenachrichtenleiste erscheinen würden - kurze Phrasen, möglicherweise telegrammartig oder ungrammatisch. Vermeiden Sie die Verwendung von Auslassungspunkten ... oder SMS-Stil Interpunktion. AAC-Nachrichten sollten direkte, klare Sprache mit minimalen Wörtern verwenden (2-4 Wörter pro Nachricht).",
+    "Die Nachrichten des AAC-Nutzers sollten so dargestellt werden, wie sie auf ihrer AAC-Gerätenachrichtenleiste erscheinen würden - abgekürzte Sätze mit etwas Grammatik, aber fehlenden Artikeln oder Konjunktionen. Nachrichten sollten etwas kondensiert sein, aber immer noch die grundlegende Satzstruktur beibehalten (4-6 Wörter pro Nachricht).",
+    "Die Nachrichten des AAC-Nutzers sollten als vollständige, grammatikalisch korrekte Sätze dargestellt werden. Diese Nachrichten repräsentieren einen AAC-Nutzer, der computerversiert ist und sich Zeit nimmt, vollständige Sätze mit korrekter Grammatik und Interpunktion zu konstruieren, ähnlich wie bei typischer schriftlicher Kommunikation.",
+    "Die Nachrichten des AAC-Nutzers sollten eine Mischung aus Kommunikationsstilen zeigen - manchmal werden kurze telegrammartige Phrasen verwendet, andere Male werden vollständigere Sätze verwendet. Dies repräsentiert, wie AAC-Nutzer ihren Kommunikationsstil basierend auf Energielevel, Dringlichkeit oder Komplexität der Nachricht variieren könnten.",
+    "Nachrichten sind kurz, direkt, oft fehlen kleine Wörter. Sätze sind 2-5 Wörter lang. Keine SMS-Stil Abkürzungen oder Auslassungspunkte.",
+    "Nachrichten sind eine Mischung aus telegrammartigen Phrasen und kurzen vollständigen Sätzen. Passen Sie den Stil natürlich an den Zweck der Nachricht an."
   ],
   "topic": [
     "lokale Feste",

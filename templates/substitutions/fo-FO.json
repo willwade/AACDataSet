@@ -40,17 +40,17 @@
     "bókstavatafla"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
+    "stutt",
+    "miðal",
     "long"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Breytiskjøldin hjá talmiðlara ætti at vísa boðini sum tey sæðust á boðbjálkanum hjá honum - stuttar setningar, møguliga telegrafiskar ella ógrammatiskar. Undgá at nýta útsettar punktur ... ella sms-stíl punktmerkingar. Boðini í breytiskjøldini ættu at nýta beinleiðis, greitt mál við minsta orðatali (2-4 orð per boð).",
+    "Breytiskjøldin hjá talmiðlara ætti at vísa boðini sum tey sæðust á boðbjálkanum hjá honum - styttaðar setningar við nakað grammatikki, men uttan greinir ella samanberingar. Boðini eiga at vera nakað samanpressað, men halda framvegis grunnleggjandi setninga bygnað (4-6 orð per boð).",
+    "Breytiskjøldin hjá talmiðlara ætti at vísa boðini sum fullkomnar, grammatisk rættar setningar. Hesar boðini umboða ein talmiðlara, ið dugir at brúka telduna, og tekur sær tíð til at byggja fullkomnar setningar við rættari grammatikki og punktmerking, sum man kennir frá vanligari skriftligari samskiftisform.",
+    "Breytiskjøldin hjá talmiðlara ætti at vísa ein blanda av ymiskum samskiftisformum - stundum við stuttum telegrafiskum setningum, aðrar ferðir við meira fullkomnum setningum. Hetta umboðar, hvussu talmiðlarar kunnu broyta samskiftisform sítt eftir orku støðu, neyð, ella fløkjaðleika boðskaparins.",
+    "Boðini eru stutt, beinleiðis, ofta uttan smá orð. Setningarnar eru 2-5 orð longar. Eingin sms-stíl styttingar ella útsettar punktur.",
+    "Boðini eru ein blanda av telegrafiskum setningum og stuttum fullkomnum setningum. Tilpassa stílin náttúrliga eftir endamáli boðskaparins."
   ],
   "topic": [
     "føroysk matur",

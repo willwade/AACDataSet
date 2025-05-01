@@ -42,17 +42,17 @@
     "AAC通信板"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "短",
+    "中等",
+    "长"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "AAC用户的信息应显示为他们的AAC设备信息栏上的样子 - 短语，可能是电报式的或不符合语法的。避免使用省略号...或短信式的标点。AAC消息应使用直接，清晰的语言，最少的单词（每条消息2-4个单词）。",
+    "AAC用户的信息应显示为他们的AAC设备信息栏上的样子 - 缩写的句子，有一些语法但缺少冠词或连词。消息应该有些压缩，但仍保持基本的句子结构（每条消息4-6个单词）。",
+    "AAC用户的信息应显示为完整的，语法正确的句子。这些消息代表了一个计算机知识丰富的AAC用户，他们花时间构建具有正确语法和标点的完整句子，类似于典型的书面交流。",
+    "AAC用户的消息应显示各种交流方式的混合 - 有时使用短的电报式短语，其他时候使用更完整的句子。这代表了AAC用户可能会根据能量水平，紧急程度或消息的复杂性改变他们的交流风格。",
+    "信息简短，直接，经常缺少小词。句子长2-5个词。没有短信式的缩写或省略号。",
+    "信息是电报短语和短完整句子的混合。根据消息的目的自然调整风格。"
   ],
   "topic": [
     "中国传统节日",

@@ -36,17 +36,17 @@
     "מכשיר AAC מבוסס מבט עין"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "קצר",
+    "בינוני",
+    "ארוך"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "הודעות המשתמש במכשיר AAC צריכות להופיע כפי שהן מופיעות בסרגל ההודעות של המכשיר — משפטים קצרים, אפשר טלגרפיים או לא דקדוקיים. יש להימנע משימוש באליפסה ... או בניקוד בסגנון מסרונים. הודעות AAC צריכות להשתמש בשפה ישירה, ברורה עם מילים מינימליות (2-4 מילים להודעה).",
+    "הודעות המשתמש במכשיר AAC צריכות להופיע כפי שהן מופיעות בסרגל ההודעות של המכשיר — משפטים מקוצרים עם דקדוק חלקי אך חסרים כלים או חיבורים. ההודעות צריכות להיות מרוכזות באופן חלקי אך עדיין לשמר מבנה משפט בסיסי (4-6 מילים להודעה).",
+    "הודעות המשתמש במכשיר AAC צריכות להופיע כמשפטים שלמים, תקניים מבחינה דקדוקית. ההודעות האלה מייצגות משתמש AAC שמבין במחשבים ומקדיש זמן לבניית משפטים שלמים עם דקדוק וסימני פיסוק תקניים, בדומה לתקשורת כתובה טיפוסית.",
+    "הודעות המשתמש במכשיר AAC צריכות להראות שילוב של סגנונות תקשורת — לפעמים משתמשים בביטויים טלגרפיים קצרים, בפעמים אחרות משתמשים במשפטים מלאים יותר. זה מייצג איך משתמשי AAC עשויים לשנות את סגנון התקשורת שלהם בהתאם לרמות האנרגיה, לדחיפות, או למורכבות של ההודעה.",
+    "ההודעות הן קצרות, ישירות, ולעיתים חסרות מילים קטנות. המשפטים הם באורך של 2-5 מילים. אין שימוש בראשי תיבות בסגנון מסרונים או באליפסה.",
+    "ההודעות הן שילוב של ביטויים טלגרפיים ומשפטים מלאים קצרים. תאים את הסגנון באופן טבעי בהתאם למטרה של ההודעה."
   ],
   "topic": [
     "אירועים מקומיים",

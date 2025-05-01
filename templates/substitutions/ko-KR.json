@@ -47,17 +47,17 @@
     "스캐닝 장치"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "짧은",
+    "중간",
+    "긴"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "AAC 사용자의 메시지는 AAC 장치 메시지 바에 표시되는 것처럼 보여야 합니다 — 짧은 구문, 전보식이거나 문법적으로 불완전할 수 있습니다. 생략부호 ... 또는 문자 메시지 스타일의 문장 부호를 사용하지 마세요. AAC 메시지는 직접적이고 명확한 언어를 사용하며 최소한의 단어를 사용해야 합니다 (메시지 당 2-4 단어).",
+    "AAC 사용자의 메시지는 AAC 장치 메시지 바에 표시되는 것처럼 보여야 합니다 — 문법적으로 어느 정도 있는 축약된 문장이지만 관사나 접속사가 누락되어야 합니다. 메시지가 다소 요약되어 있지만 기본적인 문장 구조를 유지해야 합니다 (메시지 당 4-6 단어).",
+    "AAC 사용자의 메시지는 완전하고 문법적으로 올바른 문장으로 표시되어야 합니다. 이 메시지들은 컴퓨터를 사용할 수 있는 AAC 사용자를 대표하며, 올바른 문법과 구두점을 사용하여 전체 문장을 구성하는 데 시간을 들입니다. 이는 일반적인 서면 통신과 비슷합니다.",
+    "AAC 사용자의 메시지는 의사소통 스타일을 혼합하여 보여야 합니다 — 때로는 짧은 전보식 구문을 사용하고, 다른 때에는 더 완전한 문장을 사용합니다. 이는 AAC 사용자가 에너지 수준, 긴급성 또는 메시지의 복잡성에 따라 의사소통 스타일을 달리할 수 있음을 나타냅니다.",
+    "메시지는 짧고, 직접적이며, 종종 작은 단어가 누락됩니다. 문장은 2-5 단어 길이입니다. 문자 메시지 스타일의 약어나 생략부호를 사용하지 않습니다.",
+    "메시지는 전보식 구문과 짧은 완전한 문장의 혼합입니다. 메시지 목적에 따라 스타일을 자연스럽게 조정하십시오."
   ],
   "topic": [
     "한식",

@@ -46,17 +46,17 @@
     "AAC program"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "kratko",
+    "srednje",
+    "dolgo"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Sporočila uporabnika AAC naprave naj se prikažejo, kot bi se pojavila na njegovi napravi — kratke fraze, morda telegrafsko ali nepravilno. Izogibajte se uporabi tri pike ... ali slogu pisanja v slogu SMS. Sporočila AAC naj uporabljajo neposreden, jasen jezik z minimalnimi besedami (2-4 besede na sporočilo).",
+    "Sporočila uporabnika AAC naprave naj se prikažejo, kot bi se pojavila na njegovi napravi — okrajšane stavke z nekaj slovnice, vendar brez členov ali veznikov. Sporočila naj bodo nekoliko strnjena, vendar še vedno ohranjajo osnovno strukturo stavka (4-6 besed na sporočilo).",
+    "Sporočila uporabnika AAC naprave naj se prikažejo kot popolni, slovnično pravilni stavki. Ta sporočila predstavljajo uporabnika AAC, ki obvlada računalnik in si vzame čas za oblikovanje celih stavkov z pravilno slovnico in ločili, podobno kot je značilno za pisno komunikacijo.",
+    "Sporočila uporabnika AAC naprave naj pokažejo mešanico komunikacijskih slogov — včasih uporabljajo kratke telegrafske fraze, drugič uporabljajo bolj popolne stavke. To predstavlja, kako bi uporabniki AAC lahko spreminjali svoj komunikacijski slog glede na energijske ravni, nujnost ali kompleksnost sporočila.",
+    "Sporočila so kratka, neposredna, pogosto brez majhnih besed. Stavki so dolgi 2-5 besed. Brez okrajšav v stilu SMS ali tri pike.",
+    "Sporočila so mešanica telegrafskih fraz in kratkih polnih stavkov. Slog prilagodite naravno glede na namen sporočila."
   ],
   "topic": [
     "kultura",

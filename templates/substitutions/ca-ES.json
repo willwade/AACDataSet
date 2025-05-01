@@ -51,17 +51,17 @@
     "sistema de comunicació augmentada i alternativa"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "curt",
+    "mitjà",
+    "llarg"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Els missatges de l'usuari de l'AAC s'han de mostrar tal com apareixerien a la barra de missatges del seu dispositiu AAC: frases curtes, possiblement telegràfiques o incorrectes gramaticalment. Eviteu utilitzar punts suspensius... o puntuació d'estil de missatgeria. Els missatges de l'AAC haurien d'utilitzar un llenguatge directe i clar amb paraules mínimes (2-4 paraules per missatge).",
+    "Els missatges de l'usuari de l'AAC s'han de mostrar tal com apareixerien a la barra de missatges del seu dispositiu AAC: frases abreujades amb alguna gramàtica però sense articles o conjuncions. Els missatges haurien de ser una mica condensats però encara mantenir l'estructura bàsica de la frase (4-6 paraules per missatge).",
+    "Els missatges de l'usuari de l'AAC s'han de mostrar com a frases completes i correctes gramaticalment. Aquests missatges representen un usuari de l'AAC que és alfabetitzat en informàtica i que pren el temps per construir frases completes amb gramàtica i puntuació correctes, similars a la comunicació escrita típica.",
+    "Els missatges de l'usuari de l'AAC haurien de mostrar una barreja d'estils de comunicació: a vegades utilitzant frases telegràfiques curtes, altres vegades utilitzant frases més completes. Això representa com els usuaris de l'AAC podrien variar el seu estil de comunicació en funció dels nivells d'energia, l'urgència o la complexitat del missatge.",
+    "Els missatges són curts, directes, sovint falten paraules petites. Les frases tenen de 2 a 5 paraules de llarg. No s'utilitzen abreviacions d'estil de missatgeria o punts suspensius.",
+    "Els missatges són una barreja de frases telegràfiques i frases completes curtes. Ajusta l'estil de forma natural en funció de l'objectiu del missatge."
   ],
   "topic": [
     "festes locals",

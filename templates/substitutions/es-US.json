@@ -44,17 +44,17 @@
     "sistema de comunicación alternativa y aumentativa"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "corto",
+    "medio",
+    "largo"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Los mensajes del usuario de la ayuda de comunicación deben mostrarse como aparecerían en la barra de mensajes de su dispositivo — frases cortas, posiblemente telegráficas o agramaticales. Evite usar elipsis ... o puntuación de estilo de texto. Los mensajes deben usar un lenguaje directo y claro con palabras mínimas (2-4 palabras por mensaje).",
+    "Los mensajes del usuario de la ayuda de comunicación deben mostrarse como aparecerían en la barra de mensajes de su dispositivo — frases abreviadas con algo de gramática pero sin artículos o conjunciones. Los mensajes deben ser algo condensados pero aún mantener la estructura básica de la oración (4-6 palabras por mensaje).",
+    "Los mensajes del usuario de la ayuda de comunicación deben mostrarse como oraciones completas y gramaticalmente correctas. Estos mensajes representan a un usuario de ayuda de comunicación que sabe usar la computadora y se toma el tiempo para construir oraciones completas con la gramática y puntuación correctas, similar a la comunicación escrita típica.",
+    "Los mensajes del usuario de la ayuda de comunicación deben mostrar una mezcla de estilos de comunicación — a veces usando frases telegráficas cortas, otras veces usando oraciones más completas. Esto representa cómo los usuarios de ayuda de comunicación pueden variar su estilo de comunicación basado en los niveles de energía, urgencia o complejidad del mensaje.",
+    "Los mensajes son cortos, directos, a menudo faltan palabras pequeñas. Las oraciones son de 2-5 palabras de largo. No hay abreviaturas de estilo de texto o elipsis.",
+    "Los mensajes son una mezcla de frases telegráficas y oraciones completas cortas. Ajuste el estilo de forma natural según el propósito del mensaje."
   ],
   "topic": [
     "comida",

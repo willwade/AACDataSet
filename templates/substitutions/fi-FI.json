@@ -41,17 +41,17 @@
     "puhegeneraattori"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "lyhyt",
+    "keskipitkä",
+    "pitkä"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "AAC-laitteen käyttäjän viestit tulee näyttää sellaisina kuin ne näkyvät heidän AAC-laitteensa viestipalkissa — lyhyet lauseet, mahdollisesti telegrafiset tai epägrammaattiset. Vältä ellipsien ... tai tekstiviestityylisten välimerkkien käyttöä. AAC-viestien tulisi käyttää suoraa, selkeää kieltä mahdollisimman vähillä sanoilla (2-4 sanaa per viesti).",
+    "AAC-laitteen käyttäjän viestit tulee näyttää sellaisina kuin ne näkyvät heidän AAC-laitteensa viestipalkissa — lyhennetyt lauseet, joissa on jonkin verran kielioppia, mutta joista puuttuu artikkeleita tai konjunktioita. Viestien tulisi olla jonkin verran tiivistettyjä, mutta silti säilyttää peruslauseen rakenne (4-6 sanaa per viesti).",
+    "AAC-laitteen käyttäjän viestit tulee näyttää täydellisinä, kieliopillisesti oikeina lauseina. Nämä viestit edustavat AAC-laitteen käyttäjää, joka on tietokoneen käytössä taitava ja ottaa aikaa muodostaakseen täydellisiä lauseita oikealla kieliopilla ja välimerkeillä, samankaltaisesti kuin tyypillinen kirjallinen viestintä.",
+    "AAC-laitteen käyttäjän viestien tulisi näyttää erilaisia viestintätyylejä - joskus käyttäen lyhyitä telegrafisia lauseita, toisinaan käyttäen täydellisempiä lauseita. Tämä edustaa sitä, kuinka AAC-laitteen käyttäjät saattavat vaihdella viestintätyyliään perustuen energiatasoihin, kiireellisyyteen tai viestin monimutkaisuuteen.",
+    "Viestit ovat lyhyitä, suoria, usein pieniä sanoja puuttuu. Lauseet ovat 2-5 sanaa pitkiä. Ei tekstiviestityylisiä lyhenteitä tai ellipsejä.",
+    "Viestit ovat sekoitus telegrafisia ilmauksia ja lyhyitä täysiä lauseita. Säädä tyyliä luontevasti viestin tarkoituksen mukaan."
   ],
   "topic": [
     "juhannus",

@@ -50,17 +50,17 @@
     "جهاز AAC الصوتي"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "قصير",
+    "متوسط",
+    "طويل"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "يجب أن تظهر رسائل المستخدم لوسيلة المساعدة على الاتصال كما ستظهر على شريط الرسائل الخاص به — عبارات قصيرة، قد تكون تلغرافية أو غير نحوية. تجنب استخدام النقاط المتتالية ... أو علامات الترقيم الخاصة بالرسائل النصية. يجب أن تستخدم رسائل الاتصال المساعدة لغة مباشرة وواضحة بأقل عدد من الكلمات (2-4 كلمات لكل رسالة).",
+    "يجب أن تظهر رسائل المستخدم لوسيلة المساعدة على الاتصال كما ستظهر على شريط الرسائل الخاص به — جمل مختصرة مع بعض القواعد النحوية لكن بدون مقالات أو أدوات ربط. يجب أن تكون الرسائل مكثفة إلى حد ما ولكن لا يزال يحافظ على الهيكل الأساسي للجملة (4-6 كلمات لكل رسالة).",
+    "يجب أن تظهر رسائل المستخدم لوسيلة المساعدة على الاتصال كجمل كاملة، صحيحة من الناحية النحوية. هذه الرسائل تمثل مستخدم الاتصال المساعد الذي يعرف كيفية استخدام الكمبيوتر ويأخذ الوقت لبناء جمل كاملة بالنحو الصحيح والترقيم، مشابهة للاتصال الكتابي النموذجي.",
+    "يجب أن تظهر رسائل المستخدم لوسيلة المساعدة على الاتصال مزيج من أنماط الاتصال — في بعض الأحيان باستخدام عبارات تلغرافية قصيرة، وفي أوقات أخرى باستخدام جمل أكثر اكتمالا. هذا يمثل كيف قد يتغير أسلوب الاتصال لمستخدم الاتصال المساعد بناءً على مستويات الطاقة، أو العجلة، أو تعقيد الرسالة.",
+    "الرسائل قصيرة، مباشرة، غالباً ما تفتقد الكلمات الصغيرة. الجمل تتألف من 2-5 كلمات. لا توجد اختصارات أو نقاط متتالية تشبه الرسائل النصية.",
+    "الرسائل هي مزيج من العبارات التلغرافية والجمل القصيرة الكاملة. يتم تعديل الأسلوب بشكل طبيعي بناءً على غرض الرسالة."
   ],
   "topic": [
     "الدين",

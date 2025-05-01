@@ -50,17 +50,17 @@
     "plataforma de comunicación AAC"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "corto",
+    "medio",
+    "largo"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Los mensajes del usuario del dispositivo de comunicación asistida deben mostrarse tal como aparecerían en la barra de mensajes de su dispositivo: frases cortas, posiblemente telegráficas o agramáticas. Evite el uso de puntos suspensivos... o puntuación al estilo mensajes de texto. Los mensajes deben utilizar un lenguaje directo y claro con palabras mínimas (2-4 palabras por mensaje).",
+    "Los mensajes del usuario del dispositivo de comunicación asistida deben mostrarse como aparecerían en su barra de mensajes del dispositivo — frases abreviadas con algo de gramática pero faltan artículos o conjunciones. Los mensajes deben estar algo condensados pero aún mantener la estructura básica de la oración (4-6 palabras por mensaje).",
+    "Los mensajes del usuario del dispositivo de comunicación asistida deben mostrarse como oraciones completas y gramaticalmente correctas. Estos mensajes representan a un usuario de AAC que sabe utilizar el ordenador y se toma el tiempo para construir oraciones completas con una gramática y puntuación correctas, similar a la comunicación escrita típica.",
+    "Los mensajes del usuario del dispositivo de comunicación asistida deben mostrar una mezcla de estilos de comunicación: a veces usando frases telegráficas cortas, otras veces usando oraciones más completas. Esto representa cómo los usuarios de AAC podrían variar su estilo de comunicación en función de los niveles de energía, la urgencia o la complejidad del mensaje.",
+    "Los mensajes son cortos, directos, a menudo faltan palabras pequeñas. Las oraciones son de 2-5 palabras de largo. No se utilizan abreviaturas al estilo mensajes de texto ni puntos suspensivos.",
+    "Los mensajes son una mezcla de frases telegráficas y frases completas cortas. Ajuste el estilo de forma natural en función del propósito del mensaje."
   ],
   "topic": [
     "fútbol",

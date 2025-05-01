@@ -54,17 +54,17 @@
     "appareil AAC à commande vocale"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
+    "court",
+    "moyen",
     "long"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Les messages de l'utilisateur de l'aide à la communication devraient être affichés tels qu'ils apparaîtraient sur la barre de messages de leur appareil de communication assistée — des phrases courtes, possiblement télégraphiques ou non grammaticales. Évitez d'utiliser des points de suspension ... ou une ponctuation de style SMS. Les messages de la CA doivent utiliser un langage direct, clair avec un minimum de mots (2-4 mots par message).",
+    "Les messages de l'utilisateur de l'aide à la communication devraient être affichés tels qu'ils apparaîtraient sur la barre de messages de leur appareil de communication assistée — des phrases abrégées avec une certaine grammaire mais manquant d'articles ou de conjonctions. Les messages devraient être quelque peu condensés mais toujours maintenir une structure de phrase de base (4-6 mots par message).",
+    "Les messages de l'utilisateur de l'aide à la communication devraient être affichés comme des phrases complètes, grammaticalement correctes. Ces messages représentent un utilisateur de la CA qui est à l'aise avec l'informatique et prend le temps de construire des phrases complètes avec une grammaire et une ponctuation appropriées, similaires à une communication écrite typique.",
+    "Les messages de l'utilisateur de l'aide à la communication devraient montrer un mélange de styles de communication — parfois en utilisant des phrases télégraphiques courtes, d'autres fois en utilisant des phrases plus complètes. Cela représente comment les utilisateurs de la CA pourraient varier leur style de communication en fonction des niveaux d'énergie, de l'urgence, ou de la complexité du message.",
+    "Les messages sont courts, directs, manquant souvent de petits mots. Les phrases sont de 2 à 5 mots de long. Pas d'abréviations de style SMS ou de points de suspension.",
+    "Les messages sont un mélange de phrases télégraphiques et de courtes phrases complètes. Ajustez le style naturellement en fonction du but du message."
   ],
   "topic": [
     "cuisine française",

@@ -41,17 +41,17 @@
     "spraakcomputer"
   ],
   "aac_mlu_length": [
-    "short",
+    "kort",
     "medium",
-    "long"
+    "lang"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "De berichten van de AAC-gebruiker moeten worden weergegeven zoals ze op hun AAC-apparaat berichtenbalk zouden verschijnen - korte zinnen, mogelijk telegramstijl of ongrammaticaal. Vermijd het gebruik van ellipsen ... of tekst-achtige interpunctie. AAC-berichten moeten directe, duidelijke taal gebruiken met minimale woorden (2-4 woorden per bericht).",
+    "De berichten van de AAC-gebruiker moeten worden weergegeven zoals ze op hun AAC-apparaat berichtenbalk zouden verschijnen - afgekorte zinnen met enige grammatica maar missende lidwoorden of voegwoorden. Berichten moeten enigszins ingekort zijn, maar nog steeds de basiszinstructuur behouden (4-6 woorden per bericht).",
+    "De berichten van de AAC-gebruiker moeten worden weergegeven als volledige, grammaticaal correcte zinnen. Deze berichten vertegenwoordigen een AAC-gebruiker die computervaardig is en de tijd neemt om volledige zinnen met een correcte grammatica en interpunctie te formuleren, vergelijkbaar met typische schriftelijke communicatie.",
+    "De berichten van de AAC-gebruiker moeten een mix van communicatiestijlen tonen - soms met behulp van korte telegramstijl zinnen, andere keren met behulp van meer volledige zinnen. Dit vertegenwoordigt hoe AAC-gebruikers hun communicatiestijl kunnen variëren op basis van energieniveaus, urgentie of complexiteit van het bericht.",
+    "Berichten zijn kort, direct, missen vaak kleine woorden. Zinnen zijn 2-5 woorden lang. Geen tekst-achtige afkortingen of ellipsen.",
+    "Berichten zijn een mix van telegramstijl zinnen en korte volledige zinnen. Pas de stijl natuurlijk aan op basis van het doel van het bericht."
   ],
   "topic": [
     "voetbal",

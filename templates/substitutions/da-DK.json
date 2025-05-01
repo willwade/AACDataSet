@@ -48,17 +48,17 @@
     "symbolbaseret kommunikationssystem"
   ],
   "aac_mlu_length": [
-    "short",
+    "kort",
     "medium",
-    "long"
+    "lang"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Beskeder fra AAC-brugeren skal vises, som de ville se ud på deres AAC-enhedens beskedlinje - korte sætninger, muligvis telegramstil eller ugrammatiske. Undgå at bruge ellipse ... eller tekstningsstil punktum. AAC-beskeder skal bruge direkte, klart sprog med minimale ord (2-4 ord pr. besked).",
+    "Beskeder fra AAC-brugeren skal vises, som de ville se ud på deres AAC-enhedens beskedlinje - forkortede sætninger med lidt grammatik, men manglende artikler eller konjunktioner. Beskeder skal være noget kondenserede, men stadig opretholde grundlæggende sætningsstruktur (4-6 ord pr. besked).",
+    "Beskeder fra AAC-brugeren skal vises som komplette, grammatisk korrekte sætninger. Disse beskeder repræsenterer en AAC-bruger, der er computervant og tager sig tid til at konstruere fulde sætninger med korrekt grammatik og punktum, lignende typisk skriftlig kommunikation.",
+    "Beskeder fra AAC-brugeren skal vise en blanding af kommunikationsstile - nogle gange ved hjælp af korte telegramstil sætninger, andre gange ved brug af mere komplette sætninger. Dette repræsenterer, hvordan AAC-brugere kan variere deres kommunikationsstil baseret på energiniveauer, hastighed eller kompleksitet af beskeden.",
+    "Beskeder er korte, direkte, ofte mangler små ord. Sætningerne er 2-5 ord lange. Ingen tekstningsstil forkortelser eller ellipser.",
+    "Beskeder er en blanding af telegramstil sætninger og korte fulde sætninger. Juster stil naturligt baseret på beskedens formål."
   ],
   "topic": [
     "lokale kulturelle begivenheder",

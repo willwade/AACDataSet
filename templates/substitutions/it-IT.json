@@ -49,17 +49,17 @@
     "software di sintesi vocale"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "breve",
+    "medio",
+    "lungo"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "I messaggi dell'utente del dispositivo di comunicazione assistiva dovrebbero essere mostrati come apparirebbero sulla barra dei messaggi del loro dispositivo — frasi brevi, possibilmente telegrafiche o ungrammaticali. Evita di usare le ellissi ... o la punteggiatura nello stile degli SMS. I messaggi dovrebbero utilizzare un linguaggio diretto e chiaro con un minimo di parole (2-4 parole per messaggio).",
+    "I messaggi dell'utente del dispositivo di comunicazione assistiva dovrebbero essere mostrati come apparirebbero sulla barra dei messaggi del loro dispositivo — frasi abbreviate con un po' di grammatica ma mancanti di articoli o congiunzioni. I messaggi dovrebbero essere in qualche modo condensati ma mantenere comunque una struttura di frase di base (4-6 parole per messaggio).",
+    "I messaggi dell'utente del dispositivo di comunicazione assistiva dovrebbero essere mostrati come frasi complete e grammaticalmente corrette. Questi messaggi rappresentano un utente che è competente con il computer e si prende il tempo per costruire frasi complete con una grammatica e una punteggiatura corrette, simili alla comunicazione scritta tipica.",
+    "I messaggi dell'utente del dispositivo di comunicazione assistiva dovrebbero mostrare un mix di stili di comunicazione — a volte usando frasi telegrafiche brevi, altre volte usando frasi più complete. Questo rappresenta come gli utenti potrebbero variare il loro stile di comunicazione in base ai livelli di energia, urgenza o complessità del messaggio.",
+    "I messaggi sono brevi, diretti, spesso mancanti di piccole parole. Le frasi sono lunghe 2-5 parole. Niente abbreviazioni o ellissi in stile SMS.",
+    "I messaggi sono un mix di frasi telegrafiche e brevi frasi complete. Regola lo stile in modo naturale in base allo scopo del messaggio."
   ],
   "topic": [
     "calcio",

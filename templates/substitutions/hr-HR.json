@@ -48,17 +48,17 @@
     "AAC aplikacija"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "kratak",
+    "srednji",
+    "dug"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Poruke korisnika komunikacijskih pomagala trebale bi se prikazati kako bi se pojavile na njihovoj traci s porukama komunikacijskog uređaja - kratke fraze, moguće telegrafske ili nepravilne. Izbjegavajte korištenje elipsi ... ili interpunkcije u stilu slanja poruka. Poruke komunikacijskih pomagala trebale bi koristiti izravan, jasan jezik s minimalnim riječima (2-4 riječi po poruci).",
+    "Poruke korisnika komunikacijskih pomagala trebale bi se prikazati kako bi se pojavile na njihovoj traci s porukama komunikacijskog uređaja - skraćene rečenice s nekom gramatikom, ali nedostaju članci ili veznici. Poruke bi trebale biti donekle sažete, ali još uvijek održavati osnovnu strukturu rečenice (4-6 riječi po poruci).",
+    "Poruke korisnika komunikacijskih pomagala trebale bi se prikazivati kao potpune, gramatički ispravne rečenice. Ove poruke predstavljaju korisnika komunikacijskih pomagala koji je računalno pismen i uzima vremena za izradu punih rečenica s pravilnom gramatikom i interpunkcijom, slično tipičnoj pisanoj komunikaciji.",
+    "Poruke korisnika komunikacijskih pomagala trebale bi pokazivati mješavinu stilova komunikacije - ponekad koristeći kratke telegrafske fraze, drugi put koristeći potpunije rečenice. To predstavlja kako korisnici komunikacijskih pomagala mogu mijenjati svoj stil komunikacije na temelju razina energije, hitnosti ili složenosti poruke.",
+    "Poruke su kratke, izravne, često nedostaju male riječi. Rečenice su dugačke 2-5 riječi. Nema skraćenica u stilu slanja poruka ili elipsi.",
+    "Poruke su mješavina telegrafskih fraza i kratkih cijelih rečenica. Prilagodite stil prirodno na temelju svrhe poruke."
   ],
   "topic": [
     "hrana",

@@ -45,17 +45,17 @@
     "dotykové AAC zařízení"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "krátký",
+    "střední",
+    "dlouhý"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Zprávy uživatele komunikační pomůcky by měly být zobrazeny tak, jak by se objevily na pruhu zpráv jeho komunikačního zařízení - krátké fráze, možná telegrafické nebo nesprávné gramatiky. Vyhněte se používání tří teček ... nebo textové interpunkce. Zprávy komunikačních pomůcek by měly používat přímý, jasný jazyk s minimem slov (2-4 slova na zprávu).",
+    "Zprávy uživatele komunikační pomůcky by měly být zobrazeny tak, jak by se objevily na pruhu zpráv jeho komunikačního zařízení - zkrácené věty s nějakou gramatikou, ale chybějící články nebo spojky. Zprávy by měly být poněkud zkrácené, ale stále zachovávat základní strukturu věty (4-6 slov na zprávu).",
+    "Zprávy uživatele komunikační pomůcky by měly být zobrazeny jako úplné, gramaticky správné věty. Tyto zprávy reprezentují uživatele komunikační pomůcky, který je počítačově gramotný a věnuje čas konstrukci plných vět s správnou gramatikou a interpunkcí, podobně jako typická písemná komunikace.",
+    "Zprávy uživatele komunikační pomůcky by měly ukazovat směs komunikačních stylů - někdy používají krátké telegrafické fráze, jindy používají více úplných vět. To reprezentuje, jak by uživatelé komunikačních pomůcek mohli měnit svůj komunikační styl na základě úrovně energie, naléhavosti nebo složitosti zprávy.",
+    "Zprávy jsou krátké, přímé, často chybí malá slova. Věty jsou dlouhé 2-5 slov. Žádné zkratky ve stylu textových zpráv nebo tři tečky.",
+    "Zprávy jsou směsí telegrafických frází a krátkých plných vět. Styl přizpůsobte přirozeně na základě účelu zprávy."
   ],
   "topic": [
     "tradiční jídla",

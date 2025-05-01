@@ -41,17 +41,17 @@
     "тактильный ААС"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "короткий",
+    "средний",
+    "длинный"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "Сообщения пользователя AAC должны отображаться так, как они появлялись бы на панели сообщений их AAC устройства - короткие фразы, возможно телеграфные или неграмотные. Избегайте использования многоточия ... или пунктуации в стиле смс. Сообщения AAC должны использовать прямой, ясный язык с минимальным количеством слов (2-4 слова в сообщении).",
+    "Сообщения пользователя AAC должны отображаться так, как они появлялись бы на панели сообщений их AAC устройства - сокращенные предложения с некоторой грамматикой, но без артиклей или союзов. Сообщения должны быть несколько сжаты, но все еще сохранять основную структуру предложения (4-6 слов в сообщении).",
+    "Сообщения пользователя AAC должны отображаться в виде полных, грамматически правильных предложений. Эти сообщения представляют пользователя AAC, который умеет обращаться с компьютером и тратит время на составление полных предложений с правильной грамматикой и пунктуацией, аналогично типичной письменной коммуникации.",
+    "Сообщения пользователя AAC должны показывать смесь стилей коммуникации - иногда используются короткие телеграфные фразы, иногда более полные предложения. Это отражает, как пользователи AAC могут менять свой стиль общения в зависимости от уровня энергии, срочности или сложности сообщения.",
+    "Сообщения короткие, прямые, часто без маленьких слов. Предложения длиной от 2 до 5 слов. Нет сокращений в стиле смс или многоточий.",
+    "Сообщения - это смесь телеграфных фраз и коротких полных предложений. Природно корректируйте стиль в зависимости от цели сообщения."
   ],
   "topic": [
     "культура",

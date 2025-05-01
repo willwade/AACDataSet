@@ -46,17 +46,17 @@
     "記号コミュニケーションボード"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "短い",
+    "中程度",
+    "長い"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "AAC ユーザーのメッセージは、AAC デバイスのメッセージバーに表示されるように、短いフレーズ、可能性のある電報スタイルまたは文法的に不完全な形で表示されるべきです。省略記号 ... やテキストスタイルの句読点の使用は避けてください。AAC メッセージは、直接的で明確な言葉を最小限の単語（1 つのメッセージあたり 2-4 単語）で使用すべきです。",
+    "AAC ユーザーのメッセージは、AAC デバイスのメッセージバーに表示されるように、ある程度の文法を持つが冠詞や接続詞が欠けている短縮文で表示されるべきです。メッセージはやや凝縮されているが、基本的な文の構造を保持しているべきです（1 メッセージあたり 4-6 単語）。",
+    "AAC ユーザーのメッセージは完全で文法的に正しい文章として表示されるべきです。これらのメッセージは、コンピュータに精通しており、適切な文法と句読点を使用して完全な文章を構築する時間をかける AAC ユーザーを表現しています。これは一般的な書かれたコミュニケーションに似ています。",
+    "AAC ユーザーのメッセージは、コミュニケーションスタイルの混合を示すべきです - 時には短い電報スタイルのフレーズを使用し、他の時にはより完全な文章を使用します。これは、エネルギーレベル、緊急性、またはメッセージの複雑さに基づいて AAC ユーザーがコミュニケーションスタイルを変える可能性を示しています。",
+    "メッセージは短く、直接的で、小さな単語がよく欠けています。文章は 2-5 単語の長さです。テキストスタイルの略語や省略記号は使用しません。",
+    "メッセージは電報スタイルのフレーズと短い完全な文章の混合です。メッセージの目的に基づいてスタイルを自然に調整します。"
   ],
   "topic": [
     "天気",

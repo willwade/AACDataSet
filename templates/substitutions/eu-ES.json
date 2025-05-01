@@ -40,17 +40,17 @@
     "begizko gailua"
   ],
   "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
+    "labur",
+    "ertaina",
+    "luze"
   ],
   "writing_style": [
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
-    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
-    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
-    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
-    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
-    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+    "AAC erabiltzailearen mezuak beren AAC gailuko mezubarran agertuko lirateken bezala erakutsi beharko dira — esaldi labur, agian telegrafiko edo gramatikakoa. Saiatu elipseak ... edo testuinguru-estiloaren puntuazioa erabiltzea ekiditen. AAC mezuek hizkuntza zuzen, argia erabili beharko dute, hitz gutxirekin (2-4 hitz mezuko).",
+    "AAC erabiltzailearen mezuak beren AAC gailuko mezubarran agertuko lirateken bezala erakutsi beharko dira — esaldi laburdunak gramatika batzuekin baina artikuluak edo konjuntzioak falta dira. Mezuak pixka bat kondentsatuta izan behar dira, baina oraindik oinarrizko esaldi-egitura mantendu behar du (4-6 hitz mezuko).",
+    "AAC erabiltzailearen mezuak esaldi osoak, gramatikoki zuzenak erakutsi behar dira. Mezu hauek ordenagailua erabiltzen jakiten duen AAC erabiltzaile bat errepresentatzen dute, denbora hartuz esaldi osoak eraikitzen, gramatika eta puntuazio egokiarekin, idatzitako komunikazio tipikoari antzekoak.",
+    "AAC erabiltzailearen mezuak komunikazio-estiloen nahasketa bat erakutsi behar du — batzuetan esaldi telegrafiko laburrak erabiltzen dituzte, beste batzuetan esaldi osoagoak erabiltzen dituzte. Hau AAC erabiltzaileek euren komunikazio-estiloa nola aldatzen duten errepresentatzen du, energia-mailen, premiazkoaren edo mezuen konplexutasunaren arabera.",
+    "Mezuak labur, zuzenak dira, hitz txikiak sarritan falta dira. Esaldiak 2-5 hitz luze dira. Ez da testuinguru-estiloaren laburpenik edo elipserik erabiltzen.",
+    "Mezuak esaldi telegrafiko eta esaldi oso labur batzuen nahasketa dira. Doitu estiloa modu naturala mezuko helburuaren arabera."
   ],
   "topic": [
     "herri jaiak",
