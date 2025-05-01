@@ -1,8 +1,92 @@
 {
-  "time_of_day": ["утро", "день", "вечер", "поздний вечер", "полдень"],
-  "setting": ["домашней кухне", "больничной палате", "кабинете логопеда", "кафе", "парке", "библиотеке", "кабинете врача", "семейном собрании"],
-  "tone": ["мягкий", "серьезный", "поддерживающий", "юмористический", "клинический", "расстроенный", "терпеливый", "срочный", "информативный"],
-  "relationship": ["супруг(а)", "сиделка", "медсестра", "невролог", "близкий друг", "брат/сестра", "родитель", "ребенок", "терапевт", "незнакомец"],
-  "aac_system": ["клавиатурное устройство AAC", "устройство отслеживания взгляда", "систему сканирования с переключателем", "планшет AAC с клавиатурой", "систему с одним переключателем", "сканирование с помощью партнера"],
-  "topic": ["ежедневном уходе", "управлении болью", "базовом комфорте", "изменениях состояния", "воспоминаниях", "планах на будущее", "стратегиях преодоления", "выражении потребности", "заказе еды", "социальной беседе"]
+  "time_of_day": [
+    "утро",
+    "день",
+    "вечер",
+    "ночь"
+  ],
+  "setting": [
+    "дом",
+    "офис",
+    "улица",
+    "парк",
+    "магазин",
+    "кафе",
+    "театр",
+    "церковь",
+    "библиотека",
+    "рынок"
+  ],
+  "tone": [
+    "мягкий",
+    "серьезный",
+    "поддерживающий",
+    "веселый",
+    "строгий",
+    "расслабленный"
+  ],
+  "relationship": [
+    "супруг",
+    "партнер",
+    "друг",
+    "родственник",
+    "коллега",
+    "начальник",
+    "учитель",
+    "ученик"
+  ],
+  "aac_system": [
+    "клавиатурный ААС-устройство",
+    "устройство с управлением взглядом",
+    "тактильный ААС"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "культура",
+    "традиции",
+    "праздники",
+    "еда",
+    "политика",
+    "спорт",
+    "кино",
+    "музыка",
+    "литература",
+    "путешествия"
+  ],
+  "aac_user": [
+    "Алексей",
+    "Владимир",
+    "Мария",
+    "Елена",
+    "Иван",
+    "Татьяна",
+    "Сергей",
+    "Ольга",
+    "Николай",
+    "Анна"
+  ],
+  "partner": [
+    "Наталья",
+    "Дмитрий",
+    "Ирина",
+    "Андрей",
+    "Юлия",
+    "Александр",
+    "Екатерина",
+    "Михаил",
+    "Светлана",
+    "Василий"
+  ]
 }

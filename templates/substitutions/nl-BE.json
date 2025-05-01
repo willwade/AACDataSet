@@ -1,0 +1,89 @@
+{
+  "time_of_day": [
+    "ochtend",
+    "middag",
+    "avond",
+    "nacht"
+  ],
+  "setting": [
+    "thuis",
+    "werk",
+    "school",
+    "winkelcentrum",
+    "park",
+    "kerk",
+    "stadhuis",
+    "museum",
+    "bibliotheek",
+    "café"
+  ],
+  "tone": [
+    "zacht",
+    "serieus",
+    "ondersteunend",
+    "vriendelijk",
+    "streng",
+    "informeel",
+    "formeel"
+  ],
+  "relationship": [
+    "echtgenoot",
+    "partner",
+    "vriend",
+    "collega",
+    "familielid",
+    "kennis"
+  ],
+  "aac_system": [
+    "toetsenbord-gebaseerd AAC-apparaat",
+    "oog-gaze apparaat",
+    "spraakgenerator",
+    "tekst-naar-spraak apparaat"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "lokale evenementen",
+    "Belgische geschiedenis",
+    "Belgische gerechten",
+    "Belgische sporten",
+    "Belgische films",
+    "Belgische muziek",
+    "Belgische literatuur"
+  ],
+  "aac_user": [
+    "Jeroen",
+    "Lotte",
+    "Thomas",
+    "Emma",
+    "Lucas",
+    "Sophie",
+    "Louis",
+    "Amélie",
+    "Liam",
+    "Olivia"
+  ],
+  "partner": [
+    "Marie",
+    "Jan",
+    "Elise",
+    "David",
+    "Sarah",
+    "Peter",
+    "Julie",
+    "Michael",
+    "Charlotte",
+    "Sam"
+  ]
+}

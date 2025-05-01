@@ -1,0 +1,99 @@
+{
+  "time_of_day": [
+    "ранок",
+    "день",
+    "вечір",
+    "ніч"
+  ],
+  "setting": [
+    "дома",
+    "робота",
+    "школа",
+    "церква",
+    "ринок",
+    "парк",
+    "бібліотека",
+    "театр",
+    "стадіон",
+    "громадський транспорт"
+  ],
+  "tone": [
+    "лагідний",
+    "серйозний",
+    "підтримуючий",
+    "жартівливий",
+    "розлючений",
+    "спокійний",
+    "зацікавлений",
+    "напружений"
+  ],
+  "relationship": [
+    "дружина",
+    "чоловік",
+    "партнер",
+    "друг",
+    "колега",
+    "батько",
+    "мати",
+    "син",
+    "дочка",
+    "брат",
+    "сестра"
+  ],
+  "aac_system": [
+    "AAC пристрій на основі клавіатури",
+    "Пристрій для керування поглядом",
+    "Портативний AAC пристрій",
+    "Статична дошка для комунікації"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "політика",
+    "культура",
+    "традиції",
+    "їжа",
+    "спорт",
+    "медіа",
+    "музика",
+    "кино",
+    "література",
+    "мистецтво",
+    "релігія"
+  ],
+  "aac_user": [
+    "Андрій",
+    "Марія",
+    "Ольга",
+    "Василь",
+    "Іван",
+    "Наталія",
+    "Сергій",
+    "Анна",
+    "Олександр",
+    "Юлія"
+  ],
+  "partner": [
+    "Тарас",
+    "Ірина",
+    "Микола",
+    "Тетяна",
+    "Петро",
+    "Оксана",
+    "Володимир",
+    "Софія",
+    "Богдан",
+    "Людмила"
+  ]
+}

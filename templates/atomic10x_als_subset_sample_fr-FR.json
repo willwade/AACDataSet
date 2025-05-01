@@ -1,0 +1,162 @@
+[
+  {
+    "topic": "PersonX conduit PersonY à l'hôpital",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "pour sauver sa vie"
+  },
+  {
+    "topic": "PersonX utilise ___ pour communiquer",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "échanger un mot avec un ami"
+  },
+  {
+    "topic": "PersonX appelle la banque",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "vérifier leur compte en banque"
+  },
+  {
+    "topic": "PersonX s'intéresse à PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "est interrogé par Y"
+  },
+  {
+    "topic": "PersonX donne une excellente performance",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "fier"
+  },
+  {
+    "topic": "PersonX bat son ami",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "L'ami de la personne X lui masse le corps"
+  },
+  {
+    "topic": "PersonX aide son frère",
+    "relation": "isAfter",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "La personne X a vu son frère boiter dans la rue"
+  },
+  {
+    "topic": "PersonX transpire",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "pour devenir plus en forme"
+  },
+  {
+    "topic": "PersonX regarde PersonY dormir",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "reconnaissant pour l'inquiétude de X"
+  },
+  {
+    "topic": "PersonX est prêt à manger",
+    "relation": "HinderedBy",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "La personne X a mal au ventre"
+  },
+  {
+    "topic": "PersonX mange ___ avec sa famille",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "heureux"
+  },
+  {
+    "topic": "PersonX le mange quand même",
+    "relation": "HinderedBy",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "Le frère de la personne X l'a attrapé dans son assiette et l'a englouti."
+  },
+  {
+    "topic": "PersonX appelle la banque",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "penser à une question ou un commentaire pour la banque"
+  },
+  {
+    "topic": "PersonX parle à l'ami de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se faire tapoter dans le dos"
+  },
+  {
+    "topic": "PersonX bouge la bouche de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "crier"
+  },
+  {
+    "topic": "PersonX s'en moque vraiment",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "La personne X devient négligente"
+  },
+  {
+    "topic": "PersonX déménage au Colorado",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "excité"
+  },
+  {
+    "topic": "PersonX dort à côté de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "ils se réveillent à côté l'un de l'autre"
+  },
+  {
+    "topic": "PersonX commence à parler",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "appartenance"
+  },
+  {
+    "topic": "PersonX décide de parler à PersonY",
+    "relation": "HinderedBy",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "Ils ont perdu leur voix"
+  }
+]

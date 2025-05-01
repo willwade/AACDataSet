@@ -1,15 +1,101 @@
 {
-  "time_of_day": ["Morgen", "Nachmittag", "Abend", "späten Abend", "Mittag"],
-  "setting": ["Küche zu Hause", "Wohnzimmer", "Garten", "Café", "Park", "Bibliothek", "Kneipe", "Restaurant", "Kino", "Theater", "Einkaufszentrum", "Supermarkt", "Gemeindezentrum", "Sportstätte", "Museum", "Kunstgalerie", "Strand", "Arbeitsplatz", "Klassenzimmer", "Universität", "Haus eines Freundes", "Familientreffen", "Geburtstagsfeier", "Hochzeitsempfang", "Ferienhaus", "Hotellobby", "Bahnhof", "Bushaltestelle", "Flughafen", "Krankenhauszimmer", "Arztpraxis", "Logopädie-Praxis", "Moschee", "Tempel", "Synagoge", "Kirche", "Gurdwara", "Kulturfestival", "Diwali-Feier", "Eid-Versammlung", "Pessach-Seder", "Chinesisches Neujahrsfest", "Karibischer Karneval", "Polnisches Gemeindezentrum", "Indisches Restaurant", "Türkisches Café", "Afro-Karibischer Markt", "Internationales Food Festival"],
-  "tone": ["sanften", "ernsthaften", "unterstützenden", "humorvollen", "klinischen", "frustrierten", "geduldigen", "dringenden", "informativen"],
-  "relationship": ["Ehepartner", "Partner/in", "enger Freund/enge Freundin", "Bekannter/Bekannte", "Geschwisterteil", "Elternteil", "Kind", "Großelternteil", "Enkelkind", "Cousin/Cousine", "Onkel/Tante", "Neffe/Nichte", "Nachbar/in", "Kollege/Kollegin", "Mitschüler/in", "Lehrer/in", "Schüler/in", "Chef/in", "Angestellter/Angestellte", "Verkäufer/in", "Kellner/in", "Barista", "Barkeeper/in", "Taxifahrer/in", "Busfahrer/in", "Postbote/Postbotin", "Lieferant/in", "Pflegekraft", "Krankenpfleger/in", "Arzt/Ärztin", "Hausarzt/Hausärztin", "Therapeut/in", "Neurologe/in", "Fremder/Fremde"],
-  "aac_system": ["tastaturbasiertes UK-Gerät", "Augensteuerungsgerät", "UK-Tablet mit Tastatur", "partnerunterstütztes Scanning"],
-  "aac_mlu_length": ["kurz", "mittel", "lang"],
-  "writing_style": [
-    "Die Nachrichten des UK-Nutzers sollten so dargestellt werden, wie sie auf der Nachrichtenleiste ihres UK-Geräts erscheinen würden — kurze Sätze, möglicherweise telegrafisch oder ungrammatisch. Vermeiden Sie die Verwendung von Auslassungspunkten ... oder SMS-artiger Zeichensetzung. UK-Nachrichten sollten direkte, klare Sprache mit minimalen Wörtern verwenden (2-4 Wörter pro Nachricht).",
-    "Die Nachrichten des UK-Nutzers sollten so dargestellt werden, wie sie auf der Nachrichtenleiste ihres UK-Geräts erscheinen würden — verkürzte Sätze mit etwas Grammatik, aber fehlenden Artikeln oder Konjunktionen. Nachrichten sollten etwas komprimiert sein, aber dennoch die grundlegende Satzstruktur beibehalten (4-6 Wörter pro Nachricht).",
-    "Die Nachrichten des UK-Nutzers sollten als vollständige, grammatikalisch korrekte Sätze dargestellt werden. Diese Nachrichten repräsentieren einen UK-Nutzer, der computerkompetent ist und sich Zeit nimmt, vollständige Sätze mit korrekter Grammatik und Zeichensetzung zu konstruieren, ähnlich wie bei typischer schriftlicher Kommunikation.",
-    "Die Nachrichten des UK-Nutzers sollten eine Mischung aus Kommunikationsstilen zeigen — manchmal kurze, telegrafische Sätze, andere Male vollständigere Sätze. Dies repräsentiert, wie UK-Nutzer ihren Kommunikationsstil basierend auf Energieniveau, Dringlichkeit oder Komplexität der Nachricht variieren könnten."
+  "time_of_day": [
+    "Morgen",
+    "Vormittag",
+    "Nachmittag",
+    "Abend",
+    "Nacht"
   ],
-  "topic": ["aktuelle Ereignisse", "lokale Nachrichten", "Wetter", "Sport", "Fernsehsendungen", "Filme", "Bücher", "Musik", "Kunst", "Hobbys", "Gartenarbeit", "Kochen", "Backen", "Reisepläne", "Urlaubserinnerungen", "Kindheitserinnerungen", "Familiengeschichten", "Haustiere", "Wildtiere", "Natur", "Technologie", "soziale Medien", "Spiele", "Einkaufen", "Mode", "Wohnungsdekoration", "DIY-Projekte", "Bildung", "Arbeitsprojekte", "Karriereziele", "Ruhestandspläne", "Gemeinschaftsveranstaltungen", "Politik", "Umweltthemen", "Essensvorlieben", "Restaurantempfehlungen", "Rezepte", "Trainingsroutinen", "Gesundheitstipps", "Tagesablauf", "Wochenendpläne", "Meinungsäußerung", "Wegbeschreibung", "Vereinbarungen treffen", "Essen bestellen", "um Hilfe bitten", "einen Witz teilen", "eine Anekdote erzählen", "tägliche Pflege", "Schmerzmanagement", "grundlegender Komfort", "Veränderungen des Zustands", "Bewältigungsstrategien", "Ausdruck eines Bedürfnisses", "soziales Gespräch", "kulturelle Traditionen", "Familienerbschaft", "religiöse Feiern", "mehrsprachige Erfahrungen", "traditionelle Rezepte", "Kulturfestivals", "verschiedene Küchen", "Einwanderungsgeschichten", "kulturelle Identität", "Sprachenlernen", "internationale Reisen", "kulturelle Musik", "traditioneller Tanz", "kulturelle Kunstformen", "kulturelle Kleidung", "interreligiöser Dialog", "multikulturelle Veranstaltungen", "vielfältige Literatur", "kulturelle Filme"]
+  "setting": [
+    "Zuhause",
+    "Arbeit",
+    "Supermarkt",
+    "Kneipe",
+    "Kirche",
+    "Bahnhof",
+    "Stadtpark",
+    "Museum",
+    "Fußballstadion",
+    "Bäckerei"
+  ],
+  "tone": [
+    "Sanft",
+    "Ernst",
+    "Unterstützend",
+    "Freundlich",
+    "Respektvoll",
+    "Streng",
+    "Sarkastisch",
+    "Humorvoll",
+    "Förmlich",
+    "Informell"
+  ],
+  "relationship": [
+    "Ehepartner",
+    "Partner",
+    "Freund",
+    "Kollege",
+    "Verwandter",
+    "Nachbar",
+    "Bekannte",
+    "Vorgesetzter",
+    "Mitarbeiter",
+    "Klassenkamerad"
+  ],
+  "aac_system": [
+    "Tastaturbasiertes AAC-Gerät",
+    "Augensteuerungsgerät",
+    "Berührungsbildschirm",
+    "Sprachausgabegerät",
+    "Symbolbasiertes AAC-System"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "Oktoberfest",
+    "Bundesliga",
+    "Bratwurst",
+    "Bier",
+    "Deutsche Geschichte",
+    "Berliner Mauer",
+    "Karneval",
+    "Politik",
+    "Aktuelle Nachrichten",
+    "Kulturveranstaltungen"
+  ],
+  "aac_user": [
+    "Max",
+    "Lukas",
+    "Felix",
+    "Paul",
+    "Elias",
+    "Anna",
+    "Emma",
+    "Sophia",
+    "Mia",
+    "Hannah"
+  ],
+  "partner": [
+    "Michael",
+    "Thomas",
+    "Andreas",
+    "Stefan",
+    "Markus",
+    "Christina",
+    "Monika",
+    "Sabine",
+    "Petra",
+    "Ute"
+  ]
 }

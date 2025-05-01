@@ -1,0 +1,402 @@
+[
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "gronder"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se battre"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se sentir coupable"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se sentir accablé"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "en colère"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "humilié"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "déshonoré"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "en colère"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "trahi"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "pleure"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se mettre en colère"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "pardonner"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "punir"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "s'assurer que les choses sont justes"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "ternir la réputation de quelqu'un"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "causer des ennuis à quelqu'un"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "jouer le jeu"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "passer le test"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "preuve de la tricherie"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "découvrir la tricherie"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "justifié"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "coupable"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "en colère"
+  },
+  {
+    "topic": "PersonX accuse PersonY de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "satisfait"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "pleure"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "crie"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "effrayé"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "en colère"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se retrouve coincé dans une dispute"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se fait crier dessus"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "la vérité"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "punir quelqu'un"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "rendre justice"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "avoir des soupçons"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "avoir entendu des choses"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "être en relation"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "avoir des preuves"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "inquiet"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "nerveux"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "en colère"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "bien"
+  },
+  {
+    "topic": "PersonX accuse ___ de tricher",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "appréhensif"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "PersonY écoute attentivement"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "PersonY sourit"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "parle de tout cela"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "le fait sourire"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "intéressé"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "heureux"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "prise de conscience accrue"
+  },
+  {
+    "topic": "PersonX acquiert l'intérêt de PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "reçoit une réaction"
+  }
+]

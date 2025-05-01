@@ -1,0 +1,111 @@
+{
+  "time_of_day": [
+    "morning",
+    "midday",
+    "afternoon",
+    "evening",
+    "night"
+  ],
+  "setting": [
+    "bush",
+    "outback",
+    "surf beach",
+    "footy ground",
+    "pub",
+    "RSL club",
+    "woolies",
+    "bottle shop",
+    "barbie",
+    "ute",
+    "farm",
+    "school",
+    "office",
+    "church"
+  ],
+  "tone": [
+    "fair dinkum",
+    "strewth",
+    "easygoing",
+    "bloody oath",
+    "deadset",
+    "full on",
+    "hard yakka",
+    "no worries",
+    "ripper",
+    "she'll be right"
+  ],
+  "relationship": [
+    "mate",
+    "cobber",
+    "old man",
+    "old lady",
+    "ankle biter",
+    "bloke",
+    "sheila",
+    "missus",
+    "hubby",
+    "partner",
+    "ex",
+    "colleague",
+    "boss"
+  ],
+  "aac_system": [
+    "keyboard-based AAC device",
+    "eye-gaze device",
+    "speech-generating device",
+    "communication board",
+    "picture exchange communication system"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "footy",
+    "cricket",
+    "barbie",
+    "snags",
+    "VB",
+    "surfing",
+    "Aussie Rules",
+    "bushwalking",
+    "fishing",
+    "travelling the outback",
+    "ANZAC Day",
+    "Australia Day",
+    "Melbourne Cup"
+  ],
+  "aac_user": [
+    "Jack",
+    "Oliver",
+    "William",
+    "Noah",
+    "Thomas",
+    "James",
+    "Lucas",
+    "Henry",
+    "Ethan",
+    "Mason"
+  ],
+  "partner": [
+    "Charlotte",
+    "Olivia",
+    "Amelia",
+    "Ava",
+    "Mia",
+    "Isla",
+    "Grace",
+    "Ella",
+    "Chloe",
+    "Harper"
+  ]
+}

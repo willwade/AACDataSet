@@ -1,8 +1,85 @@
 {
-  "time_of_day": ["πρωί", "απόγευμα", "βράδυ", "αργά το βράδυ", "μεσημέρι"],
-  "setting": ["κουζίνα σπιτιού", "θάλαμο νοσοκομείου", "κλινική λογοθεραπείας", "καφετέρια", "πάρκο", "βιβλιοθήκη", "ιατρείο", "οικογενειακή συγκέντρωση", "σαλόνι", "κήπο", "εστιατόριο", "κινηματογράφο", "θέατρο", "εμπορικό κέντρο", "σούπερ μάρκετ", "κοινοτικό κέντρο", "αθλητικό χώρο", "μουσείο", "παραλία", "χώρο εργασίας", "τάξη", "πανεπιστήμιο"],
-  "tone": ["ήπιο", "σοβαρό", "υποστηρικτικό", "χιουμοριστικό", "κλινικό", "απογοητευμένο", "υπομονετικό", "επείγον", "ενημερωτικό"],
-  "relationship": ["σύζυγος", "φροντιστής", "νοσηλευτής", "νευρολόγος", "στενός φίλος", "αδερφός/ή", "γονέας", "παιδί", "θεραπευτής", "άγνωστος", "συνάδελφος", "δάσκαλος", "γείτονας", "ξάδερφος", "θείος/θεία", "εγγόνι", "παππούς/γιαγιά"],
-  "aac_system": ["συσκευή AAC με πληκτρολόγιο", "συσκευή παρακολούθησης ματιών", "σύστημα σάρωσης με διακόπτες", "tablet AAC με πληκτρολόγιο", "σύστημα μονού διακόπτη", "σάρωση με βοήθεια συντρόφου"],
-  "topic": ["καθημερινή φροντίδα", "διαχείριση πόνου", "βασική άνεση", "αλλαγές στην κατάσταση", "αναμνήσεις", "μελλοντικά σχέδια", "στρατηγικές αντιμετώπισης", "έκφραση ανάγκης", "παραγγελία φαγητού", "κοινωνική συζήτηση", "τρέχοντα γεγονότα", "τοπικές ειδήσεις", "καιρός", "αθλητισμός", "τηλεοπτικές εκπομπές", "ταινίες", "βιβλία", "μουσική", "τέχνη", "χόμπι", "κηπουρική", "μαγειρική", "ταξιδιωτικά σχέδια", "οικογενειακές ιστορίες", "κατοικίδια", "τεχνολογία", "κοινωνικά μέσα", "παιχνίδια", "ψώνια", "μόδα", "διακόσμηση σπιτιού"]
+  "time_of_day": [
+    "πρωί",
+    "μεσημέρι",
+    "απόγευμα",
+    "βράδυ"
+  ],
+  "setting": [
+    "καφενείο",
+    "εκκλησία",
+    "παραλία",
+    "ταβέρνα",
+    "πλατεία",
+    "αρχαίο θέατρο",
+    "μουσείο"
+  ],
+  "tone": [
+    "ευγενικός",
+    "σοβαρός",
+    "υποστηρικτικός",
+    "χαρούμενος",
+    "θυμωμένος",
+    "απογοητευμένος"
+  ],
+  "relationship": [
+    "σύζυγος",
+    "σύντροφος",
+    "φίλος",
+    "αδερφός",
+    "γονέας",
+    "εργαζόμενος",
+    "συμμαθητής"
+  ],
+  "aac_system": [
+    "συσκευή AAC με πληκτρολόγιο",
+    "συσκευή AAC με κίνηση των ματιών",
+    "συστήματα ενισχυτικής και εναλλακτικής επικοινωνίας"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "Ολυμπιακοί Αγώνες",
+    "ελληνική κουζίνα",
+    "ελληνική μουσική",
+    "ελληνική μυθολογία",
+    "πανηγύρια",
+    "παραδοσιακός χορός",
+    "εθνικές γιορτές"
+  ],
+  "aac_user": [
+    "Γιάννης",
+    "Μαρία",
+    "Δημήτρης",
+    "Ελένη",
+    "Νίκος",
+    "Σοφία",
+    "Κώστας",
+    "Άννα",
+    "Βασίλης",
+    "Ειρήνη"
+  ],
+  "partner": [
+    "Παναγιώτης",
+    "Αθηνά",
+    "Χρήστος",
+    "Ευαγγελία",
+    "Θανάσης",
+    "Δέσποινα",
+    "Αντώνης",
+    "Ιωάννα",
+    "Γεώργιος",
+    "Σταυρούλα"
+  ]
 }

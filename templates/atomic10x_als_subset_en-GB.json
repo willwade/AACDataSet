@@ -1,0 +1,802 @@
+[
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "tell off"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "argue"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "felt guilty"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "felt weighed down"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "cross"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "embarrassed"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "shamed"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "cross"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "let down"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "weeps"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "get cross"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "forgive"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "give punishment"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "ensure fairness"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "harm person's reputation"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "get person in trouble"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "play the game"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "take the exam"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "evidence of cheating"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "discover cheating"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "justified"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "guilty"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "cross"
+  },
+  {
+    "topic": "PersonX accuses PersonY of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "content"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "weeps"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "shouts"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "afraid"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "cross"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "get caught in an argument"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "get shouted at"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "the truth"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "discipline someone"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "bring about justice"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "have suspicions"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "have heard things"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "be in a relationship"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "have evidence"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "anxious"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "nervous"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "cross"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "well"
+  },
+  {
+    "topic": "PersonX accuses ___ of cheating",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "anxious"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "PersonY listens attentively"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "PersonY smiles"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "talks all about it"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "makes him smile"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "interested"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "happy"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "heightened awareness"
+  },
+  {
+    "topic": "PersonX acquires PersonY interest",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "receives response"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "has new interest"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "gets new stuff to watch"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to make PersonY get excited"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to say funny jokes that PersonY likes"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to be close to PersonY"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to share things"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "great"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "happy"
+  },
+  {
+    "topic": "PersonX acquires PersonY's interest",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "excited"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "grateful"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "Person x's interests are known or improved"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "Person x is able to continue learning and educating self"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "Person x doesn't stagnate"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "PersonX becomes successful"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "PersonX alienates people"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "pursues another interest"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "continues advancing an interest"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to get what they want"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to earn more for themselves"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to advance his interest."
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to help personx succeed"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "develop interests to develop"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "develop a strategy to advance the interest"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "satisfied"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "good about themselves"
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "excited."
+  },
+  {
+    "topic": "PersonX promotes their own interests",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "proud"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "is thanked by person x"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "is told he is welcome by person x"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "thanked  x"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "assure a compliment in return"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "grateful"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "thankful."
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "is given money"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "is told thank you by person y"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "turns head towards the issue"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "plan a remedy and investigate"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to of assistance"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to be friendly."
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to talk to PersonY"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to converse with PersonY"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to find out the problem"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to find out how they can fix it"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "like a good person"
+  },
+  {
+    "topic": "PersonX agrees to assist PersonY",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "helpful"
+  },
+  {
+    "topic": "PersonX also provided assistance",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "assisted"
+  },
+  {
+    "topic": "PersonX also provided assistance",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "gets thanked"
+  },
+  {
+    "topic": "PersonX also provided assistance",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "gets reward"
+  },
+  {
+    "topic": "PersonX also provided assistance",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "to be of service"
+  },
+  {
+    "topic": "PersonX also provided assistance",
+    "relation": "xReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "contributory"
+  }
+]

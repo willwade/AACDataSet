@@ -1,15 +1,97 @@
 {
-  "time_of_day": ["bore", "prynhawn", "hwyr", "nos", "canol dydd"],
-  "setting": ["cegin cartref", "ystafell fyw", "gardd", "caffi", "parc", "llyfrgell", "tafarn", "bwyty", "sinema", "theatr", "canolfan siopa", "archfarchnad", "canolfan gymunedol", "lleoliad chwaraeon", "amgueddfa", "oriel gelf", "traeth", "gweithle", "ystafell ddosbarth", "prifysgol", "tŷ ffrind", "cyfarfod teuluol", "parti pen-blwydd", "derbyniad priodas", "bwthyn gwyliau", "cyntedd gwesty", "gorsaf drenau", "safle bws", "maes awyr", "ward ysbyty", "meddygfa", "clinig therapi lleferydd", "mosg", "teml", "synagog", "eglwys", "gurdwara", "gŵyl ddiwylliannol", "dathliad Diwali", "cynulliad Eid", "seder y Pasg", "dathliad Blwyddyn Newydd Tsieineaidd", "carnifal Caribïaidd", "canolfan gymunedol Bwylaidd", "bwyty Indiaidd", "caffi Twrcaidd", "marchnad Affro-Caribïaidd", "gŵyl fwyd ryngwladol"],
-  "tone": ["tyner", "difrifol", "cefnogol", "doniol", "clinigol", "rhwystredig", "amyneddgar", "brys", "gwybodaeth"],
-  "relationship": ["priod", "partner", "ffrind agos", "ffrind achlysurol", "brawd/chwaer", "rhiant", "plentyn", "taid/nain", "ŵyr/wyres", "cefnder/cyfnither", "ewythr/modryb", "nai/nith", "cymydog", "cydweithiwr", "cyd-fyfyriwr", "athro/athrawes", "myfyriwr", "rheolwr", "gweithiwr", "cynorthwyydd siop", "gweinydd/gweinyddes", "barista", "barmon", "gyrrwr tacsi", "gyrrwr bws", "gweithiwr post", "person danfon", "gofalwr", "nyrs", "meddyg", "meddyg teulu", "therapydd", "niwrolegydd", "dieithryn"],
-  "aac_system": ["dyfais CAA yn seiliedig ar fysellfwrdd", "dyfais olrhain llygaid", "tabled CAA gyda bysellfwrdd", "sganio gyda chymorth partner"],
-  "aac_mlu_length": ["byr", "canolig", "hir"],
-  "writing_style": [
-    "Dylai negeseuon y defnyddiwr CAA gael eu dangos fel y byddent yn ymddangos ar far negeseuon eu dyfais CAA — ymadroddion byr, o bosibl telegraffiaidd neu anramadegol. Osgowch ddefnyddio ellipsis ... neu atalnodi arddull negeseua. Dylai negeseuon CAA ddefnyddio iaith uniongyrchol, glir gyda geiriau lleiaf (2-4 gair fesul neges).",
-    "Dylai negeseuon y defnyddiwr CAA gael eu dangos fel y byddent yn ymddangos ar far negeseuon eu dyfais CAA — brawddegau talfyredig gyda rhywfaint o ramadeg ond heb erthyglau neu gysyllteiriau. Dylai negeseuon fod yn eithaf cryno ond dal i gynnal strwythur brawddeg sylfaenol (4-6 gair fesul neges).",
-    "Dylai negeseuon y defnyddiwr CAA gael eu dangos fel brawddegau cyflawn, gramadegol gywir. Mae'r negeseuon hyn yn cynrychioli defnyddiwr CAA sy'n llythrennog mewn cyfrifiaduron ac yn cymryd amser i adeiladu brawddegau llawn gyda gramadeg ac atalnodi priodol, yn debyg i gyfathrebu ysgrifenedig nodweddiadol.",
-    "Dylai negeseuon y defnyddiwr CAA ddangos cymysgedd o arddulliau cyfathrebu — weithiau'n defnyddio ymadroddion telegraffiaidd byr, dro arall yn defnyddio brawddegau mwy cyflawn. Mae hyn yn cynrychioli sut y gallai defnyddwyr CAA amrywio eu harddull cyfathrebu yn seiliedig ar lefelau egni, brys, neu gymhlethdod y neges."
+  "time_of_day": [
+    "bore",
+    "prynhawn",
+    "hwyr",
+    "nos"
   ],
-  "topic": ["digwyddiadau cyfredol", "newyddion lleol", "tywydd", "chwaraeon", "rhaglenni teledu", "ffilmiau", "llyfrau", "cerddoriaeth", "celf", "hobïau", "garddio", "coginio", "pobi", "cynlluniau teithio", "atgofion gwyliau", "atgofion plentyndod", "straeon teulu", "anifeiliaid anwes", "bywyd gwyllt", "natur", "technoleg", "cyfryngau cymdeithasol", "gemau", "siopa", "ffasiwn", "addurno cartref", "prosiectau DIY", "addysg", "prosiectau gwaith", "nodau gyrfa", "cynlluniau ymddeol", "digwyddiadau cymunedol", "gwleidyddiaeth", "materion amgylcheddol", "dewisiadau bwyd", "argymhellion bwytai", "ryseitiau", "arferion ymarfer corff", "awgrymiadau iechyd", "amserlen ddyddiol", "cynlluniau penwythnos", "mynegi barn", "rhoi cyfarwyddiadau", "gwneud trefniadau", "archebu bwyd", "gofyn am gymorth", "rhannu jôc", "adrodd anecdot", "gofal dyddiol", "rheoli poen", "cysur sylfaenol", "newidiadau mewn cyflwr", "strategaethau ymdopi", "mynegi angen", "sgwrs gymdeithasol", "traddodiadau diwylliannol", "treftadaeth deuluol", "dathliadau crefyddol", "profiadau amlieithog", "ryseitiau traddodiadol", "gwyliau diwylliannol", "ceginau amrywiol", "straeon mewnfudo", "hunaniaeth ddiwylliannol", "dysgu ieithoedd", "teithio rhyngwladol", "cerddoriaeth ddiwylliannol", "dawns draddodiadol", "ffurfiau celf ddiwylliannol", "dillad diwylliannol", "deialog rhyng-ffydd", "digwyddiadau amlddiwylliannol", "llenyddiaeth amrywiol", "ffilmiau diwylliannol"]
+  "setting": [
+    "tŷ",
+    "ysgol",
+    "siop",
+    "eglwys",
+    "traeth",
+    "bws",
+    "gwesty",
+    "castell",
+    "canolfan dreftadaeth",
+    "gorsaf reilffordd"
+  ],
+  "tone": [
+    "tyner",
+    "difrif",
+    "cynorthwyol",
+    "llon",
+    "trist",
+    "llym",
+    "cyfeillgar",
+    "sarhaus"
+  ],
+  "relationship": [
+    "gwraig",
+    "gŵr",
+    "ffrind",
+    "cariad",
+    "cydweithiwr",
+    "perthynas",
+    "plentyn",
+    "rhiant",
+    "nain",
+    "taid"
+  ],
+  "aac_system": [
+    "dyfais AAC seiliedig ar allweddell",
+    "dyfais AAC sy'n seiliedig ar edrych",
+    "cymorth cyfathrebu",
+    "cymorth lleferydd"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "rygbi",
+    "cenedlaetholdeb",
+    "Eisteddfod",
+    "cerddoriaeth Gymraeg",
+    "bwyd Cymreig",
+    "hanes lleol",
+    "chwaraeon",
+    "newyddion cyffredinol",
+    "diwylliant a chelfyddydau Cymreig",
+    "gwyliau lleol"
+  ],
+  "aac_user": [
+    "Gwyn",
+    "Dafydd",
+    "Eirlys",
+    "Anwen",
+    "Iwan",
+    "Sian",
+    "Llywelyn",
+    "Bethan",
+    "Rhys",
+    "Megan"
+  ],
+  "partner": [
+    "Tomos",
+    "Eleri",
+    "Iolo",
+    "Mair",
+    "Rhodri",
+    "Ffion",
+    "Owain",
+    "Gwen",
+    "Dylan",
+    "Cerys"
+  ]
 }

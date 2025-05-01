@@ -1,15 +1,101 @@
 {
-  "time_of_day": ["mañana", "tarde", "noche", "madrugada", "mediodía"],
-  "setting": ["cocina de casa", "sala de estar", "jardín", "cafetería", "parque", "biblioteca", "bar", "restaurante", "cine", "teatro", "centro comercial", "supermercado", "centro comunitario", "instalación deportiva", "museo", "galería de arte", "playa", "lugar de trabajo", "aula", "universidad", "casa de un amigo", "reunión familiar", "fiesta de cumpleaños", "recepción de boda", "casa de vacaciones", "vestíbulo del hotel", "estación de tren", "parada de autobús", "aeropuerto", "habitación de hospital", "consultorio médico", "clínica de logopedia", "mezquita", "templo", "sinagoga", "iglesia", "gurdwara", "festival cultural", "celebración de Diwali", "reunión de Eid", "séder de Pascua", "celebración del Año Nuevo Chino", "carnaval caribeño", "centro comunitario polaco", "restaurante indio", "café turco", "mercado afrocaribeño", "festival internacional de comida"],
-  "tone": ["amable", "serio", "de apoyo", "humorístico", "clínico", "frustrado", "paciente", "urgente", "informativo"],
-  "relationship": ["cónyuge", "pareja", "amigo/a cercano/a", "conocido/a", "hermano/a", "padre/madre", "hijo/a", "abuelo/a", "nieto/a", "primo/a", "tío/tía", "sobrino/a", "vecino/a", "compañero/a de trabajo", "compañero/a de clase", "profesor/a", "estudiante", "jefe/a", "empleado/a", "dependiente", "camarero/a", "barista", "camarero/a de bar", "taxista", "conductor/a de autobús", "cartero/a", "repartidor/a", "cuidador/a", "enfermero/a", "médico/a", "médico/a de cabecera", "terapeuta", "neurólogo/a", "desconocido/a"],
-  "aac_system": ["dispositivo CAA basado en teclado", "dispositivo de seguimiento ocular", "tableta CAA con teclado", "barrido asistido por compañero"],
-  "aac_mlu_length": ["corta", "media", "larga"],
-  "writing_style": [
-    "Los mensajes del usuario de CAA deben mostrarse como aparecerían en la barra de mensajes de su dispositivo CAA — frases cortas, posiblemente telegráficas o agramáticas. Evite usar puntos suspensivos ... o puntuación estilo mensajes de texto. Los mensajes CAA deben usar lenguaje directo y claro con palabras mínimas (2-4 palabras por mensaje).",
-    "Los mensajes del usuario de CAA deben mostrarse como aparecerían en la barra de mensajes de su dispositivo CAA — oraciones abreviadas con algo de gramática pero sin artículos o conjunciones. Los mensajes deben ser algo condensados pero manteniendo la estructura básica de la oración (4-6 palabras por mensaje).",
-    "Los mensajes del usuario de CAA deben mostrarse como oraciones completas y gramaticalmente correctas. Estos mensajes representan a un usuario de CAA que tiene conocimientos informáticos y se toma tiempo para construir oraciones completas con gramática y puntuación adecuadas, similar a la comunicación escrita típica.",
-    "Los mensajes del usuario de CAA deben mostrar una mezcla de estilos de comunicación — a veces usando frases telegráficas cortas, otras veces usando oraciones más completas. Esto representa cómo los usuarios de CAA podrían variar su estilo de comunicación según los niveles de energía, urgencia o complejidad del mensaje."
+  "time_of_day": [
+    "mañana",
+    "mediodía",
+    "tarde",
+    "noche",
+    "madrugada"
   ],
-  "topic": ["acontecimientos actuales", "noticias locales", "clima", "deportes", "programas de televisión", "películas", "libros", "música", "arte", "aficiones", "jardinería", "cocina", "repostería", "planes de viaje", "recuerdos de vacaciones", "recuerdos de la infancia", "historias familiares", "mascotas", "vida silvestre", "naturaleza", "tecnología", "redes sociales", "videojuegos", "compras", "moda", "decoración del hogar", "proyectos de bricolaje", "educación", "proyectos laborales", "objetivos profesionales", "planes de jubilación", "eventos comunitarios", "política", "temas ambientales", "preferencias alimentarias", "recomendaciones de restaurantes", "recetas", "rutinas de ejercicio", "consejos de salud", "horario diario", "planes de fin de semana", "expresar una opinión", "dar indicaciones", "hacer arreglos", "pedir comida", "solicitar ayuda", "compartir un chiste", "contar una anécdota", "cuidados diarios", "manejo del dolor", "comodidad básica", "cambios en la condición", "estrategias de afrontamiento", "expresar una necesidad", "charla social", "tradiciones culturales", "herencia familiar", "celebraciones religiosas", "experiencias multilingües", "recetas tradicionales", "festivales culturales", "cocinas diversas", "historias de inmigración", "identidad cultural", "aprendizaje de idiomas", "viajes internacionales", "música cultural", "baile tradicional", "formas de arte cultural", "vestimenta cultural", "diálogo interreligioso", "eventos multiculturales", "literatura diversa", "películas culturales"]
+  "setting": [
+    "casa",
+    "trabajo",
+    "mercado",
+    "iglesia",
+    "playa",
+    "montaña",
+    "biblioteca",
+    "teatro",
+    "museo",
+    "estadio"
+  ],
+  "tone": [
+    "amable",
+    "serio",
+    "comprensivo",
+    "alegre",
+    "triste",
+    "enojado",
+    "cariñoso",
+    "respetuoso",
+    "formal",
+    "informal"
+  ],
+  "relationship": [
+    "cónyuge",
+    "pareja",
+    "amigo",
+    "hermano",
+    "padre",
+    "madre",
+    "hijo",
+    "jefe",
+    "compañero de trabajo",
+    "vecino"
+  ],
+  "aac_system": [
+    "dispositivo AAC basado en teclado",
+    "dispositivo de seguimiento ocular",
+    "comunicador de imágenes",
+    "dispositivo de generación de voz",
+    "plataforma de comunicación AAC"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "fútbol",
+    "comida",
+    "fiestas locales",
+    "política",
+    "musica",
+    "cine",
+    "tradición",
+    "viajes",
+    "arte",
+    "literatura"
+  ],
+  "aac_user": [
+    "Carlos",
+    "María",
+    "Juan",
+    "Ana",
+    "Javier",
+    "Carmen",
+    "Francisco",
+    "Isabel",
+    "Miguel",
+    "Teresa"
+  ],
+  "partner": [
+    "Luis",
+    "Pilar",
+    "José",
+    "Sofía",
+    "Daniel",
+    "Laura",
+    "Antonio",
+    "Patricia",
+    "Rafael",
+    "Marta"
+  ]
 }

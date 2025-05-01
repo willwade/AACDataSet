@@ -1,8 +1,97 @@
 {
-  "time_of_day": ["朝", "午後", "夕方", "深夜", "正午"],
-  "setting": ["自宅のキッチン", "病院の病室", "言語療法クリニック", "カフェ", "公園", "図書館", "診療所", "家族の集まり"],
-  "tone": ["優しい", "真剣な", "支援的な", "ユーモラスな", "臨床的な", "イライラした", "忍耐強い", "緊急の", "情報提供的な"],
-  "relationship": ["配偶者", "介護者", "看護師", "神経科医", "親しい友人", "兄弟姉妹", "親", "子供", "セラピスト", "見知らぬ人"],
-  "aac_system": ["キーボードベースのAACデバイス", "視線追跡デバイス", "スイッチスキャニングシステム", "キーボード付きAACタブレット", "シングルスイッチシステム", "パートナー支援スキャニング"],
-  "topic": ["日常のケア", "痛みの管理", "基本的な快適さ", "状態の変化", "思い出", "将来の計画", "対処戦略", "ニーズの表現", "食事の注文", "社交的な会話"]
+  "time_of_day": [
+    "朝",
+    "昼",
+    "夕方",
+    "夜"
+  ],
+  "setting": [
+    "家",
+    "学校",
+    "職場",
+    "公園",
+    "神社",
+    "寺",
+    "商店街",
+    "レストラン",
+    "劇場",
+    "図書館"
+  ],
+  "tone": [
+    "優しい",
+    "真剣",
+    "支援的",
+    "冷静",
+    "楽観的",
+    "積極的",
+    "批判的"
+  ],
+  "relationship": [
+    "配偶者",
+    "パートナー",
+    "友人",
+    "親",
+    "子供",
+    "同僚",
+    "上司",
+    "部下",
+    "師匠",
+    "生徒"
+  ],
+  "aac_system": [
+    "キーボードベースのAACデバイス",
+    "視線入力デバイス",
+    "タッチパネル入力デバイス",
+    "音声出力デバイス",
+    "記号コミュニケーションボード"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "天気",
+    "日本の祭り",
+    "日本の伝統",
+    "日本の食べ物",
+    "アニメ",
+    "マンガ",
+    "映画",
+    "音楽",
+    "スポーツ",
+    "旅行"
+  ],
+  "aac_user": [
+    "佐藤",
+    "鈴木",
+    "高橋",
+    "田中",
+    "渡辺",
+    "伊藤",
+    "山本",
+    "中村",
+    "小林",
+    "吉田"
+  ],
+  "partner": [
+    "桜",
+    "陽子",
+    "美紀",
+    "晴男",
+    "幸子",
+    "昭二",
+    "花子",
+    "博之",
+    "愛子",
+    "剛"
+  ]
 }

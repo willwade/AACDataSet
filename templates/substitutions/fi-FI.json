@@ -1,0 +1,92 @@
+{
+  "time_of_day": [
+    "aamu",
+    "päivä",
+    "ilta",
+    "yö"
+  ],
+  "setting": [
+    "koti",
+    "työpaikka",
+    "koulu",
+    "kauppa",
+    "kirjasto",
+    "teatteri",
+    "kirkko",
+    "järvi",
+    "metsä",
+    "sauna"
+  ],
+  "tone": [
+    "lempeä",
+    "vakava",
+    "tukeva",
+    "iloista",
+    "ärtyisä",
+    "surullinen"
+  ],
+  "relationship": [
+    "puoliso",
+    "kumppani",
+    "ystävä",
+    "vanhempi",
+    "lapsi",
+    "sisarus",
+    "kollega",
+    "naapuri"
+  ],
+  "aac_system": [
+    "näppäimistöön perustuva AAC-laite",
+    "silmänliikkeisiin perustuva laite",
+    "puhegeneraattori"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "juhannus",
+    "joulutraditiot",
+    "suomalainen sauna",
+    "jääkiekko",
+    "Moomin hahmot",
+    "salmiakki",
+    "karjalanpiirakka",
+    "kesämökkeily",
+    "luonto ja retkeily",
+    "suomalainen musiikki"
+  ],
+  "aac_user": [
+    "Juhani",
+    "Olavi",
+    "Helena",
+    "Anneli",
+    "Matti",
+    "Liisa",
+    "Kaarina",
+    "Pekka",
+    "Eeva",
+    "Timo"
+  ],
+  "partner": [
+    "Ritva",
+    "Seppo",
+    "Marjatta",
+    "Heikki",
+    "Leena",
+    "Hannu",
+    "Sinikka",
+    "Jorma",
+    "Aino",
+    "Markku"
+  ]
+}

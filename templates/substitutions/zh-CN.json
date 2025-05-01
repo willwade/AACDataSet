@@ -1,8 +1,92 @@
 {
-  "time_of_day": ["早晨", "下午", "晚上", "深夜", "中午"],
-  "setting": ["家庭厨房", "医院病房", "语言治疗诊所", "咖啡馆", "公园", "图书馆", "医生诊室", "家庭聚会"],
-  "tone": ["温和", "严肃", "支持性", "幽默", "临床", "沮丧", "耐心", "紧急", "信息性"],
-  "relationship": ["配偶", "照顾者", "护士", "神经科医生", "亲密朋友", "兄弟姐妹", "父母", "子女", "治疗师", "陌生人"],
-  "aac_system": ["基于键盘的AAC设备", "眼动追踪设备", "开关扫描系统", "带键盘的AAC平板电脑", "单开关系统", "伙伴辅助扫描"],
-  "topic": ["日常护理", "疼痛管理", "基本舒适", "状况变化", "回忆", "未来计划", "应对策略", "表达需求", "点餐", "社交聊天"]
+  "time_of_day": [
+    "早上",
+    "上午",
+    "中午",
+    "下午",
+    "傍晚",
+    "晚上"
+  ],
+  "setting": [
+    "家",
+    "学校",
+    "办公室",
+    "图书馆",
+    "超市",
+    "饭店",
+    "公园",
+    "电影院",
+    "寺庙",
+    "体育馆"
+  ],
+  "tone": [
+    "温和",
+    "严肃",
+    "支持",
+    "愉快",
+    "尊重",
+    "关心"
+  ],
+  "relationship": [
+    "配偶",
+    "伙伴",
+    "朋友",
+    "同事",
+    "亲人",
+    "邻居"
+  ],
+  "aac_system": [
+    "键盘式AAC设备",
+    "眼球追踪设备",
+    "AAC通信软件",
+    "AAC通信板"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "中国传统节日",
+    "美食",
+    "旅游",
+    "电影",
+    "书籍",
+    "音乐",
+    "政治",
+    "体育",
+    "科技"
+  ],
+  "aac_user": [
+    "小明",
+    "小红",
+    "小华",
+    "小李",
+    "小王",
+    "小刘",
+    "小张",
+    "小林",
+    "小吴",
+    "小陈"
+  ],
+  "partner": [
+    "大明",
+    "大红",
+    "大华",
+    "大李",
+    "大王",
+    "大刘",
+    "大张",
+    "大林",
+    "大吴",
+    "大陈"
+  ]
 }

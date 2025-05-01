@@ -1,0 +1,98 @@
+{
+  "time_of_day": [
+    "아침",
+    "오전",
+    "오후",
+    "저녁",
+    "밤"
+  ],
+  "setting": [
+    "집",
+    "학교",
+    "회사",
+    "도서관",
+    "공원",
+    "병원",
+    "교회",
+    "사찰",
+    "식당",
+    "시장"
+  ],
+  "tone": [
+    "친절한",
+    "진지한",
+    "지원하는",
+    "낭만적인",
+    "비판적인",
+    "경쾌한",
+    "긴급한"
+  ],
+  "relationship": [
+    "배우자",
+    "동반자",
+    "친구",
+    "동료",
+    "사랑하는 사람",
+    "부모",
+    "형제",
+    "동생",
+    "사촌",
+    "선생님"
+  ],
+  "aac_system": [
+    "키보드 기반 AAC 장치",
+    "눈동자 추적 장치",
+    "음성 출력 장치",
+    "직접 선택 장치",
+    "스캐닝 장치"
+  ],
+  "aac_mlu_length": [
+    "short",
+    "medium",
+    "long"
+  ],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message.",
+    "Messages are short, direct, often missing small words. Sentences are 2-5 words long. No texting-style abbreviations or ellipses.",
+    "Messages are a mix of telegraphic phrases and short full sentences. Adjust style naturally based on the message purpose."
+  ],
+  "topic": [
+    "한식",
+    "K-POP",
+    "드라마",
+    "영화",
+    "체육",
+    "국내 여행",
+    "명절",
+    "한류",
+    "정치",
+    "경제"
+  ],
+  "aac_user": [
+    "지훈",
+    "서연",
+    "민준",
+    "예은",
+    "현우",
+    "지유",
+    "준서",
+    "하은",
+    "시우",
+    "지아"
+  ],
+  "partner": [
+    "영희",
+    "철수",
+    "민수",
+    "지현",
+    "현주",
+    "지민",
+    "승민",
+    "소연",
+    "은지",
+    "혜진"
+  ]
+}
