@@ -1,0 +1,162 @@
+[
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "розганяти"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "боротися"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "відчував вину"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "відчував важкість голови"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "сердитий"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "упокорений"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "зневажений"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "сердитий"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "зраджений"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "плаче"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "розсердитися"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "пробачити"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "покарати"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "переконатися, що речі справедливі"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "пошкодити репутацію особи"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "привести особу у біду"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "грати в гру"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "складати тест"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "докази шахрайства"
+  },
+  {
+    "topic": "ОсобаX звинувачує ОсобуY у шахрайстві",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "дізнатися про шахрайство"
+  }
+]

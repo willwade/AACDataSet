@@ -1,0 +1,162 @@
+[
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "grajati"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "boj"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se počutil krivega"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "se počutil težko v glavi"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "jezen"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "ponižan"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "osramočen"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "jezen"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "izdan"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "joka"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "postati jezen"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "odpustiti"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "kaznovati"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "poskrbeti, da so stvari poštene"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "poškodovati osebovo reputacijo"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "spraviti osebo v težave"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "igrati igro"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "opraviti test"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "dokaz o goljufiji"
+  },
+  {
+    "topic": "OsebaX obtožuje oseboY goljufanja",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "izvedeti o goljufiji"
+  }
+]

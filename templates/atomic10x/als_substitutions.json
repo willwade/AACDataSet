@@ -1,0 +1,17 @@
+{
+  "time_of_day": ["morning", "afternoon", "evening", "late night", "midday"],
+  "setting": ["home kitchen", "hospital room", "speech therapy clinic", "cafe", "park", "library", "doctor's office", "family gathering"],
+  "tone": ["gentle", "serious", "supportive", "humorous", "clinical", "frustrated", "patient", "urgent", "informative"],
+  "relationship": ["spouse", "caregiver", "nurse", "neurologist", "close friend", "sibling", "parent", "child", "therapist", "stranger"],
+  "aac_system": ["keyboard-based AAC device", "eye-gaze device", "switch scanning system", "AAC tablet with keyboard", "single-switch system", "partner-assisted scanning"],
+  "aac_mlu_length": ["short", "medium", "long"],
+  "aac_user": ["Alex", "Jamie", "Sam", "Morgan", "Casey", "Jordan", "Taylor", "Riley", "Quinn", "Avery"],
+  "partner": ["Chris", "Pat", "Robin", "Dana", "Jesse", "Skyler", "Hayden", "Reese", "Finley", "Drew"],
+  "writing_style": [
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
+    "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
+    "The AAC user's messages should be shown as complete, grammatically correct sentences. These messages represent an AAC user who is computer literate and takes time to construct full sentences with proper grammar and punctuation, similar to typical written communication.",
+    "The AAC user's messages should show a mix of communication styles — sometimes using short telegraphic phrases, other times using more complete sentences. This represents how AAC users might vary their communication style based on energy levels, urgency, or complexity of the message."
+  ],
+  "topic": ["daily care", "pain management", "basic comfort", "condition changes", "memories", "future plans", "coping strategies", "expressing needs", "ordering food", "social chat"]
+}

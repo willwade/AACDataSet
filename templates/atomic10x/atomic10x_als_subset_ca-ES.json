@@ -1,0 +1,162 @@
+[
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "renyar"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "lluitar"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "sentir-se culpable"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "sentir pes al cap"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "enfadat"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "humiliat"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "deshonrat"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "enfadat"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "oReact",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "traït"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "plora"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "enfadar-se"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "donar perdó"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xEffect",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "imposar un càstig"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "assegurar-se que les coses siguin justes"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "danyar la reputació d'una persona"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xIntent",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "posar una persona en problemes"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "jugar el joc"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "fer l'examen"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "prova de l'engany"
+  },
+  {
+    "topic": "PersonX acusa PersonY de fer trampes",
+    "relation": "xNeed",
+    "aac_user": "Alex",
+    "partner": "Taylor",
+    "aac_user_role": "person with ALS",
+    "which": "descobrir l'engany"
+  }
+]
