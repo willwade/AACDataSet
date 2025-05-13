@@ -104,6 +104,7 @@ For AAC user turns, the following fields are included:
 - `scripts/batch_openai_prepare.py`: Script for preparing batch requests
 - `scripts/process_batch_results.py`: Script for processing batch results
 - `scripts/augment_aac_data.py`: Script for augmenting AAC utterances
+- `scripts/openai_batch_helper.py`: Helper script for automating OpenAI batch processing workflow
 - `huggingface/`: Scripts and documentation for preparing the dataset for Hugging Face
 - `scripts/`: All main workflow scripts (including batch and processing scripts)
 - `scripts/archive/`: Archived scripts that are no longer part of the main workflow
@@ -170,6 +171,8 @@ python scripts/direct_multilingual_generate.py --lang en-GB --num 100 --provider
 For more details, see the [README_multilingual_generation.md](scripts/README_multilingual_generation.md) documentation.
 
 ### Processing Batch Results
+
+#### Manual Processing
 After processing the batch results, you can process the results with:
 
 ```bash
@@ -184,11 +187,35 @@ python scripts/augment_aac_data.py --input path/to/batch_output_transformed.json
 # This will create an augmented file at path/to/augmented_batch_conversations_transformed.jsonl
 ```
 
-The workflow is:
+#### Automated Batch Processing with OpenAI
+For a more streamlined workflow, you can use the OpenAI batch helper script:
+
+```bash
+# Generate batch files
+python scripts/direct_multilingual_generate.py --lang all --num 100 --batch-prepare
+
+# Upload batch files to OpenAI, monitor status, download results, and process them
+python scripts/openai_batch_helper.py --workflow --all
+
+# Or perform individual steps:
+# Upload batch files
+python scripts/openai_batch_helper.py --upload --all
+
+# Check status of batch jobs
+python scripts/openai_batch_helper.py --check --all
+
+# Download results for completed batch jobs
+python scripts/openai_batch_helper.py --download --all
+
+# Process downloaded results
+python scripts/openai_batch_helper.py --process --all
+```
+
+The complete workflow is:
 1. Generate batch files with `direct_multilingual_generate.py --lang [language-code] --batch-prepare --num [count]`
-2. Process the batch files with OpenAI's API
-3. Transform the output with `transform_batch_output.py`
-4. Augment the data with `augment_aac_data.py`
+2. Process the batch files with OpenAI's API (manually or using `openai_batch_helper.py`)
+3. Transform the output with `transform_batch_output.py` (automatically handled by `openai_batch_helper.py --process`)
+4. Augment the data with `augment_aac_data.py` (automatically handled by `openai_batch_helper.py --process`)
 ### Augmenting AAC Data
 
 After processing the batch results, you can augment the AAC utterances with noisy versions and corrections:
@@ -331,7 +358,8 @@ graph TD
     end
 
     subgraph "OpenAI Batch Processing"
-        BP -->|OpenAI Batch System| BR[Batch Results]
+        BP -->|openai_batch_helper.py| OBH[OpenAI Batch Helper]
+        OBH -->|OpenAI Batch System| BR[Batch Results]
         BR -->|process_batch_results.py| C[Generated Conversations]
     end
 
