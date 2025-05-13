@@ -1,0 +1,710 @@
+import json
+import random
+import argparse
+import asyncio
+import time
+import os
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List, Any, Optional, Tuple
+import aiohttp
+import backoff
+import uuid
+
+from google.generativeai import GenerativeModel
+import google.generativeai as genai
+
+# Constants
+OUTPUT_DIR = Path("output")
+CHECKPOINT_DIR = Path("checkpoints")
+BATCH_DIR = Path("batch_files")
+DEFAULT_MODEL_GEMINI = "gemini-1.5-pro"
+DEFAULT_MODEL_OPENAI = "gpt-4o-mini"
+DEFAULT_BATCH_SIZE = 5
+MAX_BATCH_SIZE = 10
+TOKEN_LIMIT = 30000  # Adjust based on the model you're using
+
+# Define a dictionary to map language codes to their language names
+LANGUAGE_CODES = {
+    "af-ZA": "Afrikaans (South Africa)",
+    "ar-SA": "Arabic (Saudi Arabia)",
+    "eu-ES": "Basque (Spain)",
+    "ca-ES": "Catalan (Spain)",
+    "hr-HR": "Croatian (Croatia)",
+    "cs-CZ": "Czech (Czechia)",
+    "da-DK": "Danish (Denmark)",
+    "nl-BE": "Dutch (Belgium)",
+    "nl-NL": "Dutch (Netherlands)",
+    "en-AU": "English (Australia)",
+    "en-CA": "English (Canada)",
+    "en-NZ": "English (New Zealand)",
+    "en-ZA": "English (South Africa)",
+    "en-GB": "English (United Kingdom)",
+    "en-US": "English (United States)",
+    "fo-FO": "Faroese (Faroe Islands)",
+    "fi-FI": "Finnish (Finland)",
+    "fr-CA": "French (Canada)",
+    "fr-FR": "French (France)",
+    "de-AT": "German (Austria)",
+    "de-DE": "German (Germany)",
+    "el-GR": "Greek (Greece)",
+    "he-IL": "Hebrew (Israel)",
+    "it-IT": "Italian (Italy)",
+    "nb-NO": "Norwegian Bokmål (Norway)",
+    "pl-PL": "Polish (Poland)",
+    "pt-BR": "Portuguese (Brazil)",
+    "pt-PT": "Portuguese (Portugal)",
+    "ru-RU": "Russian (Russia)",
+    "sk-SK": "Slovak (Slovakia)",
+    "sl-SI": "Slovenian (Slovenia)",
+    "es-ES": "Spanish (Spain)",
+    "es-US": "Spanish (United States)",
+    "sv-SE": "Swedish (Sweden)",
+    "uk-UA": "Ukrainian (Ukraine)",
+    "cy-GB": "Welsh (United Kingdom)",
+    "zh-CN": "Chinese (China)",
+    "ja-JP": "Japanese (Japan)",
+    "ko-KR": "Korean (Korea)"
+}
+
+# Setup directories
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
+BATCH_DIR.mkdir(parents=True, exist_ok=True)
+
+def load_json_file(file_path: Path) -> Any:
+    """Load a JSON file and return its contents."""
+    with open(file_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_json_file(data: Any, file_path: Path, use_jsonl: bool = False) -> None:
+    """Save data as JSON or JSONL file."""
+    with open(file_path, "w", encoding="utf-8") as f:
+        if use_jsonl and isinstance(data, list):
+            # Write as JSONL (one JSON object per line)
+            for item in data:
+                f.write(json.dumps(item, ensure_ascii=False) + "\n")
+        else:
+            # Write as formatted JSON
+            json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+
+
+def get_supported_languages() -> List[str]:
+    """Get list of supported language codes based on available template files."""
+    langs = []
+    for file in Path("templates/instructions").glob("*.json"):
+        lang_code = file.stem
+        if lang_code != "en":  # Only include non-English languages
+            langs.append(lang_code)
+    return langs
+
+
+def ensure_output_dir(lang_code: str) -> Path:
+    """Create and return output directory for the language."""
+    lang_dir = OUTPUT_DIR / lang_code
+    lang_dir.mkdir(parents=True, exist_ok=True)
+    return lang_dir
+
+
+def get_checkpoint_path(lang_code: str) -> Path:
+    """Get the path for the checkpoint file."""
+    return CHECKPOINT_DIR / f"{lang_code}_checkpoint.json"
+
+
+def save_checkpoint(lang_code: str, completed_items: List[Dict], total_items: int) -> None:
+    """Save progress checkpoint."""
+    checkpoint_data = {
+        "lang_code": lang_code,
+        "completed_items": completed_items,
+        "total_items": total_items,
+        "timestamp": datetime.now().isoformat(),
+    }
+    save_json_file(checkpoint_data, get_checkpoint_path(lang_code))
+    print(f"Checkpoint saved: {len(completed_items)}/{total_items} items completed for {lang_code}")
+
+
+def load_checkpoint(lang_code: str) -> Tuple[List[Dict], int]:
+    """Load checkpoint if it exists, return empty list otherwise."""
+    checkpoint_path = get_checkpoint_path(lang_code)
+    if checkpoint_path.exists():
+        checkpoint_data = load_json_file(checkpoint_path)
+        completed_items = checkpoint_data.get("completed_items", [])
+        total_items = checkpoint_data.get("total_items", 0)
+        print(f"Resuming from checkpoint: {len(completed_items)}/{total_items} items already completed for {lang_code}")
+        return completed_items, total_items
+    return [], 0
+
+
+@backoff.on_exception(backoff.expo, Exception, max_tries=5)
+async def rate_limit() -> None:
+    """Simple rate limiting with exponential backoff on exception."""
+    await asyncio.sleep(1)  # Adjust as needed based on API limits
+
+
+def load_resources(lang_code: str) -> Tuple[List[str], Dict, List[Dict]]:
+    """Load language-specific resources."""
+    # Load templates based on language
+    template_file = Path(f"templates/instructions/{lang_code}.json")
+    if not template_file.exists():
+        template_file = Path("templates/instructions/en.json")
+    templates = load_json_file(template_file)
+
+    # Load language-specific substitutions
+    subs_file = Path(f"templates/substitutions/{lang_code}.json")
+    if not subs_file.exists():
+        subs_file = Path("templates/substitutions/en.json")
+    substitutions = load_json_file(subs_file)
+
+    # Load language-specific atomic data
+    role_map_file = Path(f"templates/atomic10x/atomic10x_als_subset_{lang_code}.json")
+    if not role_map_file.exists():
+        role_map_file = Path("templates/atomic10x/atomic10x_als_subset.json")
+    role_map = load_json_file(role_map_file)
+
+    return templates, substitutions, role_map
+
+
+def expand_template(template_str: str, substitutions: Dict, atomic_entry: Dict, lang_code: str) -> str:
+    """Expand a template with substitutions and atomic entry data."""
+    # Create a new dictionary for substitutions
+    subs = {}
+
+    # Use language-specific names from substitutions file
+    aac_user_name = random.choice(substitutions.get("aac_user", ["Alex"]))
+    partner_name = random.choice(substitutions.get("partner", ["Taylor"]))
+
+    # Process the topic from atomic_entry
+    topic = atomic_entry.get("topic", "daily care")
+    topic = topic.replace("PersonX", aac_user_name).replace("PersonY", partner_name)
+
+    # Replace any blank placeholders with partner name
+    if "___" in topic:
+        topic = topic.replace("___", partner_name)
+    elif "___ " in topic:
+        topic = topic.replace("___ ", f"{partner_name} ")
+    elif " ___" in topic:
+        topic = topic.replace(" ___", f" {partner_name}")
+
+    # Get the relation and which fields from atomic_entry
+    relation = atomic_entry.get("relation", "")
+    which = atomic_entry.get("which", "")
+
+    # Replace PersonX/PersonY in the which field too
+    which = which.replace("PersonX", aac_user_name).replace("PersonY", partner_name)
+
+    # Replace any blank placeholders in the which field too
+    if "___" in which:
+        which = which.replace("___", partner_name)
+    elif "___ " in which:
+        which = which.replace("___ ", f"{partner_name} ")
+    elif " ___" in which:
+        which = which.replace(" ___", f" {partner_name}")
+
+    # Set key fields with atomic entry values and processed data
+    subs["topic"] = topic
+    subs["relationship"] = atomic_entry.get("relationship", "caregiver")
+    subs["setting"] = atomic_entry.get("setting", "home")
+    subs["aac_user"] = aac_user_name
+    subs["partner"] = partner_name
+    subs["which"] = which
+    subs["relation"] = relation
+
+    # Randomly select other substitution values
+    for key in ["time_of_day", "tone", "aac_system", "aac_mlu_length", "writing_style"]:
+        if key in substitutions:
+            subs[key] = random.choice(substitutions[key])
+
+    # Use string formatting to render the template
+    try:
+        from jinja2 import Template
+        template = Template(template_str)
+        return template.render(**subs)
+    except Exception as e:
+        # Fallback simple replacement if Jinja2 fails
+        result = template_str
+        for key, value in subs.items():
+            result = result.replace("{{ " + key + " }}", str(value))
+        return result
+
+
+async def generate_conversation_with_gemini(
+    prompt: str,
+    lang_code: str,
+    model_name: str = DEFAULT_MODEL_GEMINI
+) -> Dict:
+    """Generate a conversation using Google's Gemini model."""
+    try:
+        # Configure the model
+        model = GenerativeModel(model_name)
+
+        # Generate content
+        system_prompt = get_system_prompt(lang_code)
+        response = await asyncio.to_thread(
+            model.generate_content,
+            [
+                {"role": "system", "parts": [system_prompt]},
+                {"role": "user", "parts": [prompt]}
+            ]
+        )
+
+        # Process the response to extract JSON
+        try:
+            # Extract the response text
+            response_text = response.text
+
+            # Check if the response contains JSON
+            import re
+            json_match = re.search(r'```json\s*([\s\S]*?)\s*```', response_text)
+            if json_match:
+                json_str = json_match.group(1)
+            else:
+                json_str = response_text
+
+            # Try to parse the JSON
+            conversation_data = json.loads(json_str)
+            return conversation_data
+
+        except json.JSONDecodeError:
+            print(f"Failed to parse JSON from response: {response_text[:100]}...")
+            # Return a simple error object
+            return {
+                "error": "Failed to parse JSON from response",
+                "raw_response": response_text[:500]  # Include partial response for debugging
+            }
+
+    except Exception as e:
+        print(f"Error generating with Gemini: {str(e)}")
+        return {"error": str(e)}
+
+
+async def generate_conversation_with_openai(
+    prompt: str,
+    lang_code: str,
+    model_name: str = DEFAULT_MODEL_OPENAI,
+    api_key: str = None
+) -> Dict:
+    """Generate a conversation using OpenAI API."""
+    if not api_key:
+        api_key = os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OpenAI API key is required but not provided")
+
+    system_prompt = get_system_prompt(lang_code)
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(
+            "https://api.openai.com/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            },
+            json={
+                "model": model_name,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0.7,
+                "max_tokens": 1500,
+                "response_format": {"type": "json_object"}
+            }
+        ) as response:
+            if response.status != 200:
+                error_text = await response.text()
+                print(f"OpenAI API error: {response.status} - {error_text}")
+                return {"error": f"API error: {response.status}"}
+
+            result = await response.json()
+            try:
+                # Extract the content from the completion
+                content = result["choices"][0]["message"]["content"]
+                # Parse the JSON content
+                conversation_data = json.loads(content)
+                return conversation_data
+            except (KeyError, json.JSONDecodeError) as e:
+                print(f"Failed to parse OpenAI response: {str(e)}")
+                return {"error": str(e), "raw_response": str(result)}
+
+
+def get_system_prompt(lang_code: str) -> str:
+    """Get the appropriate system prompt for the given language."""
+    # Get language name for clearer instructions
+    language_names = {
+        "en": "English",
+        "en-US": "English (US)",
+        "en-GB": "English (UK)",
+        "es": "Spanish",
+        "es-ES": "Spanish (Spain)",
+        "fr": "French",
+        "fr-FR": "French (France)",
+        "de": "German",
+        "de-DE": "German (Germany)",
+        "it": "Italian",
+        "it-IT": "Italian (Italy)",
+        "pt": "Portuguese",
+        "pt-BR": "Portuguese (Brazil)",
+        "pt-PT": "Portuguese (Portugal)",
+        "nl": "Dutch",
+        "nl-NL": "Dutch (Netherlands)",
+        "pl": "Polish",
+        "pl-PL": "Polish (Poland)",
+        "ru": "Russian",
+        "ru-RU": "Russian (Russia)",
+        "ja": "Japanese",
+        "ja-JP": "Japanese (Japan)",
+        "zh": "Chinese",
+        "zh-CN": "Chinese (Simplified)",
+        "zh-TW": "Chinese (Traditional)",
+        "ar": "Arabic",
+        "ar-SA": "Arabic (Saudi Arabia)",
+        "hi": "Hindi",
+        "hi-IN": "Hindi (India)",
+        "ko": "Korean",
+        "ko-KR": "Korean (South Korea)",
+        "cy-GB": "Welsh (UK)",
+    }
+
+    language_name = language_names.get(lang_code, lang_code)
+
+    # Check for language-specific system prompt
+    prompt_template_file = Path(f"AACDataSet/templates/prompt_templates/{lang_code}.json")
+    if not prompt_template_file.exists():
+        prompt_template_file = Path("AACDataSet/templates/prompt_templates/en.json")
+
+    try:
+        templates = load_json_file(prompt_template_file)
+        base_prompt = random.choice(templates)
+
+        # Add explicit language instruction
+        if lang_code == "cy-GB":
+            language_instruction = f"\n\nIMPORTANT: You MUST generate ALL content in {language_name} language ONLY, using COLLOQUIAL, EVERYDAY spoken Welsh - NOT formal or literary Welsh. Use natural spoken language as people would use in real conversations. The output conversation must be entirely in colloquial {language_name}, including all utterances, scene descriptions, and any other text content. Do not use any other language or formal Welsh."
+        else:
+            language_instruction = f"\n\nIMPORTANT: You MUST generate ALL content in {language_name} language ONLY. The output conversation must be entirely in {language_name}, including all utterances, scene descriptions, and any other text content. Do not use any other language."
+
+        return base_prompt + language_instruction
+    except Exception:
+        # Fallback generic system prompt
+        return (
+            f"You are a helpful assistant generating AAC-like conversations for adults with ALS/MND. "
+            f"Follow this JSON schema exactly:\n"
+            "{\n"
+            "  'template_id': int,\n"
+            "  'scene': str,\n"
+            "  'conversation': [\n"
+            "    {\n"
+            "      'speaker': str,\n"
+            "      'utterance': str,\n"
+            "      'utterance_intended': str,\n"
+            "      'is_aac_user': bool\n"
+            "    },\n"
+            "    ...\n"
+            "  ]\n"
+            "}\n\n"
+            "For AAC users, 'utterance_intended' should be what they wanted to say "
+            "(complete, grammatical), while 'utterance' should be what they actually "
+            "typed on their device (may be shorter, telegraphic, or have typos). "
+            "For non-AAC users, 'utterance_intended' and 'utterance' should be identical. "
+            "Keep AAC utterances realistic for users with physical limitations.\n\n"
+            f"IMPORTANT: You MUST generate ALL content in {language_name} language ONLY{', using COLLOQUIAL, EVERYDAY spoken Welsh - NOT formal or literary Welsh' if lang_code == 'cy-GB' else ''}. The output conversation must be entirely in {language_name}{' using natural spoken language as people would use in real conversations' if lang_code == 'cy-GB' else ''}, including all utterances, scene descriptions, and any other text content. Do not use any other language."
+        )
+
+
+async def process_batch(
+    batch: List[Tuple[str, int]],
+    lang_code: str,
+    provider: str,
+    model_name: str,
+    openai_api_key: str = None
+) -> List[Dict]:
+    """Process a batch of prompts and return generated conversations."""
+    results = []
+
+    # Process each prompt in the batch
+    for prompt, template_id in batch:
+        await rate_limit()  # Apply rate limiting
+
+        try:
+            # Choose provider
+            if provider.lower() == "gemini":
+                result = await generate_conversation_with_gemini(prompt, lang_code, model_name)
+            else:  # Default to OpenAI
+                result = await generate_conversation_with_openai(prompt, lang_code, model_name, openai_api_key)
+
+            # Add template_id if not present in the result
+            if "template_id" not in result:
+                result["template_id"] = template_id
+
+            # Add metadata
+            result["metadata"] = {
+                "lang_code": lang_code,
+                "generated_at": datetime.now().isoformat(),
+                "provider": provider,
+                "model": model_name
+            }
+
+            results.append(result)
+            print(f"Generated conversation for template_id {template_id}")
+
+        except Exception as e:
+            print(f"Error processing prompt for template_id {template_id}: {str(e)}")
+            results.append({
+                "template_id": template_id,
+                "error": str(e),
+                "metadata": {
+                    "lang_code": lang_code,
+                    "generated_at": datetime.now().isoformat(),
+                    "provider": provider,
+                    "model": model_name
+                }
+            })
+
+    return results
+
+
+async def generate_conversations(
+    lang_code: str,
+    num_conversations: int,
+    provider: str = "openai",
+    model_name: str = None,
+    batch_size: int = DEFAULT_BATCH_SIZE,
+    openai_api_key: str = None
+) -> None:
+    """Generate multiple conversations in the specified language."""
+    # Set default model name based on provider
+    if not model_name:
+        model_name = DEFAULT_MODEL_OPENAI if provider.lower() == "openai" else DEFAULT_MODEL_GEMINI
+
+    # Load resources for the language
+    templates, substitutions, role_map = load_resources(lang_code)
+
+    # Check if we should resume from checkpoint
+    completed_items, total_items = load_checkpoint(lang_code)
+
+    # Update total_items if the requested number is greater
+    if num_conversations > total_items:
+        total_items = num_conversations
+    # If starting new, set total_items
+    elif total_items == 0:
+        total_items = num_conversations
+
+    # Calculate how many more items we need to generate
+    remaining = total_items - len(completed_items)
+
+    if remaining <= 0:
+        print(f"Already completed {len(completed_items)} conversations for {lang_code}. No more to generate.")
+        return
+
+    print(f"Generating {remaining} conversations for language: {lang_code} (Total target: {total_items})")
+
+    # Prepare prompts for all conversations
+    all_prompts = []
+    for _ in range(remaining):
+        template_id = random.randint(0, len(templates) - 1)
+        template = templates[template_id]
+        atomic_entry = random.choice(role_map)
+
+        prompt = expand_template(template, substitutions, atomic_entry, lang_code)
+        all_prompts.append((prompt, template_id))
+
+    # Process in batches
+    for i in range(0, len(all_prompts), batch_size):
+        batch = all_prompts[i:i + batch_size]
+        print(f"Processing batch {i//batch_size + 1}/{(len(all_prompts) + batch_size - 1)//batch_size}")
+
+        batch_results = await process_batch(batch, lang_code, provider, model_name, openai_api_key)
+        completed_items.extend(batch_results)
+
+        # Save checkpoint after each batch
+        save_checkpoint(lang_code, completed_items, total_items)
+
+        # Save the current results to output directory
+        output_file = ensure_output_dir(lang_code) / f"{lang_code}_conversations_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jsonl"
+        save_json_file(batch_results, output_file, use_jsonl=True)
+        print(f"Saved batch results to {output_file}")
+
+    # Save final output
+    final_output_file = ensure_output_dir(lang_code) / f"{lang_code}_all_conversations.jsonl"
+    save_json_file(completed_items, final_output_file, use_jsonl=True)
+    print(f"All {len(completed_items)} conversations saved to {final_output_file}")
+
+
+def prepare_batch_files(
+    lang_code: str,
+    num_conversations: int,
+    provider: str = "openai",
+    model_name: str = None,
+) -> None:
+    """Prepare batch files with prompts for later API processing."""
+    # Set default model name based on provider
+    if not model_name:
+        model_name = DEFAULT_MODEL_OPENAI if provider.lower() == "openai" else DEFAULT_MODEL_GEMINI
+
+    # Load resources for the language
+    templates, substitutions, role_map = load_resources(lang_code)
+
+    # Prepare batch directory for this language
+    batch_lang_dir = BATCH_DIR / lang_code
+    batch_lang_dir.mkdir(parents=True, exist_ok=True)
+
+    # Generate a unique batch ID
+    batch_id = datetime.now().strftime("%Y%m%d_%H%M%S") + "_" + str(uuid.uuid4())[:8]
+
+    # Prepare system prompt once
+    system_prompt = get_system_prompt(lang_code)
+
+    # Prepare batch requests
+    batch_requests = []
+    for i in range(num_conversations):
+        template_id = random.randint(0, len(templates) - 1)
+        template = templates[template_id]
+        atomic_entry = random.choice(role_map)
+
+        user_prompt = expand_template(template, substitutions, atomic_entry, lang_code)
+
+        # Format the request based on provider
+        if provider.lower() == "openai":
+            # Store metadata for our reference
+            metadata_entry = {
+                "template_id": template_id,
+                "lang_code": lang_code,
+                "created_at": datetime.now().isoformat()
+            }
+
+            # OpenAI Batch API compatible format
+            request = {
+                "custom_id": f"{batch_id}_{i}",
+                "method": "POST",
+                "url": "/v1/chat/completions",
+                "body": {
+                    "model": model_name,
+                    "messages": [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    "temperature": 0.7,
+                    "max_tokens": 1500,
+                    "response_format": {"type": "json_object"}
+                },
+                "metadata": metadata_entry  # Add metadata as a non-standard field
+            }
+        else:  # Gemini
+            # Standard format for our own processing
+            request = {
+                "id": f"{batch_id}_{i}",
+                "template_id": template_id,
+                "provider": provider,
+                "model": model_name,
+                "lang_code": lang_code,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                "created_at": datetime.now().isoformat(),
+                "parameters": {
+                    "temperature": 0.7,
+                    "max_output_tokens": 1500
+                },
+                "metadata": metadata_entry  # For consistency with OpenAI format
+            }
+
+        batch_requests.append(request)
+
+    # Save appropriate batch files based on provider
+    if provider.lower() == "openai":
+        # Main OpenAI Batch API compatible file - remove metadata field before saving
+        openai_batch_filename = f"openai_batch_{lang_code}_{batch_id}.jsonl"
+        openai_batch_path = batch_lang_dir / openai_batch_filename
+
+        with open(openai_batch_path, "w", encoding="utf-8") as f:
+            for req in batch_requests:
+                # Create a copy without the metadata field for the official batch file
+                api_req = req.copy()
+                if "metadata" in api_req:
+                    del api_req["metadata"]
+                f.write(json.dumps(api_req) + "\n")
+
+        print(f"Created OpenAI batch file with {len(batch_requests)} requests at: {openai_batch_path}")
+
+        # Also save a metadata version with all information for our reference
+        meta_batch_filename = f"batch_{lang_code}_{provider}_{batch_id}_metadata.jsonl"
+        meta_batch_path = batch_lang_dir / meta_batch_filename
+
+        with open(meta_batch_path, "w", encoding="utf-8") as f:
+            for req in batch_requests:
+                f.write(json.dumps(req) + "\n")
+
+        print(f"Created metadata reference file at: {meta_batch_path}")
+        return openai_batch_path
+    else:
+        # Regular batch file for other providers
+        batch_filename = f"batch_{lang_code}_{provider}_{batch_id}.jsonl"
+        batch_file_path = batch_lang_dir / batch_filename
+
+        with open(batch_file_path, "w", encoding="utf-8") as f:
+            for req in batch_requests:
+                f.write(json.dumps(req) + "\n")
+
+        print(f"Created batch file with {len(batch_requests)} requests at: {batch_file_path}")
+        return batch_file_path
+
+async def main():
+    """Main function to parse arguments and run generation."""
+    parser = argparse.ArgumentParser(description="Generate AAC conversations directly in target languages")
+    parser.add_argument("--lang", type=str, default="all", help="Language code (or 'all' for all supported languages)")
+    parser.add_argument("--num", type=int, default=10, help="Number of conversations to generate per language")
+    parser.add_argument("--provider", type=str, default="openai", choices=["openai", "gemini"], help="Model provider")
+    parser.add_argument("--model", type=str, help="Model name (defaults based on provider)")
+    parser.add_argument("--batch_size", type=int, default=DEFAULT_BATCH_SIZE, help="Batch size for processing")
+    parser.add_argument("--openai_api_key", type=str, help="OpenAI API key")
+    parser.add_argument("--gemini_api_key", type=str, help="Google API key for Gemini")
+    parser.add_argument("--batch-prepare", action="store_true", help="Only prepare batch files without making API calls")
+
+    args = parser.parse_args()
+
+    # Set API keys from arguments or environment variables if not in batch prepare mode
+    if not args.batch_prepare:
+        if args.provider == "openai" and args.openai_api_key:
+            os.environ["OPENAI_API_KEY"] = args.openai_api_key
+        elif args.provider == "gemini" and args.gemini_api_key:
+            os.environ["GOOGLE_API_KEY"] = args.gemini_api_key
+            genai.configure(api_key=args.gemini_api_key)
+
+    # Determine which languages to process
+    languages = [args.lang]
+    if args.lang == "all":
+        languages = get_supported_languages()
+
+    # Process each language
+    for lang in languages:
+        print(f"Starting generation for language: {lang}")
+
+        if args.batch_prepare:
+            # Only prepare batch files without making API calls
+            prepare_batch_files(
+                lang_code=lang,
+                num_conversations=args.num,
+                provider=args.provider,
+                model_name=args.model
+            )
+        else:
+            # Generate conversations using API calls
+            await generate_conversations(
+                lang_code=lang,
+                num_conversations=args.num,
+                provider=args.provider,
+                model_name=args.model,
+                batch_size=args.batch_size,
+                openai_api_key=args.openai_api_key if args.provider == "openai" else None
+            )
+
+    if args.batch_prepare:
+        print("All batch preparation tasks completed! Files saved in the 'batch_files' directory.")
+    else:
+        print("All language generation tasks completed!")
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

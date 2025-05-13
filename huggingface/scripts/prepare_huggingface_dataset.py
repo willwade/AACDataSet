@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Prepare AAC Conversations Dataset for Hugging Face
@@ -104,13 +103,16 @@ def prepare_dataset(data):
     return {'dataset': data}
 
 def save_to_huggingface_format(data, output_dir):
-    """Save the data in Hugging Face Datasets format."""
-    # Convert to a Hugging Face Dataset object
+    """Save the data in Hugging Face Datasets format (Arrow + CSV)."""
     df = pd.DataFrame(data)
     dataset = Dataset.from_pandas(df)
 
-    # Save the dataset
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Save the dataset in Arrow format
     dataset.save_to_disk(output_dir)
+    print(f"Saved Hugging Face Arrow dataset to {output_dir}")
 
     # Also save as CSV for easy inspection
     csv_path = os.path.join(output_dir, "dataset.csv")
@@ -119,7 +121,7 @@ def save_to_huggingface_format(data, output_dir):
 
     return dataset
 
-def find_augmented_files(input_dir="../../output"):
+def find_augmented_files(input_dir="data/output"):
     """Find all augmented conversation files in the specified directory."""
     directory_path = Path(input_dir)
     if not directory_path.exists() or not directory_path.is_dir():
@@ -194,13 +196,13 @@ def main():
     parser.add_argument(
         "--input_dir",
         type=str,
-        default="../../output",
+        default="data/output",
         help="Directory to search for augmented conversation files when processing all languages.",
     )
     parser.add_argument(
         "--output_dir",
         type=str,
-        default="../data",
+        default="huggingface/data",
         help="Output directory for the combined Hugging Face dataset.",
     )
     parser.add_argument(
@@ -214,6 +216,12 @@ def main():
         type=str,
         default="aac_dataset",
         help="Name of the dataset (used for the output directory).",
+    )
+    parser.add_argument(
+        "--split_ratio",
+        type=str,
+        default="0.8,0.2",
+        help="Comma-separated split ratio for train and test sets (default: 0.8,0.2)",
     )
     args = parser.parse_args()
 
@@ -271,13 +279,22 @@ def main():
 
     print(f"\nCombined dataset has {len(all_data['all'])} entries.")
 
+    # Split the dataset
+    split_ratio = [float(x) for x in args.split_ratio.split(",")]
+    if len(split_ratio) != 2 or not 0 < sum(split_ratio) <= 1.0:
+        raise ValueError("split_ratio must be two floats adding up to 1.0 or less (e.g., 0.8,0.2)")
+    from sklearn.model_selection import train_test_split
+    train_data, test_data = train_test_split(all_data['all'], test_size=split_ratio[1], random_state=42)
+
+    print(f"\nSplit: {len(train_data)} train, {len(test_data)} test")
+
     # Save in Hugging Face format
-    print(f"Saving combined dataset to {output_dir}")
-    save_to_huggingface_format(all_data['all'], output_dir)
+    print(f"Saving train split to {output_dir}/train")
+    save_to_huggingface_format(train_data, output_dir / "train")
+    print(f"Saving test split to {output_dir}/test")
+    save_to_huggingface_format(test_data, output_dir / "test")
 
-    # Print dataset info
-    print(f"\nDataset statistics: {len(all_data['all'])} examples")
-
+    print(f"\nDataset statistics: {len(all_data['all'])} examples total")
     print("\nDone!")
 
 if __name__ == "__main__":

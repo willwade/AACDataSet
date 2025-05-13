@@ -30,7 +30,20 @@ def upload_dataset(input_dir, repo_id, private=False, token=None):
     # Load the dataset
     print(f"Loading dataset from {input_dir}")
     try:
-        dataset = load_from_disk(input_dir)
+        # Check for train/test subdirectories (DatasetDict)
+        input_path = Path(input_dir)
+        train_dir = input_path / "train"
+        test_dir = input_path / "test"
+        if train_dir.exists() and test_dir.exists():
+            print("Detected train/ and test/ splits. Loading as DatasetDict.")
+            from datasets import DatasetDict, load_from_disk
+            dataset = DatasetDict({
+                "train": load_from_disk(str(train_dir)),
+                "test": load_from_disk(str(test_dir)),
+            })
+        else:
+            print("No train/test splits detected. Loading as single dataset.")
+            dataset = load_from_disk(input_dir)
     except Exception as e:
         print(f"Error loading dataset from {input_dir}: {e}")
         return False
@@ -63,13 +76,14 @@ def main():
     parser.add_argument(
         "--input_dir",
         type=str,
-        default="../data/aac_dataset",
+        default="huggingface/data/aac_dataset",
         help="Input directory containing the prepared Hugging Face dataset",
     )
     parser.add_argument(
         "--repo_id",
         type=str,
         required=True,
+        default="willwade/AACConversations",
         help="Hugging Face repository ID (username/repo-name)",
     )
     parser.add_argument(

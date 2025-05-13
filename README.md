@@ -58,6 +58,7 @@ For AAC user turns, the following fields are included:
 
 - `templates/instructions/<lang>.json` — Controls the prompt templates (instructions) for each language.
 - `templates/substitutions/<lang>.json` — Controls the possible substitutions (e.g., time_of_day, setting, tone, etc.) for each language.
+  - Each language file includes culturally appropriate names for AAC users and partners in the `aac_user` and `partner` arrays.
 
 **Do NOT edit `templates/prompt_templates/` directly.**
 - The files in `templates/prompt_templates/` are generated automatically by the script (`scripts/generate_templates.py`) based on the above two folders. Any changes you want to make should be made in `templates/instructions` or `templates/substitutions` and then regenerate the prompt templates.
@@ -99,10 +100,13 @@ For AAC user turns, the following fields are included:
 - `templates/substitutions/en.json`: Substitution values for conversation generation
 - `scripts/scanning_library.py`: Utilities for simulating different keyboard layouts
 - `scripts/metrics.py`: Metrics for evaluating AAC communication
-- `scripts/local_generate.py`: Main script for generating conversations
+- `scripts/atomic10x_batch_wrapper.py`: Main workflow script for batch processing
+- `scripts/batch_openai_prepare.py`: Script for preparing batch requests
+- `scripts/process_batch_results.py`: Script for processing batch results
 - `scripts/augment_aac_data.py`: Script for augmenting AAC utterances
 - `huggingface/`: Scripts and documentation for preparing the dataset for Hugging Face
 - `scripts/`: All main workflow scripts (including batch and processing scripts)
+- `scripts/archive/`: Archived scripts that are no longer part of the main workflow
 - `templates/`: Prompt templates and instructions
 - `data/`: All generated output, batch, and error files
 - `requirements.txt`: Python dependencies for all scripts
@@ -127,25 +131,60 @@ This will create the prompt templates in `templates/prompt_templates/`. The scri
 
 ### Generating Conversations
 
-```bash
-uv python scripts/local_generate.py --lang en --num_variations 3
-```
+#### Batch Generation Approach
 
-This will generate new conversations using the templates in `templates/prompt_templates/en.json` and save them to `data/output/aac_conversations_en.jsonl`.
-
-For locale-specific language codes:
+** Warning: This step relies on the subset data being translated. See scripts/gemini_translate_templates for this. It takes a LONG time to do this **
 
 ```bash
-uv python scripts/local_generate.py --lang en-GB --num_variations 3
+uv python scripts/atomic10x_batch_wrapper.py --languages en-GB --num_batches 10 --requests_per_batch 100 --prepare_only
 ```
 
-This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `data/output/augmented_aac_conversations_en.jsonl`. The augmentation rates and logic are explained in the script comments. Note: this data needs work for languages other than English. We are using the English data as a test case for now.
+This will generate batch files for OpenAI's batch processing system. After processing the batch files with OpenAI, you can process the results with:
 
-For locale-specific language codes:
+```bash
+uv python scripts/atomic10x_batch_wrapper.py --process_from_batch path/to/downloaded_results.json
+```
+
+For more details on the batch processing workflow, see the [Batch Processing Workflow](docs/batch_processing_workflow.md) documentation.
+
+#### Direct Multilingual Generation Approach
+
+For more efficient multilingual conversation generation without the translation step, use the direct generation script:
+
+```bash
+python scripts/direct_multilingual_generate.py --lang fr-FR --num 10
+```
+
+This will directly generate 10 conversations in French. You can also generate for all supported languages:
+
+```bash
+python scripts/direct_multilingual_generate.py --lang all --num 5
+```
+
+Instead of running directly you can just create batch files endings
+
+```bash
+python scripts/direct_multilingual_generate.py --lang en-GB --num 100 --provider openai --batch-prepare
+```
+
+For more details, see the [README_multilingual_generation.md](scripts/README_multilingual_generation.md) documentation.
+
+### Augmenting AAC Data
+
+After processing the batch results, you can augment the AAC utterances with noisy versions and corrections:
 
 ```bash
 uv python scripts/augment_aac_data.py --input data/output/aac_conversations_en-GB.jsonl
 ```
+
+This will read the conversations from the input file, augment the AAC utterances with noisy versions and corrections, and save the result to `data/output/augmented_aac_conversations_en-GB.jsonl`. The augmentation process introduces errors at rates proportional to both the specified error rate and the length of the utterance, ensuring at least one character deletion or addition in each augmented sentence. The augmentation rates are:
+
+- **minimal**: 5% errors - very mild typing issues
+- **light**: 15% errors - noticeable but clearly readable
+- **moderate**: 25% errors - challenging but comprehensible
+- **severe**: 35% errors - significant difficulty
+
+Note: this data needs work for languages other than English. We are using the English data as a test case for now.
 
 The output will automatically be saved to `data/output/augmented_aac_conversations_en-GB.jsonl`.
 
@@ -201,7 +240,7 @@ This dataset can be used for:
 
 ## Language Codes Supported
 
-The following table shows the language codes supported by the AAC Dataset, along with their implementation status:
+The AAC Dataset supports multiple languages through substitution files, atomic data translation, and language-specific keyboard layouts. The following table shows the current implementation status:
 
 | Language Code | Language | Prompts Created | Verified |
 |--------------|----------|----------------|----------|
@@ -248,6 +287,8 @@ The following table shows the language codes supported by the AAC Dataset, along
 - ✅ Prompts Created: Language has prompt templates and substitutions files
 - ✅ Verified: Language has been tested and verified for quality
 
+For more information on adding support for new languages, see the [Language Support Documentation](docs/language_support.md).
+
 
 # AAC Conversations Dataset Creation Process
 
@@ -262,17 +303,21 @@ graph TD
         T3[Substitutions] -->|Variable replacements| A
     end
 
-    subgraph "LLM Conversation Generation"
-        B -->|generate_templates.py| C[Generated Conversations]
-        L[LLM Library] -->|Supports multiple models| C
-        M[Gemini/Mistral/Other LLMs] -->|API| L
-        N[Prompt Templates] -->|Structured prompts| L
+    subgraph "Batch Preparation"
+        B -->|batch_openai_prepare.py| BP[Batch Request Files]
+        AT[Atomic10x Data] -->|prepare_atomic_subset.py| AS[Atomic Subset]
+        AS -->|translate_atomic_data.py| TA[Translated Atomic Data]
+        TA -->|batch_openai_prepare.py| BP
+    end
+
+    subgraph "OpenAI Batch Processing"
+        BP -->|OpenAI Batch System| BR[Batch Results]
+        BR -->|process_batch_results.py| C[Generated Conversations]
     end
 
     subgraph "Data Augmentation"
-        C -->|main.py| D[Base Conversations]
-        D -->|augment_aac_data.py| E[Augmented Conversations]
-        F[language_keyboards.py] -->|Language-specific layouts| E
+        C -->|augment_aac_data.py| E[Augmented Conversations]
+        F[scanning_library.py] -->|Keyboard layouts| E
     end
 
     subgraph "Dataset Preparation"
@@ -307,39 +352,70 @@ graph TD
 - **Common Suffixes**: Reusable prompt endings that are shared across multiple templates
 - **Substitutions**: Variable replacements that allow for customization of templates
 
-### 2. LLM Conversation Generation
-- **generate_templates.py**: Script that processes templates and uses LLMs to generate realistic conversations
-- **LLM Library**: Flexible library that supports multiple LLM providers
-- **LLM Models**: Can use various models including Gemini, Mistral, and others
-- **Prompt Templates**: Structured prompts that guide the LLM to generate appropriate conversations
+### 2. Batch Preparation
+- **prepare_atomic_subset.py**: Prepares a subset of Atomic10x data for use in conversation generation
+- **translate_atomic_data.py**: Translates the Atomic10x data into different languages
+- **batch_openai_prepare.py**: Creates batch request files for OpenAI's batch processing system
+- **atomic10x_batch_wrapper.py**: Orchestrates the entire workflow from preparation to processing
 
-### 3. Data Augmentation
-- **main.py**: Orchestrates the overall process and calls other scripts
-- **language_keyboards.py**: Provides keyboard layouts and letter frequencies for different languages
+### 3. OpenAI Batch Processing
+- **OpenAI Batch System**: Processes the batch requests in a cost-effective manner
+- **process_batch_results.py**: Processes the results from OpenAI's batch system
+- **process_batch.py**: Alternative script for processing batch requests directly (for testing)
+- **direct_multilingual_generate.py**: Directly generates conversations in target languages without the translation step
+
+### 4. Data Augmentation
 - **augment_aac_data.py**: Adds noisy variations to AAC utterances based on different keyboard layouts and error rates
+  - Ensures error severity is proportional to both error rate and utterance length
+  - Guarantees at least one character deletion or addition in each augmented sentence
+  - Provides four levels of error severity: minimal (5%), light (15%), moderate (25%), and severe (35%)
+- **scanning_library.py**: Provides keyboard layouts and letter frequencies for different languages
 
-### 4. Dataset Preparation
+### 5. Dataset Preparation
 - **prepare_huggingface_dataset.py**: Flattens and structures the data for Hugging Face, adding conversation IDs and turn numbers
 - **upload_to_huggingface.py**: Uploads the prepared dataset to Hugging Face
 
-### 5. Components
+### 6. Components
 - **Template Structure**:
   - **Template Instructions**: JSON files containing scenario-specific prompts
   - **Common Suffixes**: Reusable prompt endings stored in separate files
   - **Substitutions**: Variable definitions for template customization
 - **Keyboard Layouts**: Different keyboard layouts (QWERTY, ABC, etc.) for each language
 - **Letter Frequencies**: Character frequency distributions for each language
+- **Language-specific Resources**:
+  - **Language Instructions**: Prompts in each target language
+  - **Language Substitutions**: Names and terms appropriate for each culture/language
+
+## Multilingual Generation Approaches
+
+The dataset supports two approaches for generating multilingual conversations:
+
+### 1. Generate and Translate Approach
+- Generate conversations in English
+- Translate using Gemini API (gemini_translate_templates.py)
+- Pros: Consistent with original English dataset
+- Cons: More resource-intensive, potential translation artifacts
+
+### 2. Direct Generation Approach
+- Generate conversations directly in target languages
+- Uses language-specific templates and substitutions
+- Pros: More natural in target language, more efficient, lower cost
+- Cons: May diverge stylistically from English dataset
+
+For new languages, the direct generation approach is recommended.
 
 ## Data Flow
 
 1. Templates are created and organized by language
-2. Templates are processed by the LLM library using structured prompts
-3. LLMs (Gemini, Mistral, etc.) generate realistic conversations based on the templates
-4. AAC utterances in the conversations are augmented with noisy variations (regionalized for each language with appropriate keyboard layouts)
-5. The augmented conversations are flattened and structured for Hugging Face
-6. The dataset is uploaded to Hugging Face
+2. Atomic10x data is prepared and translated for each language
+3. Batch request files are generated using the templates and atomic data
+4. Batch files are processed by OpenAI's batch processing system
+5. Batch results are processed to extract conversations
+6. AAC utterances in the conversations are augmented with noisy variations (regionalized for each language with appropriate keyboard layouts)
+7. The augmented conversations are flattened and structured for Hugging Face
+8. The dataset is uploaded to Hugging Face
 
-This process ensures that the dataset includes a diverse range of conversations across multiple languages, with realistic variations in AAC utterances that simulate different typing errors and keyboard layouts. The use of a flexible LLM library allows for experimentation with different models to find the best balance of quality, diversity, and computational efficiency.
+This process ensures that the dataset includes a diverse range of conversations across multiple languages, with realistic variations in AAC utterances that simulate different typing errors and keyboard layouts. The use of OpenAI's batch processing system allows for cost-effective generation of large amounts of data, while the modular workflow enables experimentation with different models and parameters.
 
 ## License
 

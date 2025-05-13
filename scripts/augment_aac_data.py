@@ -1,10 +1,3 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#     "numpy",
-#     "pandas"
-# ]
-# ///
 """
 Augment AAC Conversation Data
 
@@ -15,6 +8,16 @@ This script reads AAC conversation data from a JSONL file and augments each AAC 
 Usage:
     python augment_aac_data.py [--input INPUT_FILE] [--output OUTPUT_FILE]
 """
+
+import sys
+from pathlib import Path
+
+# Add the lib directory to the Python path
+lib_path = str((Path(__file__).parent.parent / "lib").resolve())
+if lib_path not in sys.path:
+    sys.path.insert(0, lib_path)
+print(f"Added lib path: {lib_path}")
+
 
 import json
 import argparse
@@ -27,30 +30,34 @@ import string
 # Import language-specific keyboard layouts
 try:
     print("Attempting to import language_keyboards...")
-    from lib.language_keyboards import (
+    from language_keyboards import (
         get_keyboard_layout,
         get_letter_frequencies,
         create_language_abc_grid,
         create_language_qwerty_grid,
         create_language_frequency_grid,
-        LANGUAGE_NAMES
+        LANGUAGE_NAMES,
     )
+
     print("Successfully imported language_keyboards")
     LANGUAGE_SUPPORT = True
 except ImportError as e:
     print(f"Import error details: {e}")
-    print("Warning: language_keyboards.py not found. Using English keyboard layouts only.")
+    print(
+        "Warning: language_keyboards.py not found. Using English keyboard layouts only."
+    )
     LANGUAGE_SUPPORT = False
 
 
 # Import scanning library functions
 try:
     print("Attempting to import scanning_library...")
-    from lib.scanning_library import (
+    from scanning_library import (
         create_abc_grid,
         create_qwerty_grid,
         create_frequency_grid,
     )
+
     print("Successfully imported scanning_library")
 except ImportError as e:
     print(f"Import error details: {e}")
@@ -156,6 +163,7 @@ QWERTY_GRID = create_qwerty_grid(3, 10)
 ABC_GRID = create_abc_grid(3, 10)
 FREQUENCY_GRID = create_frequency_grid(3, 10, ENGLISH_LETTER_FREQUENCIES)
 
+
 # Function to create language-specific keyboard grids
 def create_language_grids(lang_code):
     """Create keyboard grids for a specific language."""
@@ -209,7 +217,9 @@ def get_adjacent_keys(grid, char):
         return []
 
 
-def generate_noisy_utterance(text, grid, error_rate=0.2, error_types=None, preserve_case=False):
+def generate_noisy_utterance(
+    text, grid, error_rate=0.2, error_types=None, preserve_case=False
+):
     """
     Generate a noisy version of the text based on the keyboard grid
 
@@ -218,6 +228,8 @@ def generate_noisy_utterance(text, grid, error_rate=0.2, error_types=None, prese
     - 'deletion': Delete a character
     - 'insertion': Insert a random character
     - 'transposition': Swap adjacent characters
+
+    The number of errors introduced is proportional to both the error rate and text length.
     """
     if error_types is None:
         error_types = ["adjacent", "deletion", "insertion", "transposition"]
@@ -227,61 +239,125 @@ def generate_noisy_utterance(text, grid, error_rate=0.2, error_types=None, prese
         return text
 
     try:
-        result = ""
-        i = 0
-        while i < len(text):
-            char = text[i]
-            is_upper = char.isupper() if hasattr(char, 'isupper') else False
+        # Calculate number of errors to introduce based on error rate and text length
+        # Ensure at least 1 error and scale with both text length and error rate
+        num_errors = max(1, round(error_rate * len(text)))
 
-            # Decide whether to introduce an error
-            if random.random() < error_rate:
-                error_type = random.choice(error_types)
+        # Cap the number of errors at 75% of the text length to avoid completely destroying it
+        num_errors = min(num_errors, int(len(text) * 0.75))
 
-                if error_type == "adjacent":
-                    # Replace with an adjacent key
-                    adjacent_keys = get_adjacent_keys(grid, char)
-                    if adjacent_keys:
-                        replacement = random.choice(adjacent_keys)
-                        # Preserve case if requested and possible
-                        if preserve_case and is_upper and hasattr(replacement, 'isalpha') and replacement.isalpha():
-                            result += replacement
-                        elif hasattr(replacement, 'lower') and replacement.isalpha():
-                            result += replacement.lower()
-                        else:
-                            result += replacement
+        # For very short text (1-2 characters), limit to 1 error
+        if len(text) <= 2:
+            num_errors = 1
+
+        # Create a copy of the text as a list for easier manipulation
+        text_list = list(text)
+        result_list = text_list.copy()
+
+        # Select random positions to apply errors
+        # For texts shorter than the number of errors, we might apply multiple errors to the same position
+        if len(text) < num_errors:
+            positions = random.choices(range(len(text)), k=num_errors)
+        else:
+            positions = random.sample(range(len(text)), num_errors)
+
+        # Sort positions in descending order to avoid index shifting when making changes
+        positions.sort(reverse=True)
+
+        # Apply errors at the selected positions
+        for pos in positions:
+            # Choose a random error type
+            error_type = random.choice(error_types)
+
+            # Apply the error
+            if error_type == "adjacent":
+                # Replace with an adjacent key
+                char = text_list[pos]
+                is_upper = char.isupper() if hasattr(char, "isupper") else False
+
+                adjacent_keys = get_adjacent_keys(grid, char)
+                if adjacent_keys:
+                    replacement = random.choice(adjacent_keys)
+                    # Preserve case if requested and possible
+                    if (
+                        preserve_case
+                        and is_upper
+                        and hasattr(replacement, "isalpha")
+                        and replacement.isalpha()
+                    ):
+                        result_list[pos] = replacement
+                    elif hasattr(replacement, "lower") and replacement.isalpha():
+                        result_list[pos] = replacement.lower()
                     else:
-                        result += char
+                        result_list[pos] = replacement
 
-                elif error_type == "deletion":
-                    # Skip this character (delete)
-                    pass
+            elif (
+                error_type == "deletion" and len(result_list) > 1
+            ):  # Ensure we don't delete everything
+                # Delete the character
+                del result_list[pos]
 
-                elif error_type == "insertion":
-                    # Insert a random character
-                    # Get a random character from the grid
-                    non_empty_cells = [c for c in grid.flatten() if c != ""]
-                    if non_empty_cells:
-                        random_char = random.choice(non_empty_cells)
-                        if random_char != "":
-                            if preserve_case and is_upper and hasattr(random_char, 'isalpha') and random_char.isalpha():
-                                result += random_char
-                            elif hasattr(random_char, 'lower') and random_char.isalpha():
-                                result += random_char.lower()
-                            else:
-                                result += random_char
-                    result += char
+            elif error_type == "insertion":
+                # Insert a random character
+                non_empty_cells = [c for c in grid.flatten() if c != ""]
+                if non_empty_cells:
+                    random_char = random.choice(non_empty_cells)
+                    if random_char != "":
+                        char = text_list[pos] if pos < len(text_list) else ""
+                        is_upper = char.isupper() if hasattr(char, "isupper") else False
 
-                elif error_type == "transposition" and i < len(text) - 1:
-                    # Swap with next character
-                    result += text[i + 1] + char
-                    i += 1  # Skip the next character since we've used it
+                        if (
+                            preserve_case
+                            and is_upper
+                            and hasattr(random_char, "isalpha")
+                            and random_char.isalpha()
+                        ):
+                            result_list.insert(pos, random_char)
+                        elif hasattr(random_char, "lower") and random_char.isalpha():
+                            result_list.insert(pos, random_char.lower())
+                        else:
+                            result_list.insert(pos, random_char)
 
+            elif error_type == "transposition" and pos > 0:
+                # Swap with previous character (since we're going in reverse order)
+                result_list[pos], result_list[pos - 1] = (
+                    result_list[pos - 1],
+                    result_list[pos],
+                )
+
+        # Convert the result list back to a string
+        result = "".join(result_list)
+
+        # If the result is identical to the original text, force a change
+        if result == text and text:
+            # Choose a random position to modify
+            pos = random.randint(0, len(text) - 1)
+
+            # Choose a random error type
+            error_type = random.choice(error_types)
+
+            # Apply the error
+            if error_type == "adjacent":
+                # Replace with an adjacent key
+                adjacent_keys = get_adjacent_keys(grid, text[pos])
+                if adjacent_keys:
+                    replacement = random.choice(adjacent_keys)
+                    result = text[:pos] + replacement + text[pos + 1 :]
                 else:
-                    result += char
-            else:
-                result += char
-
-            i += 1
+                    # If no adjacent keys, try deletion
+                    result = text[:pos] + text[pos + 1 :]
+            elif error_type == "deletion" and len(text) > 1:
+                # Delete the character
+                result = text[:pos] + text[pos + 1 :]
+            elif error_type == "insertion":
+                # Insert a random character
+                non_empty_cells = [c for c in grid.flatten() if c != ""]
+                if non_empty_cells:
+                    random_char = random.choice(non_empty_cells)
+                    result = text[:pos] + random_char + text[pos:]
+            elif error_type == "transposition" and pos < len(text) - 1:
+                # Swap with next character
+                result = text[:pos] + text[pos + 1] + text[pos] + text[pos + 2 :]
 
         return result
     except Exception as e:
@@ -331,10 +407,10 @@ def process_conversation(conversation_data, qwerty_grid, abc_grid, frequency_gri
 
     # Define error rate ranges
     ERROR_RATES = {
-        "minimal": 0.05,    # 5% errors - very mild typing issues
-        "light": 0.15,      # 15% errors - noticeable but clearly readable
-        "moderate": 0.25,   # 25% errors - challenging but comprehensible
-        "severe": 0.35      # 35% errors - significant difficulty
+        "minimal": 0.05,  # 5% errors - very mild typing issues
+        "light": 0.15,  # 15% errors - noticeable but clearly readable
+        "moderate": 0.25,  # 25% errors - challenging but comprehensible
+        "severe": 0.35,  # 35% errors - significant difficulty
     }
 
     for turn in conversation:
@@ -350,7 +426,7 @@ def process_conversation(conversation_data, qwerty_grid, abc_grid, frequency_gri
                     utterance,
                     qwerty_grid,
                     error_rate=error_rate,
-                    error_types=["adjacent", "deletion", "insertion"]
+                    error_types=["adjacent", "deletion", "insertion"],
                 )
 
                 # ABC variations
@@ -358,7 +434,7 @@ def process_conversation(conversation_data, qwerty_grid, abc_grid, frequency_gri
                     utterance,
                     abc_grid,
                     error_rate=error_rate,
-                    error_types=["adjacent", "deletion", "insertion"]
+                    error_types=["adjacent", "deletion", "insertion"],
                 )
 
                 # Frequency variations
@@ -366,7 +442,7 @@ def process_conversation(conversation_data, qwerty_grid, abc_grid, frequency_gri
                     utterance,
                     frequency_grid,
                     error_rate=error_rate,
-                    error_types=["adjacent", "deletion", "insertion"]
+                    error_types=["adjacent", "deletion", "insertion"],
                 )
 
             # Generate corrected versions
@@ -419,7 +495,9 @@ def process_file(input_path, output_path=None, lang_code=None):
                 prefix = parts[0]  # Get 'aac'
                 # Use the original language code from the filename
                 original_lang = parts[-1].split(".")[0]  # Get 'en' or 'en-GB'
-                output_filename = f"augmented_{prefix}_conversations_{original_lang}.jsonl"
+                output_filename = (
+                    f"augmented_{prefix}_conversations_{original_lang}.jsonl"
+                )
             else:
                 # Fallback if the filename doesn't match the expected pattern
                 output_filename = f"augmented_{input_filename}"
@@ -449,16 +527,23 @@ def process_file(input_path, output_path=None, lang_code=None):
                     # We'll count AAC utterances after processing
 
                     # Process the conversation with language-specific grids
-                    augmented_data = process_conversation(data, qwerty_grid, abc_grid, frequency_grid)
+                    augmented_data = process_conversation(
+                        data, qwerty_grid, abc_grid, frequency_grid
+                    )
 
                     # Count AAC utterances after processing
-                    post_count = sum(1 for turn in augmented_data.get("conversation", [])
-                                   if "noisy_qwerty_minimal" in turn)  # If this field exists, it was augmented
+                    post_count = sum(
+                        1
+                        for turn in augmented_data.get("conversation", [])
+                        if "noisy_qwerty_minimal" in turn
+                    )  # If this field exists, it was augmented
 
                     aac_utterances_count += post_count
 
                     # Write the augmented data
-                    out_file.write(json.dumps(augmented_data, ensure_ascii=False) + "\n")
+                    out_file.write(
+                        json.dumps(augmented_data, ensure_ascii=False) + "\n"
+                    )
                     augmented_count += 1
 
                 except json.JSONDecodeError as e:
@@ -466,9 +551,12 @@ def process_file(input_path, output_path=None, lang_code=None):
                 except Exception as e:
                     print(f"Error processing line {line_num}: {e}")
 
-    print(f"Augmented {augmented_count} conversations containing {aac_utterances_count} AAC utterances")
+    print(
+        f"Augmented {augmented_count} conversations containing {aac_utterances_count} AAC utterances"
+    )
     print(f"Saved to {output_path}")
     return augmented_count, aac_utterances_count
+
 
 def find_conversation_files(directory="output"):
     """Find all conversation files in the specified directory."""
@@ -481,6 +569,7 @@ def find_conversation_files(directory="output"):
     conversation_files = list(directory_path.glob("aac_conversations_*.jsonl"))
     return conversation_files
 
+
 def main():
     parser = argparse.ArgumentParser(
         description="Augment AAC conversation data with noisy utterances"
@@ -489,7 +578,7 @@ def main():
         "--input",
         type=str,
         default=None,
-        help="Input JSONL file with AAC conversations. If not provided, will process all files in the output directory.",
+        help="Input JSONL file with AAC conversations. If not provided, will process all .jsonl files in the directory specified by --dir.",
     )
     parser.add_argument(
         "--output",
@@ -506,8 +595,8 @@ def main():
     parser.add_argument(
         "--dir",
         type=str,
-        default="output",
-        help="Directory to search for conversation files when processing all languages.",
+        default="data/output",
+        help="Directory to search for conversation files when processing all languages (default: data/output).",
     )
     args = parser.parse_args()
 
@@ -516,7 +605,9 @@ def main():
         # Find all conversation files
         conversation_files = find_conversation_files(args.dir)
         if not conversation_files:
-            print(f"No conversation files found in {args.dir}. Please check the directory or provide a specific input file.")
+            print(
+                f"No conversation files found in {args.dir}. Please check the directory or provide a specific input file."
+            )
             return
 
         print(f"Found {len(conversation_files)} conversation files to process:")
@@ -527,12 +618,15 @@ def main():
         total_utterances = 0
         for input_file in conversation_files:
             print(f"\n{'='*50}\nProcessing file: {input_file}\n{'='*50}")
+            # Language code is auto-detected from each file name if --lang is not provided
             conversations, utterances = process_file(input_file)
             total_conversations += conversations
             total_utterances += utterances
 
         print(f"\nCompleted processing all files.")
-        print(f"Total augmented: {total_conversations} conversations containing {total_utterances} AAC utterances.")
+        print(
+            f"Total augmented: {total_conversations} conversations containing {total_utterances} AAC utterances."
+        )
     else:
         # Process a single file
         input_path = Path(args.input)
@@ -542,7 +636,9 @@ def main():
 
         conversations, utterances = process_file(input_path, args.output, args.lang)
         print(f"\nCompleted processing file: {input_path}")
-        print(f"Augmented {conversations} conversations containing {utterances} AAC utterances.")
+        print(
+            f"Augmented {conversations} conversations containing {utterances} AAC utterances."
+        )
 
 
 if __name__ == "__main__":
