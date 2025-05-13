@@ -169,6 +169,26 @@ python scripts/direct_multilingual_generate.py --lang en-GB --num 100 --provider
 
 For more details, see the [README_multilingual_generation.md](scripts/README_multilingual_generation.md) documentation.
 
+### Processing Batch Results
+After processing the batch results, you can process the results with:
+
+```bash
+# Transform the OpenAI batch output to the format expected by the augmentation script
+python scripts/transform_batch_output.py path/to/batch_output.jsonl
+
+# This will create a transformed file at path/to/batch_output_transformed.jsonl
+
+# Then augment the data with realistic AAC errors
+python scripts/augment_aac_data.py --input path/to/batch_output_transformed.jsonl --lang [language-code]
+
+# This will create an augmented file at path/to/augmented_batch_conversations_transformed.jsonl
+```
+
+The workflow is:
+1. Generate batch files with `direct_multilingual_generate.py --lang [language-code] --batch-prepare --num [count]`
+2. Process the batch files with OpenAI's API
+3. Transform the output with `transform_batch_output.py`
+4. Augment the data with `augment_aac_data.py`
 ### Augmenting AAC Data
 
 After processing the batch results, you can augment the AAC utterances with noisy versions and corrections:

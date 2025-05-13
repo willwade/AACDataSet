@@ -55,7 +55,7 @@ python direct_multilingual_generate.py --lang it-IT --batch_size 3
 ## API Keys
 
 You can provide API keys either:
-1. As command-line arguments (`--openai_api_key` or `--gemini_api_key`) 
+1. As command-line arguments (`--openai_api_key` or `--gemini_api_key`)
 2. As environment variables (`OPENAI_API_KEY` or `GOOGLE_API_KEY`)
 
 ## Output
@@ -70,10 +70,33 @@ The script creates checkpoints after each batch in the `checkpoints/` directory,
 
 ## How It Works
 
-1. Loads language-specific templates, substitutions, and atomic data
+1. Loads language-specific templates, substitutions, and English atomic data
 2. Generates prompts by expanding templates with appropriate substitutions
-3. Uses the selected LLM to generate conversations directly in the target language
-4. Saves results with metadata for tracking
+3. Instructs the LLM to translate English phrases and handle placeholders in the target language
+4. Uses the selected LLM to generate conversations directly in the target language
+5. Saves results with metadata for tracking
+
+### Batch Preparation and Processing
+
+To prepare batch files for OpenAI processing:
+
+```bash
+python direct_multilingual_generate.py --lang [language-code] --batch-prepare --num [count]
+```
+
+This will create batch files in the `batch_files/[language-code]/` directory that can be processed with OpenAI's batch API.
+
+After processing the batch files with OpenAI, you'll need to transform the output to the format expected by the augmentation script:
+
+```bash
+python transform_batch_output.py path/to/batch_output.jsonl
+```
+
+Then augment the data with realistic AAC errors:
+
+```bash
+python augment_aac_data.py --input path/to/batch_output_transformed.jsonl --lang [language-code]
+```
 
 ## Advantages Over Translation
 
@@ -81,3 +104,6 @@ The script creates checkpoints after each batch in the `checkpoints/` directory,
 - Culturally appropriate references and language use
 - Reduced computational and cost overhead
 - Simplified workflow with fewer potential failure points
+- No need to translate atomic data files for each language
+- LLM handles translation of English phrases and placeholders
+- Better handling of cultural nuances and colloquial expressions
