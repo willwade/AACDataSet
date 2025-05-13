@@ -1,0 +1,126 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "conversation_id": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "turn_number": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "language_code": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "template_id": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "scene": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "context_speakers": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "context_utterances": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    },
+    "speaker": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "utterance": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "utterance_intended": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "next_turn_speaker": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "next_turn_utterance": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "model": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "provider": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_minimal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_minimal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_minimal": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_light": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_light": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_light": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_moderate": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_moderate": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_moderate": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_qwerty_severe": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_abc_severe": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "noisy_frequency_severe": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "minimally_corrected": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "fully_corrected": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

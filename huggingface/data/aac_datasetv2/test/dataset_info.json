@@ -3,7 +3,7 @@
   "description": "",
   "features": {
     "conversation_id": {
-      "dtype": "int64",
+      "dtype": "string",
       "_type": "Value"
     },
     "turn_number": {
@@ -53,6 +53,14 @@
       "_type": "Value"
     },
     "next_turn_utterance": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "model": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "provider": {
       "dtype": "string",
       "_type": "Value"
     },
