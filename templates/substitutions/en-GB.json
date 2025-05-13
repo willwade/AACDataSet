@@ -1,20 +1,13 @@
 {
-  "time_of_day": [
-    "morning",
-    "afternoon",
-    "evening",
-    "night"
-  ],
+  "time_of_day": ["morning", "afternoon", "evening", "night"],
   "setting": [
     "pub",
     "high street",
-    "university",
     "theatre",
     "church",
     "stadium",
     "park",
     "tube station",
-    "castle",
     "seaside"
   ],
   "tone": [
@@ -44,15 +37,10 @@
   "aac_system": [
     "keyboard-based AAC device",
     "eye-gaze device",
-    "picture symbol board",
-    "speech generating device",
-    "manual sign system"
+    "paper alphabet board",
+    "speech generating device"
   ],
-  "aac_mlu_length": [
-    "short",
-    "medium",
-    "long"
-  ],
+  "aac_mlu_length": ["short", "medium", "long"],
   "writing_style": [
     "The AAC user's messages should be shown as they would appear on their AAC device message bar — short phrases, possibly telegraphic or ungrammatical. Avoid using ellipses ... or texting-style punctuation. AAC messages should use direct, clear language with minimal words (2-4 words per message).",
     "The AAC user's messages should be shown as they would appear on their AAC device message bar — abbreviated sentences with some grammar but missing articles or conjunctions. Messages should be somewhat condensed but still maintain basic sentence structure (4-6 words per message).",
@@ -66,12 +54,12 @@
     "weather",
     "politics",
     "television programmes",
-    "royal family",
-    "Brexit",
+    "everyday food",
+    "family life",
     "local pubs",
     "tea",
     "cricket",
-    "British cuisine"
+    "British food"
   ],
   "aac_user": [
     "Harry",
