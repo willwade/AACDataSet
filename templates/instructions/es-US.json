@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Crea una conversación {{ tone }} que tenga lugar en {{ time_of_day }} en un {{ setting }}. El usuario de AAC es un adulto con ELA que utiliza un {{ aac_system }}. Su longitud media de expresión es {{ aac_mlu_length }}. La conversación se centra en {{ topic }}. {{ writing_style }}.",
+    "Simula un diálogo {{ tone }} en el {{ setting }} durante {{ time_of_day }} entre un usuario de AAC con ELA (que utiliza un {{ aac_system }}) y un/a {{ relationship }}. Enfócate en {{ topic }}. Su longitud media de expresión es {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Crea una conversación {{ tone }} en un {{ setting }} durante {{ time_of_day }} entre un usuario de AAC con ELA (que usa un {{ aac_system }}) y un/a {{ relationship }}. El diálogo debe involucrar {{ topic }}. Su longitud media de expresión es {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Genera una consulta {{ tone }} en el {{ setting }} durante {{ time_of_day }} donde un adulto usuario de AAC con ELA (usando {{ aac_system }}) se comunica con un/a {{ relationship }} sobre {{ topic }}. Su longitud media de expresión es {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Escribe una conversación {{ tone }} que tenga lugar en {{ time_of_day }} en un {{ setting }} entre un usuario de AAC con ELA y un/a {{ relationship }}. El usuario se comunica usando un {{ aac_system }}. Discuten {{ topic }}. Su longitud media de expresión es {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Crea una conversación {{ tone }} en un {{ setting }} durante {{ time_of_day }} entre un usuario de AAC que utiliza un {{ aac_system }} y su {{ relationship }}. La conversación debe centrarse en {{ topic }} y reflejar la interacción social cotidiana en lugar de preocupaciones médicas.",
+    "Construye una conversación {{ tone }} sobre la diversidad comunitaria en un {{ setting }} durante {{ time_of_day }} entre un usuario de AAC que usa un {{ aac_system }} y su {{ relationship }}. El diálogo gira en torno a {{ topic }} e incluye referencias a experiencias comunitarias multiculturales. El usuario de AAC tiene una longitud media de expresión de {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}

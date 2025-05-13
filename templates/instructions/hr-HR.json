@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Izradi {{ tone }} razgovor koji se odvija u {{ time_of_day }} u {{ setting }}. AAC korisnik je odrasla osoba s MND-om koja koristi {{ aac_system }}. Njihova prosječna duljina izgovora je {{ aac_mlu_length }}. Partner je njihov {{ relationship }}. Razgovor se fokusira na {{ topic }}. {{ writing_style }}.",
+    "Simuliraj {{ tone }} dijalog u {{ setting }} tijekom {{ time_of_day }} između AAC korisnika s MND-om (koristeći {{ aac_system }}) i {{ relationship }}. Fokusiraj se na {{ topic }}. Njihova prosječna duljina izgovora je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Izradi {{ tone }} razgovor u {{ setting }} tijekom {{ time_of_day }} između AAC korisnika s MND-om (koristeći {{ aac_system }}) i {{ relationship }}. Dijalog bi trebao uključivati {{ topic }}. Njihova prosječna duljina izgovora je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Generiraj {{ tone }} konzultaciju u {{ setting }} tijekom {{ time_of_day }} gdje odrasli AAC korisnik s MND-om (koristeći {{ aac_system }}) komunicira s {{ relationship }} o {{ topic }}. Njihova prosječna duljina izgovora je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Napiši {{ tone }} razgovor koji se odvija u {{ time_of_day }} u {{ setting }} između AAC korisnika s MND-om i {{ relationship }}. Korisnik komunicira koristeći {{ aac_system }}. Razgovaraju o {{ topic }}. Njihova prosječna duljina izgovora je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Izradi {{ tone }} razgovor u {{ setting }} tijekom {{ time_of_day }} između AAC korisnika koji koristi {{ aac_system }} i njihovog {{ relationship }}. Razgovor se treba fokusirati na {{ topic }} i odražavati svakodnevnu društvenu interakciju, a ne medicinska pitanja.",
+    "Konstruiraj {{ tone }} razgovor o raznolikosti zajednice u {{ setting }} tijekom {{ time_of_day }} između AAC korisnika koji koristi {{ aac_system }} i njihovog {{ relationship }}. Dijalog se vrti oko {{ topic }} i uključuje reference na multikulturalna iskustva zajednice. Prosječna duljina izgovora AAC korisnika je {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}

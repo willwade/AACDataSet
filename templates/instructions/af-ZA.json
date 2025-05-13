@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Skep 'n {{ tone }} gesprek wat plaasvind in die {{ time_of_day }} by 'n {{ setting }}. Die AAC-gebruiker is 'n volwassene met MND wat 'n {{ aac_system }} gebruik. Hul gemiddelde uitdrukkingslengte is {{ aac_mlu_length }}. Die gesprekspartner is hul {{ relationship }}. Die gesprek moet fokus op {{ topic }}. {{ writing_style }}.",
+    "Simuleer 'n {{ tone }} dialoog in die {{ setting }} gedurende die {{ time_of_day }} tussen 'n AAC-gebruiker met MND (wat 'n {{ aac_system }} gebruik) en 'n {{ relationship }}. Fokus op die {{ topic }}. Hul gemiddelde uitdrukkingslengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skep 'n {{ tone }} gesprek by 'n {{ setting }} gedurende die {{ time_of_day }} tussen 'n AAC-gebruiker met MND (wat 'n {{ aac_system }} gebruik) en 'n {{ relationship }}. Die dialoog moet die {{ topic }} insluit. Hul gemiddelde uitdrukkingslengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Genereer 'n {{ tone }} konsultasie in die {{ setting }} gedurende die {{ time_of_day }} waar 'n volwasse AAC-gebruiker met MND (wat {{ aac_system }} gebruik) kommunikeer met 'n {{ relationship }} oor {{ topic }}. Hul gemiddelde uitdrukkingslengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skryf 'n {{ tone }} gesprek wat plaasvind in die {{ time_of_day }} by 'n {{ setting }} tussen 'n AAC-gebruiker met MND en 'n {{ relationship }}. Die gebruiker kommunikeer met 'n {{ aac_system }}. Hulle bespreek {{ topic }}. Hul gemiddelde uitdrukkingslengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skep 'n {{ tone }} gesprek by 'n {{ setting }} gedurende die {{ time_of_day }} tussen 'n AAC-gebruiker wat 'n {{ aac_system }} gebruik en hul {{ relationship }}. Die gesprek moet fokus op {{ topic }} en reflekteer alledaagse sosiale interaksie eerder as mediese kwessies.",
+    "Bou 'n {{ tone }} gesprek oor gemeenskapsdiversiteit in 'n {{ setting }} gedurende die {{ time_of_day }} tussen 'n AAC-gebruiker wat 'n {{ aac_system }} gebruik en hul {{ relationship }}. Die dialoog draai om {{ topic }} en sluit verwysings na multikulturele gemeenskapservarings in. Die AAC-gebruiker se gemiddelde uitdrukkingslengte is {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}

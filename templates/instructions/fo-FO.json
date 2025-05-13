@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Skapa eina {{ tone }} samrøðu, sum fer fram í {{ time_of_day }} í {{ setting }}. AAC brúkarin er ein vaksin maður við MND, sum brúkar ein {{ aac_system }}. Tann miðal úttalu longd er {{ aac_mlu_length }}. Samverandi er teirra {{ relationship }}. Samrøðan eigur at snúgva seg um {{ topic }}. {{ writing_style }}.",
+    "Simulera eina {{ tone }} samrøðu í {{ setting }} í {{ time_of_day }} millum ein AAC brúkara við MND (brúkar ein {{ aac_system }}) og ein {{ relationship }}. Fokusera á {{ topic }}. Tann miðal úttalu longd er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skapa eina {{ tone }} samrøðu í {{ setting }} í {{ time_of_day }} millum ein AAC brúkara við MND (brúkar ein {{ aac_system }}) og ein {{ relationship }}. Samrøðan eigur at viðgera {{ topic }}. Tann miðal úttalu longd er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Generera eina {{ tone }} ráðgeving í {{ setting }} í {{ time_of_day }} har ein vaksin AAC brúkari við MND (brúkar {{ aac_system }}) kommunikerar við ein {{ relationship }} um {{ topic }}. Tann miðal úttalu longd er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skriva eina {{ tone }} samrøðu, sum fer fram í {{ time_of_day }} í {{ setting }} millum ein AAC brúkara við MND og ein {{ relationship }}. Brúkarin kommunikerar við ein {{ aac_system }}. Teir umrøða {{ topic }}. Tann miðal úttalu longd er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skapa eina {{ tone }} samrøðu í {{ setting }} í {{ time_of_day }} millum ein AAC brúkara, sum brúkar ein {{ aac_system }} og teirra {{ relationship }}. Samrøðan eigur at snúgva seg um {{ topic }} og speglar dagligdags sosialar samrøður heldur enn læknaligar spurningar.",
+    "Byggja eina {{ tone }} samrøðu um samfelagsfjøltátt í {{ setting }} í {{ time_of_day }} millum ein AAC brúkara, sum brúkar ein {{ aac_system }} og teirra {{ relationship }}. Samrøðan snýr seg um {{ topic }} og inniber viðmerkingar um multikulturala samfelag upplivingar. Tann miðal úttalu longd er {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}

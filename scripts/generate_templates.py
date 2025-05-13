@@ -41,7 +41,48 @@ def generate_templates(language_code):
 
     # Generate the templates
     templates = []
-    for i, instruction in enumerate(instructions):
+
+    # Check if instructions is a dictionary with a 'templates' key
+    if isinstance(instructions, dict) and "templates" in instructions:
+        instruction_list = instructions["templates"]
+    elif isinstance(instructions, dict) and "json" in instructions:
+        # Handle the case where the key is 'json' instead of 'templates'
+        instruction_list = instructions["json"]
+    else:
+        # If it's already a list or some other format, use it directly
+        instruction_list = instructions
+
+    # Debug output
+    print(f"Instruction type: {type(instructions)}")
+    if isinstance(instructions, dict):
+        print(f"Keys: {list(instructions.keys())}")
+
+    # Make sure instruction_list is a list
+    if not isinstance(instruction_list, list):
+        print(f"Warning: instruction_list is not a list: {type(instruction_list)}")
+        if isinstance(instruction_list, str) and instruction_list == "templates":
+            # Special case: if the value is just the string "templates",
+            # use the templates from the instructions
+            instruction_list = instructions["templates"]
+            print(f"Using templates from instructions: {len(instruction_list)} items")
+        elif isinstance(instruction_list, str):
+            # If it's a string but not "templates", it's probably a mistake
+            print(f"Warning: instruction_list is a string: {instruction_list}")
+            # Try to use the templates key directly
+            if "templates" in instructions:
+                instruction_list = instructions["templates"]
+                print(
+                    f"Using templates from instructions: {len(instruction_list)} items"
+                )
+
+    # Make sure we have a list now
+    if not isinstance(instruction_list, list):
+        print(
+            f"Error: Could not convert instruction_list to a list: {instruction_list}"
+        )
+        instruction_list = []
+
+    for i, instruction in enumerate(instruction_list):
         # Just use the instruction as the template
         templates.append(instruction)
 
@@ -81,7 +122,8 @@ def main():
     parser.add_argument(
         "--lang",
         type=str,
-        help="Language code (e.g., en-GB) to process. If not provided, all languages will be processed.",
+        help="Language code (e.g., en-GB) to process. "
+        "If not provided, all languages will be processed.",
     )
     parser.add_argument(
         "--interactive",
@@ -94,7 +136,8 @@ def main():
     if args.interactive:
         # Interactive mode - prompt for language code
         language_code = input(
-            "Enter language code (e.g., en-GB) or press Enter to process all languages: "
+            "Enter language code (e.g., en-GB) or press Enter "
+            "to process all languages: "
         ).strip()
         if language_code:
             # Process a single language
@@ -109,13 +152,14 @@ def main():
     available_languages = get_available_languages()
     if not available_languages:
         print(
-            "No language template instructions found. Please create at least one template instruction file."
+            "No language template instructions found. "
+            "Please create at least one template instruction file."
         )
         return
 
-    print(
-        f"Found {len(available_languages)} languages with template instructions: {', '.join(available_languages)}"
-    )
+    lang_count = len(available_languages)
+    lang_list = ", ".join(available_languages)
+    print(f"Found {lang_count} languages with template instructions: {lang_list}")
     print("Processing all languages...")
 
     for lang in available_languages:

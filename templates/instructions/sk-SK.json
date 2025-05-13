@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Vytvorte {{ tone }} rozhovor, ktorý sa odohráva v {{ time_of_day }} na {{ setting }}. Používateľ AAC je dospelý s MND, ktorý používa {{ aac_system }}. Ich priemerná dĺžka výpovede je {{ aac_mlu_length }}. Partner je ich {{ relationship }}. Rozhovor by sa mal zameriavať na {{ topic }}. {{ writing_style }}.",
+    "Simulujte {{ tone }} dialóg v {{ setting }} počas {{ time_of_day }} medzi používateľom AAC s MND (používajúcim {{ aac_system }}) a {{ relationship }}. Zamerajte sa na {{ topic }}. Ich priemerná dĺžka výpovede je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Vytvorte {{ tone }} rozhovor v {{ setting }} počas {{ time_of_day }} medzi používateľom AAC s MND (používajúcim {{ aac_system }}) a {{ relationship }}. Dialóg by mal zahŕňať {{ topic }}. Ich priemerná dĺžka výpovede je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Generujte {{ tone }} konzultáciu v {{ setting }} počas {{ time_of_day }}, kde dospelý používateľ AAC s MND (používajúci {{ aac_system }}) komunikuje so {{ relationship }} o {{ topic }}. Ich priemerná dĺžka výpovede je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Napíšte {{ tone }} rozhovor, ktorý sa odohráva v {{ time_of_day }} na {{ setting }} medzi používateľom AAC s MND a {{ relationship }}. Používateľ komunikuje pomocou {{ aac_system }}. Diskutujú o {{ topic }}. Ich priemerná dĺžka výpovede je {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Vytvorte {{ tone }} rozhovor na {{ setting }} počas {{ time_of_day }} medzi používateľom AAC, ktorý používa {{ aac_system }} a ich {{ relationship }}. Rozhovor by sa mal zamerať na {{ topic }} a odrážať každodennú sociálnu interakciu, nie medicínske záležitosti.",
+    "Zostavte {{ tone }} rozhovor o rozmanitosti komunity v {{ setting }} počas {{ time_of_day }} medzi používateľom AAC, ktorý používa {{ aac_system }} a ich {{ relationship }}. Dialóg sa točí okolo {{ topic }} a zahŕňa odkazy na multikultúrne skúsenosti komunity. Používateľ AAC má priemernú dĺžku výpovede {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}

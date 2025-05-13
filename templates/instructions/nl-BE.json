@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Creëer een {{ tone }} gesprek dat plaatsvindt in de {{ time_of_day }} op een {{ setting }}. De AAC-gebruiker is een volwassene met MND die een {{ aac_system }} gebruikt. Hun gemiddelde uitspraaklengte is {{ aac_mlu_length }}. De gesprekspartner is hun {{ relationship }}. Het gesprek moet zich richten op {{ topic }}. {{ writing_style }}.",
+    "Simuleer een {{ tone }} dialoog in de {{ setting }} tijdens de {{ time_of_day }} tussen een AAC-gebruiker met MND (die een {{ aac_system }} gebruikt) en een {{ relationship }}. Focus op {{ topic }}. Hun gemiddelde uitspraaklengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Creëer een {{ tone }} gesprek in een {{ setting }} tijdens de {{ time_of_day }} tussen een AAC-gebruiker met MND (die een {{ aac_system }} gebruikt) en een {{ relationship }}. De dialoog moet gaan over {{ topic }}. Hun gemiddelde uitspraaklengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Genereer een {{ tone }} consult in de {{ setting }} tijdens de {{ time_of_day }} waar een volwassene AAC-gebruiker met MND (die {{ aac_system }} gebruikt) communiceert met een {{ relationship }} over {{ topic }}. Hun gemiddelde uitspraaklengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Schrijf een {{ tone }} gesprek dat plaatsvindt in de {{ time_of_day }} op een {{ setting }} tussen een AAC-gebruiker met MND en een {{ relationship }}. De gebruiker communiceert met een {{ aac_system }}. Ze bespreken {{ topic }}. Hun gemiddelde uitspraaklengte is {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Creëer een {{ tone }} gesprek in een {{ setting }} tijdens de {{ time_of_day }} tussen een AAC-gebruiker die een {{ aac_system }} gebruikt en hun {{ relationship }}. Het gesprek moet zich richten op {{ topic }} en moet alledaagse sociale interactie weerspiegelen in plaats van medische zorgen.",
+    "Constructeer een {{ tone }} gesprek over gemeenschapsdiversiteit in een {{ setting }} tijdens de {{ time_of_day }} tussen een AAC-gebruiker die een {{ aac_system }} gebruikt en hun {{ relationship }}. De dialoog draait om {{ topic }} en bevat verwijzingen naar multiculturele ervaringen in de gemeenschap. De AAC-gebruiker heeft een gemiddelde uitspraaklengte van {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}

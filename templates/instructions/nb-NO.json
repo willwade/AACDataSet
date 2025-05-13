@@ -1,0 +1,11 @@
+{
+  "templates": [
+    "Lag en {{ tone }} samtale som finner sted {{ time_of_day }} på en {{ setting }}. AAC-brukeren er en voksen med MND som bruker en {{ aac_system }}. Deres gjennomsnittlige setningslengde er {{ aac_mlu_length }}. Partneren er deres {{ relationship }}. Samtalen bør fokusere på {{ topic }}. {{ writing_style }}.",
+    "Simuler en {{ tone }} dialog i {{ setting }} under {{ time_of_day }} mellom en AAC-bruker med MND (som bruker en {{ aac_system }}) og en {{ relationship }}. Fokuser på {{ topic }}. Deres gjennomsnittlige setningslengde er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Lag en {{ tone }} samtale på en {{ setting }} i løpet av {{ time_of_day }} mellom en AAC-bruker med MND (som bruker en {{ aac_system }}) og en {{ relationship }}. Dialogen skal involvere {{ topic }}. Deres gjennomsnittlige setningslengde er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Generer en {{ tone }} konsultasjon i {{ setting }} under {{ time_of_day }} hvor en voksen AAC-bruker med MND (som bruker {{ aac_system }}) kommuniserer med en {{ relationship }} om {{ topic }}. Deres gjennomsnittlige setningslengde er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Skriv en {{ tone }} samtale som finner sted {{ time_of_day }} på en {{ setting }} mellom en AAC-bruker med MND og en {{ relationship }}. Brukeren kommuniserer med en {{ aac_system }}. De diskuterer {{ topic }}. Deres gjennomsnittlige setningslengde er {{ aac_mlu_length }}. {{ writing_style }}.",
+    "Lag en {{ tone }} samtale på en {{ setting }} under {{ time_of_day }} mellom en AAC-bruker som bruker en {{ aac_system }} og deres {{ relationship }}. Samtalen bør fokusere på {{ topic }} og reflektere hverdagslig sosial interaksjon i stedet for medisinske bekymringer.",
+    "Konstruer en {{ tone }} samtale om fellesskapsmangfold i en {{ setting }} under {{ time_of_day }} mellom en AAC-bruker som bruker en {{ aac_system }} og deres {{ relationship }}. Dialogen dreier seg om {{ topic }} og inkluderer referanser til multikulturelle samfunnserfaringer. AAC-brukeren har en gjennomsnittlig setningslengde på {{ aac_mlu_length }}. {{ writing_style }}."
+  ]
+}
