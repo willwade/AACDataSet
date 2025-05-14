@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAC Conversation Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AAC Conversation Viewer</h1>
+            <div class="language-selector">
+                <label for="language-select">Select Language:</label>
+                <select id="language-select">
+                    <option value="">Select a language</option>
+                    <!-- Languages will be populated dynamically -->
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button id="prev-btn" disabled>Previous</button>
+                <span id="conversation-counter">Conversation 0 of 0</span>
+                <button id="next-btn" disabled>Next</button>
+            </div>
+
+            <div class="conversation-container">
+                <div class="metadata-panel">
+                    <h2>Metadata</h2>
+                    <div id="metadata-content">
+                        <p>Select a language to view conversations</p>
+                    </div>
+                    <div id="file-links">
+                        <h3>Source Files</h3>
+                        <div id="file-links-content"></div>
+                    </div>
+                </div>
+
+                <div class="conversation-viewer">
+                    <div class="scene-container">
+                        <h2>Scene</h2>
+                        <p id="scene-description">No conversation selected</p>
+                    </div>
+                    
+                    <div class="conversation">
+                        <h2>Conversation</h2>
+                        <div id="conversation-content">
+                            <p>Select a language and conversation to view</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>AAC Dataset Conversation Viewer | Created for the AAC Dataset Project</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
