@@ -63,6 +63,15 @@ You can customize the viewer by modifying the following files:
 - `script.js` - Modify the functionality or add new features
 - `index.html` - Change the structure of the viewer
 
+## Batches Info
+
+
+Batch 1. 100x Conversations per lang. Had paper based which led to senteces like H e l l o w or ld. No utterance_intended
+Batch 2. 100x Conversations per lang.Fixed Batch 1. But realised the atomic data was very small. 
+Batch 3. 100x Conversations per lang.Added way more richer atomic data subset. 
+
+All batches are in the parquet - but you may want to filter them. 
+
 ## Troubleshooting
 
 If you encounter issues:

@@ -245,6 +245,42 @@ def expand_template(
     subs["which"] = which
     subs["relation"] = relation
 
+    # Enhance with rich atomic relationship context
+    # Map relation codes to human-readable descriptions
+    relation_descriptions = {
+        "xIntent": f"what {aac_user_name} intends by this",
+        "xNeed": f"what {aac_user_name} needs for this",
+        "xEffect": f"the effect this has on {aac_user_name}",
+        "xReact": f"how {aac_user_name} reacts to this",
+        "oEffect": f"the effect this has on {partner_name}",
+        "oReact": f"how {partner_name} reacts to this",
+        "xWant": f"what {aac_user_name} wants in this situation",
+        "oWant": f"what {partner_name} wants in this situation",
+        "xAttr": f"attributes of {aac_user_name} in this context",
+        "oAttr": f"attributes of {partner_name} in this context",
+    }
+
+    # Add rich context based on the relation
+    relation_description = relation_descriptions.get(relation, "")
+    if relation_description:
+        subs["relation_context"] = f"{relation_description}: {which}"
+    else:
+        subs["relation_context"] = which
+
+    # Add context about the AAC user's role
+    subs["aac_user_role"] = atomic_entry.get("aac_user_role", "person with ALS")
+
+    # Create a rich context description that combines all the atomic knowledge
+    context_elements = []
+    if topic:
+        context_elements.append(f"The conversation is about '{topic}'")
+    if which:
+        context_elements.append(f"where {which}")
+    if relation_description:
+        context_elements.append(f"{relation_description}")
+
+    subs["atomic_context"] = ". ".join(context_elements)
+
     # Randomly select other substitution values
     for key in ["time_of_day", "tone", "aac_system", "aac_mlu_length", "writing_style"]:
         if key in substitutions:
@@ -389,6 +425,15 @@ def get_system_prompt(lang_code: str) -> str:
         templates = load_json_file(prompt_template_file)
         base_prompt = random.choice(templates)
 
+        # Add atomic context information to enrich the prompt
+        atomic_context_instruction = (
+            "\n\nAdditional context about the conversation:"
+            "\nThe conversation should incorporate the following atomic knowledge:"
+            "\n- The topic is about '{{ topic }}'."
+            "\n- The relation type is '{{ relation }}', which means {{ relation_context }}."
+            "\n- The specific context is: {{ atomic_context }}"
+        )
+
         # Add explicit language instruction for all languages to use colloquial speech
         # and to translate English phrases in the topic
         language_instruction = (
@@ -415,7 +460,7 @@ def get_system_prompt(lang_code: str) -> str:
             f"\n}}"
         )
 
-        return base_prompt + language_instruction
+        return base_prompt + atomic_context_instruction + language_instruction
     except Exception:
         # Fallback generic system prompt
         return (
@@ -439,6 +484,10 @@ def get_system_prompt(lang_code: str) -> str:
             "typed on their device (may be shorter, telegraphic, or have typos). "
             "For non-AAC users, 'utterance_intended' and 'utterance' should be identical. "
             "Keep AAC utterances realistic for users with physical limitations.\n\n"
+            "Additional context about the conversation:\n"
+            "The conversation should incorporate atomic knowledge about the topic, "
+            "including the relationship between the participants and their reactions, "
+            "intentions, and needs in this specific context.\n\n"
             f"IMPORTANT: You MUST generate ALL content in {language_name} language ONLY, "
             f"using COLLOQUIAL, EVERYDAY spoken language - NOT formal or literary language. "
             f"Use natural spoken language as people would use in real conversations. "
